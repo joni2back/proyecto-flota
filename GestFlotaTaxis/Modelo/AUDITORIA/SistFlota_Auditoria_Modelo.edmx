@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SistFlota_Auditoria_Modelo.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SistFlota_Auditoria_ModeloStoreContainer">
+    <EntitySet Name="LogInsOuts" EntityType="SistFlota_Auditoria_Modelo.Store.LogInsOuts" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AudGastosSet" EntityType="SistFlota_Auditoria_Modelo.Store.AudGastosSet" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="LogInsOuts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Usuario" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="FechayHora" Type="datetime" Nullable="false" />
+    <Property Name="Operacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AudGastosSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdGasto" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Monto" Type="decimal" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechaVencimiento" Type="datetime" Nullable="false" />
+    <Property Name="HoraEmision" Type="datetime" Nullable="true" />
+    <Property Name="FechaEmision" Type="datetime" Nullable="true" />
+    <Property Name="TipodeGasto" Type="int" Nullable="false" />
+    <Property Name="Vehiculo" Type="nvarchar" Nullable="false" MaxLength="7" />
+    <Property Name="Usuario" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FechayHora" Type="datetime" Nullable="false" />
+    <Property Name="Operacion" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SistFlota_Auditoria_Modelo" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="SistFlota_Auditoria_ModeloContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="LogInsOuts" EntityType="SistFlota_Auditoria_Modelo.LoginLogout" />
+          <EntitySet Name="AudGastosSet" EntityType="SistFlota_Auditoria_Modelo.AudGastos" />
+        </EntityContainer>
+        <EntityType Name="LoginLogout">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="FechayHora" Nullable="false" />
+          <Property Type="String" Name="Operacion" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AudGastos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="IdGasto" Nullable="false" />
+          <Property Type="String" Name="Descripcion" Nullable="false" />
+          <Property Type="Decimal" Name="Monto" Nullable="false" />
+          <Property Type="String" Name="Estado" Nullable="false" />
+          <Property Type="DateTime" Name="FechaVencimiento" Nullable="false" />
+          <Property Type="DateTime" Name="HoraEmision" Nullable="true" />
+          <Property Type="DateTime" Name="FechaEmision" Nullable="true" />
+          <Property Type="Int32" Name="TipodeGasto" Nullable="false" />
+          <Property Type="String" Name="Vehiculo" Nullable="false" MaxLength="7" />
+          <Property Type="String" Name="Usuario" Nullable="false" MaxLength="Max" />
+          <Property Type="DateTime" Name="FechayHora" Nullable="false" />
+          <Property Type="String" Name="Operacion" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SistFlota_Auditoria_ModeloStoreContainer" CdmEntityContainer="SistFlota_Auditoria_ModeloContainer">
+    <EntitySetMapping Name="LogInsOuts">
+      <EntityTypeMapping TypeName="IsTypeOf(SistFlota_Auditoria_Modelo.LoginLogout)">
+        <MappingFragment StoreEntitySet="LogInsOuts">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="FechayHora" ColumnName="FechayHora" />
+          <ScalarProperty Name="Operacion" ColumnName="Operacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AudGastosSet">
+      <EntityTypeMapping TypeName="IsTypeOf(SistFlota_Auditoria_Modelo.AudGastos)">
+        <MappingFragment StoreEntitySet="AudGastosSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdGasto" ColumnName="IdGasto" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Monto" ColumnName="Monto" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+          <ScalarProperty Name="HoraEmision" ColumnName="HoraEmision" />
+          <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+          <ScalarProperty Name="TipodeGasto" ColumnName="TipodeGasto" />
+          <ScalarProperty Name="Vehiculo" ColumnName="Vehiculo" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="FechayHora" ColumnName="FechayHora" />
+          <ScalarProperty Name="Operacion" ColumnName="Operacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="SistFlota_Auditoria_Modelo" >
+        <EntityTypeShape EntityType="SistFlota_Auditoria_Modelo.LoginLogout" Width="1.5" PointX="2.25" PointY="1.25" Height="1.787985026041667" />
+        <EntityTypeShape EntityType="SistFlota_Auditoria_Modelo.AudGastos" Width="1.5" PointX="4.75" PointY="0.625" Height="3.5186979166666656" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

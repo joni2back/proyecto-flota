@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F348C6F7-F3F4-4B4E-8C28-22026C4A504A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Vista</RootNamespace>
+    <AssemblyName>Vista</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AUDITORIA\frmAudGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AUDITORIA\frmAudGastos.Designer.cs">
+      <DependentUpon>frmAudGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AUDITORIA\frmAudLogs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AUDITORIA\frmAudLogs.Designer.cs">
+      <DependentUpon>frmAudLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmCambiarContraseña.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmCambiarContraseña.Designer.cs">
+      <DependentUpon>frmCambiarContraseña.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGestionGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGestionGrupos.Designer.cs">
+      <DependentUpon>frmGestionGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGestionPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGestionPerfiles.Designer.cs">
+      <DependentUpon>frmGestionPerfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGestionUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGestionUsuarios.Designer.cs">
+      <DependentUpon>frmGestionUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmGrupo.Designer.cs">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmPerfil.Designer.cs">
+      <DependentUpon>frmPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SEGURIDAD\frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmAcerca.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmAcerca.Designer.cs">
+      <DependentUpon>frmAcerca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGasto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGasto.Designer.cs">
+      <DependentUpon>frmGasto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionGastos.Designer.cs">
+      <DependentUpon>frmGestionGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionVehiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionVehiculos.Designer.cs">
+      <DependentUpon>frmGestionVehiculos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmInforme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmInforme.Designer.cs">
+      <DependentUpon>frmInforme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmMonitorGastos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmMonitorGastos.Designer.cs">
+      <DependentUpon>frmMonitorGastos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmVehiculo.Designer.cs">
+      <DependentUpon>frmVehiculo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AUDITORIA\frmAudGastos.resx">
+      <DependentUpon>frmAudGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AUDITORIA\frmAudLogs.resx">
+      <DependentUpon>frmAudLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmCambiarContraseña.resx">
+      <DependentUpon>frmCambiarContraseña.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmGestionGrupos.resx">
+      <DependentUpon>frmGestionGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmGestionPerfiles.resx">
+      <DependentUpon>frmGestionPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmGestionUsuarios.resx">
+      <DependentUpon>frmGestionUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmGrupo.resx">
+      <DependentUpon>frmGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmPerfil.resx">
+      <DependentUpon>frmPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SEGURIDAD\frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmAcerca.resx">
+      <DependentUpon>frmAcerca.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmGasto.resx">
+      <DependentUpon>frmGasto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmGestionGastos.resx">
+      <DependentUpon>frmGestionGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmGestionVehiculos.resx">
+      <DependentUpon>frmGestionVehiculos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmInforme.resx">
+      <DependentUpon>frmInforme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmMonitorGastos.resx">
+      <DependentUpon>frmMonitorGastos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmVehiculo.resx">
+      <DependentUpon>frmVehiculo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="App.Config" />
+    <None Include="Properties\DataSources\Modelo.AUDITORIA.AudGastos.datasource" />
+    <None Include="Properties\DataSources\Modelo.AUDITORIA.LoginLogout.datasource" />
+    <None Include="Properties\DataSources\Modelo.Gasto.datasource" />
+    <None Include="Properties\DataSources\Modelo.SEGURIDAD.Formulario.datasource" />
+    <None Include="Properties\DataSources\Modelo.SEGURIDAD.Grupo.datasource" />
+    <None Include="Properties\DataSources\Modelo.SEGURIDAD.Perfil.datasource" />
+    <None Include="Properties\DataSources\Modelo.SEGURIDAD.Permiso.datasource" />
+    <None Include="Properties\DataSources\Modelo.SEGURIDAD.Usuario.datasource" />
+    <None Include="Properties\DataSources\Modelo.TipodeGasto.datasource" />
+    <None Include="Properties\DataSources\Modelo.Vehiculo.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controladora\Controladora.csproj">
+      <Project>{3212A2D9-8673-4D10-B87F-542283BD426D}</Project>
+      <Name>Controladora</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{028A8AD6-0F2B-47C9-BF4F-0BB9527C3648}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

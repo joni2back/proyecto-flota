@@ -1,0 +1,3 @@
+arreglar metricas
+acomodar auditoria
+calidad
