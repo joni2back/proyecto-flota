@@ -70,6 +70,12 @@ namespace Vista
             ofrmMonitorGastos.ShowDialog();
         }
 
+        private void menuGestChoferes_Click(object sender, EventArgs e)
+        {
+            frmGestionChoferes ofrmGestChoferes = new frmGestionChoferes(oUsuarioActual);
+            ofrmGestChoferes.ShowDialog();
+        }
+        
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -80,7 +86,7 @@ namespace Vista
 
 
         }
-
+        
         private void informesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmInforme ofrmInforme = new frmInforme(oUsuarioActual);
@@ -227,6 +233,7 @@ namespace Vista
             frmAudGastos ofrmAudGastos = new frmAudGastos(oUsuarioActual);
             ofrmAudGastos.ShowDialog();
         }
+
 
         
 

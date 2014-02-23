@@ -110,6 +110,18 @@
     <Compile Include="SEGURIDAD\frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="SISTFLOTA\frmChofer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmChofer.Designer.cs">
+      <DependentUpon>frmChofer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionChoferes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionChoferes.Designer.cs">
+      <DependentUpon>frmGestionChoferes.cs</DependentUpon>
+    </Compile>
     <Compile Include="SISTFLOTA\frmAcerca.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +201,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SEGURIDAD\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmChofer.resx">
+      <DependentUpon>frmChofer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmGestionChoferes.resx">
+      <DependentUpon>frmGestionChoferes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SISTFLOTA\frmAcerca.resx">
       <DependentUpon>frmAcerca.cs</DependentUpon>
