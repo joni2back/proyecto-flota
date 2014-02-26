@@ -12,9 +12,9 @@ namespace Vista
     public partial class frmChofer : Form
     {
         string frmModo;
-        int ChapaTaxi;
-        Modelo.Vehiculo oVehiculo;
-        Controladora.ControladoraVehiculos ctrlVehiculos = Controladora.ControladoraVehiculos.getINSTANCIA;
+        //int ChapaTaxi;
+        Modelo.Chofer oChofer;
+        Controladora.ControladoraChoferes ctrlChoferes = Controladora.ControladoraChoferes.getINSTANCIA;
 
         public frmChofer()
         {
@@ -22,14 +22,14 @@ namespace Vista
             frmModo = "ALTA";
         }
 
-        public frmChofer(string modo, Modelo.Vehiculo oVehiculo)
+        public frmChofer(string modo, Modelo.Chofer oChofer)
         {
             InitializeComponent();
             frmModo = modo;
  
             if (frmModo == "MODIFICACION")
             {
-                txtPatente.Enabled = false;
+                txtDocumento.Enabled = false;
             }
 
             if (frmModo == "CONSULTA")
@@ -38,20 +38,26 @@ namespace Vista
                 btnGuardar.Enabled = false;
             }
 
-            ChapaTaxi = Convert.ToInt32(oVehiculo.PatenteTaxi);
-            LlenarCampos(oVehiculo);
+            //ChapaTaxi = Convert.ToInt32(oVehiculo.PatenteTaxi);
+            LlenarCampos(oChofer);
 
         }
 
-        private void LlenarCampos(Modelo.Vehiculo oVehiculo)
+        private void LlenarCampos(Modelo.Chofer oChofer)
         {
-            txtPatente.Text = oVehiculo.Patente;
-            txtPatenteTaxi.Text = oVehiculo.PatenteTaxi.ToString();
-            txtMarca.Text = oVehiculo.Marca;
-            txtModelo.Text = oVehiculo.Modelo;
-            txtAño.Text = oVehiculo.Año.ToString();
-            txtColor.Text = oVehiculo.Color;
-            txtKilometraje.Text = oVehiculo.Kilometraje.ToString();
+            txtNombre.Text = oChofer.Nombre;
+            txtApellido.Text = oChofer.Apellido;
+            txtDocumento.Text = oChofer.Documento.ToString();
+            txtLicencia.Text = oChofer.Licencia;
+            txtFechaNacimiento.Text = oChofer.FechaNacimiento.ToString();
+            txtLocalidad.Text = oChofer.Localidad;
+            txtCorreoElectronico.Text = oChofer.Correo;
+            txtDomicilio.Text = oChofer.Domicilio;
+            txtTelefono.Text = oChofer.Telefono;
+
+            //imgFotoChofer.Image = (System.Drawing.Image)oChofer.Foto;
+
+            
            
         }
 
@@ -86,15 +92,15 @@ namespace Vista
                 }
             }
 
-            if (txtMarca.Text == "")
+            if (txtDocumento.Text == "")
             {
-                txtMarca.Focus();
+                txtDocumento.Focus();
                 MessageBox.Show("Complete la marca del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtModelo.Text == "")
+            if (txtLicencia.Text == "")
             {
-                txtModelo.Focus();
+                txtLicencia.Focus();
                 MessageBox.Show("Complete el modelo del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -110,26 +116,26 @@ namespace Vista
                 MessageBox.Show("El año del vehiculo debe estar conformado 4 números. Ej: 2010", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtColor.Text == "")
+            if (txtFechaNacimiento.Text == "")
             {
-                txtColor.Focus();
+                txtFechaNacimiento.Focus();
                 MessageBox.Show("Complete el color del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (txtKilometraje.Text == "")
+            if (txtLocalidad.Text == "")
             {
-                txtKilometraje.Focus();
+                txtLocalidad.Focus();
                 MessageBox.Show("Complete el kilometraje del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             try
             {
-                Convert.ToInt32(txtKilometraje.Text);
+                Convert.ToInt32(txtLocalidad.Text);
             }
             catch
             {
-                txtKilometraje.Focus();
+                txtLocalidad.Focus();
                 MessageBox.Show("El kilometraje debe ser numérico", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
@@ -150,11 +156,11 @@ namespace Vista
                 {
                     oVehiculo.PatenteTaxi = Convert.ToInt32(txtPatenteTaxi.Text);
                 }
-                oVehiculo.Marca = txtMarca.Text.ToUpper();
-                oVehiculo.Modelo = txtModelo.Text.ToUpper();
+                oVehiculo.Marca = txtDocumento.Text.ToUpper();
+                oVehiculo.Modelo = txtLicencia.Text.ToUpper();
                 oVehiculo.Año = Convert.ToInt32(txtAño.Text);
-                oVehiculo.Color = txtColor.Text.ToUpper();
-                oVehiculo.Kilometraje = Convert.ToInt32(txtKilometraje.Text);
+                oVehiculo.Color = txtFechaNacimiento.Text.ToUpper();
+                oVehiculo.Kilometraje = Convert.ToInt32(txtLocalidad.Text);
 
                 if (frmModo == "ALTA")
                 {

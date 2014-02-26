@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 02/19/2013 18:42:34
--- Generated from EDMX file: G:\FACU\FINAL TDC 2013\GestFlotaTaxis 19-02-13 0131 FINAL 1\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
+-- Date Created: 02/24/2014 23:39:59
+-- Generated from EDMX file: C:\Users\Admin\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -78,6 +78,21 @@ CREATE TABLE [dbo].[Vehiculos] (
 );
 
 
+-- Creating table 'Choferes'
+CREATE TABLE [dbo].[Choferes] (
+    [Documento] int IDENTITY(1,1) NOT NULL,
+    [Nombre] nvarchar(max)  NOT NULL,
+    [Apellido] nvarchar(max)  NOT NULL,
+    [Licencia] nvarchar(max)  NOT NULL,
+    [Domicilio] nvarchar(max)  NOT NULL,
+    [Localidad] nvarchar(max)  NOT NULL,
+    [Telefono] nvarchar(max)  NULL,
+    [FechaNacimiento] datetime  NOT NULL,
+    [Correo] nvarchar(max)  NULL,
+    [Foto] nvarchar(max)  NULL
+);
+
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -98,6 +113,12 @@ ADD CONSTRAINT [PK_Gastos]
 ALTER TABLE [dbo].[Vehiculos]
 ADD CONSTRAINT [PK_Vehiculos]
     PRIMARY KEY CLUSTERED ([Patente] ASC);
+
+
+-- Creating primary key on [Documento] in table 'Choferes'
+ALTER TABLE [dbo].[Choferes]
+ADD CONSTRAINT [PK_Choferes]
+    PRIMARY KEY CLUSTERED ([Documento] ASC);
 
 
 -- --------------------------------------------------

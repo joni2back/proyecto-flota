@@ -9,6 +9,7 @@
     <EntitySet Name="TiposdeGasto" EntityType="SistFlota_ModeloDatos.Store.TiposdeGasto" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Gastos" EntityType="SistFlota_ModeloDatos.Store.Gastos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Vehiculos" EntityType="SistFlota_ModeloDatos.Store.Vehiculos" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Choferes" EntityType="SistFlota_ModeloDatos.Store.Choferes" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="TipodeGastoGasto" Association="SistFlota_ModeloDatos.Store.TipodeGastoGasto">
       <End Role="TipodeGasto" EntitySet="TiposdeGasto" />
       <End Role="Gasto" EntitySet="Gastos" />
@@ -54,6 +55,21 @@
     <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Kilometraje" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Choferes">
+    <Key>
+      <PropertyRef Name="Documento" />
+    </Key>
+    <Property Name="Documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Licencia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Foto" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
   <Association Name="TipodeGastoGasto">
     <End Role="TipodeGasto" Type="SistFlota_ModeloDatos.Store.TiposdeGasto" Multiplicity="1" />
     <End Role="Gasto" Type="SistFlota_ModeloDatos.Store.Gastos" Multiplicity="*" />
@@ -94,6 +110,7 @@
             <End Role="Vehiculo" EntitySet="Vehiculos" />
             <End Role="Gasto" EntitySet="Gastos" />
           </AssociationSet>
+          <EntitySet Name="Choferes" EntityType="SistFlota_ModeloDatos.Chofer" />
           </EntityContainer>
         <EntityType Name="TipodeGasto">
           <Key>
@@ -141,6 +158,21 @@
           <End Type="SistFlota_ModeloDatos.Vehiculo" Role="Vehiculo" Multiplicity="1" />
           <End Type="SistFlota_ModeloDatos.Gasto" Role="Gasto" Multiplicity="*" />
         </Association>
+        <EntityType Name="Chofer">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Type="Int32" Name="Documento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Nombre" Nullable="false" />
+          <Property Type="String" Name="Apellido" Nullable="false" />
+          <Property Type="String" Name="Licencia" Nullable="false" />
+          <Property Type="String" Name="Domicilio" Nullable="false" />
+          <Property Type="String" Name="Localidad" Nullable="false" />
+          <Property Type="String" Name="Telefono" Nullable="true" />
+          <Property Type="DateTime" Name="FechaNacimiento" Nullable="false" />
+          <Property Type="String" Name="Correo" Nullable="true" />
+          <Property Type="String" Name="Foto" Nullable="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -181,6 +213,22 @@
           <ScalarProperty Name="Año" ColumnName="Año" />
           <ScalarProperty Name="Color" ColumnName="Color" />
           <ScalarProperty Name="Kilometraje" ColumnName="Kilometraje" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Choferes">
+      <EntityTypeMapping TypeName="IsTypeOf(SistFlota_ModeloDatos.Chofer)">
+        <MappingFragment StoreEntitySet="Choferes">
+          <ScalarProperty Name="Documento" ColumnName="Documento" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+          <ScalarProperty Name="Licencia" ColumnName="Licencia" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -230,6 +278,7 @@
           <ConnectorPoint PointX="6" PointY="2.2785953776041667" />
           <ConnectorPoint PointX="4.75" PointY="2.2785953776041667" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="SistFlota_ModeloDatos.Chofer" Width="1.5" PointX="7.875" PointY="2" Height="2.9417936197916656" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

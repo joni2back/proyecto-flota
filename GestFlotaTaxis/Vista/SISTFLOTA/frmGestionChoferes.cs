@@ -37,10 +37,10 @@ namespace Vista
         private void ArmarGrilla()
         {
             lblSinResultados.Visible = false;
-            bdsVehiculos.Sort = null;
-            bdsVehiculos.DataSource = null;
-            bdsVehiculos.Clear();
-            bdsVehiculos.DataSource = ctrlVehiculos.ListarVehiculos();
+            bdsChoferes.Sort = null;
+            bdsChoferes.DataSource = null;
+            bdsChoferes.Clear();
+            bdsChoferes.DataSource = ctrlVehiculos.ListarVehiculos();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace Vista
             if (drABIERTO == DialogResult.OK)
             {
                 ArmarGrilla();
-                MessageBox.Show("El Vehículo se agregó correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("El Chofer se agregó correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -64,11 +64,11 @@ namespace Vista
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
-            if (bdsVehiculos.Current != null)
+            if (bdsChoferes.Current != null)
             {
-                oChofer = (Modelo.Vehiculo)bdsVehiculos.Current;
+                oChofer = (Modelo.Vehiculo)bdsChoferes.Current;
                 
-                DialogResult result = MessageBox.Show("¿Esta seguro que desea eliminar el Vehículo " + oChofer.Patente + "?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("¿Esta seguro que desea eliminar al Chofer " + oChofer.Patente + "?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     if (oChofer.Gasto.Count < 1)
@@ -79,7 +79,7 @@ namespace Vista
                     else                  
                     {
 
-                        DialogResult result2 = MessageBox.Show("El Vehículo seleccionado tiene gastos asignados en su historial.\n ¿Desea eliminarlo de todas formas junto a sus gastos relacionados?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult result2 = MessageBox.Show("El Chofer seleccionado tiene gastos asignados en su historial.\n ¿Desea eliminarlo de todas formas junto a sus gastos relacionados?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result2 == System.Windows.Forms.DialogResult.Yes)
                         {
                             foreach (Modelo.Gasto oGasto in oChofer.Gasto.ToList())
@@ -95,35 +95,35 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un Vehículo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar a un Chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (bdsVehiculos.Current != null)
+            if (bdsChoferes.Current != null)
             {
-                oChofer = (Modelo.Vehiculo)bdsVehiculos.Current;
+                oChofer = (Modelo.Vehiculo)bdsChoferes.Current;
 
                 frmChofer ofrmChofer = new frmChofer("MODIFICACION", oChofer);
                 DialogResult drABIERTO = ofrmChofer.ShowDialog();
                 if (drABIERTO == DialogResult.OK)
                 {
-                    MessageBox.Show("El Vehiculo ha sido modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("El Chofer ha sido modificado correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ArmarGrilla();
                 }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un Vehículo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar a un Chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (bdsVehiculos.Current != null)
+            if (bdsChoferes.Current != null)
             {
-                oChofer = (Modelo.Vehiculo)bdsVehiculos.Current;
+                oChofer = (Modelo.Vehiculo)bdsChoferes.Current;
 
                 frmChofer ofrmChofer = new frmChofer("CONSULTA", oChofer);
                 DialogResult drABIERTO = ofrmChofer.ShowDialog();
@@ -134,17 +134,17 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un Vehículo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar a un Chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            txtPatenteFiltro.Clear();
-            txtPatenteTaxiFiltro.Clear();
-            txtMarcaFiltro.Clear();
-            txtAñoFiltro.Clear();
+            txtNombreFiltro.Clear();
+            txtApellidoFiltro.Clear();
+            txtDocumentoFiltro.Clear();
+            txtLicenciaFiltro.Clear();
 
             ArmarGrilla();
         }
@@ -156,12 +156,12 @@ namespace Vista
             if ((txtPatenteFiltro.Text.Trim()).ToString().Length > 1)
              Patente = (txtPatenteFiltro.Text).ToString().ToUpper();
             string PatenteTaxi = txtPatenteTaxiFiltro.Text;
-            string Marca = txtMarcaFiltro.Text.ToUpper();
+            string Marca = txtNombreFiltro.Text.ToUpper();
             string Año = txtAñoFiltro.Text.ToString();
 
-            bdsVehiculos.DataSource = ctrlVehiculos.ListarVehiculosFiltrados(Patente, PatenteTaxi, Marca, Año);
+            bdsChoferes.DataSource = ctrlVehiculos.ListarVehiculosFiltrados(Patente, PatenteTaxi, Marca, Año);
 
-            if (bdsVehiculos.Count == 0)
+            if (bdsChoferes.Count == 0)
                 lblSinResultados.Visible = true;
         }
 
