@@ -162,7 +162,7 @@
           <Key>
             <PropertyRef Name="Documento" />
           </Key>
-          <Property Type="Int32" Name="Documento" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="Documento" Nullable="false" annotation:StoreGeneratedPattern="None" />
           <Property Type="String" Name="Nombre" Nullable="false" />
           <Property Type="String" Name="Apellido" Nullable="false" />
           <Property Type="String" Name="Licencia" Nullable="false" />

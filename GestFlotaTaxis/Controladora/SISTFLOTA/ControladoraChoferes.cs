@@ -42,5 +42,28 @@ namespace Controladora
 
         }
 
+        public bool VerificarChofer(Modelo.Chofer oChofer)
+        {
+            List<Modelo.Chofer> Lista = Modelo.Datos.ObtenerInstancia().Choferes.Where(oChof => oChof.Documento == oChofer.Documento).ToList();
+
+            if (Lista.Count > 0)    
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool VerificarLicencia(Modelo.Chofer oChofer)
+        {
+            List<Modelo.Chofer> Lista = Modelo.Datos.ObtenerInstancia().Choferes.Where(oChof => oChof.Licencia == oChofer.Licencia).ToList();
+
+            if (Lista.Count > 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
     }
 }

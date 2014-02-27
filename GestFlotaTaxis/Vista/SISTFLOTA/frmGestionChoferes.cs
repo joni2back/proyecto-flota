@@ -14,16 +14,15 @@ namespace Vista
     public partial class frmGestionChoferes : Form
     {
         private Controladora.SISTFLOTA.Adapter.Target target;
-        private ControladoraVehiculos miGestVehiculos;
-        private Modelo.Vehiculo oChofer;
+        //private ControladoraVehiculos miGestVehiculos;
+        private Modelo.Chofer oChofer;
         private Usuario oUsuarioActual;
-        Controladora.ControladoraVehiculos ctrlVehiculos = Controladora.ControladoraVehiculos.getINSTANCIA;
-        Controladora.ControladoraGastos ctrlGastos = new Controladora.ControladoraGastos();
+        Controladora.ControladoraChoferes ctrlChoferes = Controladora.ControladoraChoferes.getINSTANCIA;
 
         public frmGestionChoferes(Usuario oUsuario)
         {
             target = new Controladora.SISTFLOTA.Adapter.Adapter();
-            miGestVehiculos = target.OBTENER_INSTANCIA();
+            //miGestVehiculos = target.OBTENER_INSTANCIA();
 
             oUsuarioActual = oUsuario;
             InitializeComponent();
@@ -40,7 +39,7 @@ namespace Vista
             bdsChoferes.Sort = null;
             bdsChoferes.DataSource = null;
             bdsChoferes.Clear();
-            bdsChoferes.DataSource = ctrlVehiculos.ListarVehiculos();
+            bdsChoferes.DataSource = ctrlChoferes.ListarChoferes();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -66,14 +65,14 @@ namespace Vista
 
             if (bdsChoferes.Current != null)
             {
-                oChofer = (Modelo.Vehiculo)bdsChoferes.Current;
+                oChofer = (Modelo.Chofer)bdsChoferes.Current;
                 
-                DialogResult result = MessageBox.Show("¿Esta seguro que desea eliminar al Chofer " + oChofer.Patente + "?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult result = MessageBox.Show("¿Esta seguro que desea eliminar al Chofer " + oChofer.Documento + "?", "Cuidado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    if (oChofer.Gasto.Count < 1)
+                    if (true)//(oChofer.Gasto.Count < 1)
                     {
-                        ctrlVehiculos.EliminarVehiculo(oChofer);
+                        ctrlChoferes.EliminarChofer(oChofer);
                        
                     }
                     else                  
@@ -82,11 +81,11 @@ namespace Vista
                         DialogResult result2 = MessageBox.Show("El Chofer seleccionado tiene gastos asignados en su historial.\n ¿Desea eliminarlo de todas formas junto a sus gastos relacionados?", "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (result2 == System.Windows.Forms.DialogResult.Yes)
                         {
-                            foreach (Modelo.Gasto oGasto in oChofer.Gasto.ToList())
-                            {
-                                ctrlGastos.EliminarGasto(oGasto);
-                            }
-                            ctrlVehiculos.EliminarVehiculo(oChofer);
+                            //foreach (Modelo.Gasto oGasto in oChofer.Gasto.ToList())
+                            //{
+                            //    ctrlGastos.EliminarGasto(oGasto);
+                            //}
+                            ctrlChoferes.EliminarChofer(oChofer);
                             
                         }
                     }
@@ -103,7 +102,7 @@ namespace Vista
         {
             if (bdsChoferes.Current != null)
             {
-                oChofer = (Modelo.Vehiculo)bdsChoferes.Current;
+                oChofer = (Modelo.Chofer)bdsChoferes.Current;
 
                 frmChofer ofrmChofer = new frmChofer("MODIFICACION", oChofer);
                 DialogResult drABIERTO = ofrmChofer.ShowDialog();
@@ -123,7 +122,7 @@ namespace Vista
         {
             if (bdsChoferes.Current != null)
             {
-                oChofer = (Modelo.Vehiculo)bdsChoferes.Current;
+                oChofer = (Modelo.Chofer)bdsChoferes.Current;
 
                 frmChofer ofrmChofer = new frmChofer("CONSULTA", oChofer);
                 DialogResult drABIERTO = ofrmChofer.ShowDialog();
@@ -151,18 +150,18 @@ namespace Vista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            lblSinResultados.Visible = false;
-            string Patente = "";
-            if ((txtPatenteFiltro.Text.Trim()).ToString().Length > 1)
-             Patente = (txtPatenteFiltro.Text).ToString().ToUpper();
-            string PatenteTaxi = txtPatenteTaxiFiltro.Text;
-            string Marca = txtNombreFiltro.Text.ToUpper();
-            string Año = txtAñoFiltro.Text.ToString();
+            //lblSinResultados.Visible = false;
+            //string Patente = "";
+            //if ((txtPatenteFiltro.Text.Trim()).ToString().Length > 1)
+            // Patente = (txtPatenteFiltro.Text).ToString().ToUpper();
+            //string PatenteTaxi = txtPatenteTaxiFiltro.Text;
+            //string Marca = txtNombreFiltro.Text.ToUpper();
+            //string Año = txtAñoFiltro.Text.ToString();
 
-            bdsChoferes.DataSource = ctrlVehiculos.ListarVehiculosFiltrados(Patente, PatenteTaxi, Marca, Año);
+            //bdsChoferes.DataSource = ctrlVehiculos.ListarVehiculosFiltrados(Patente, PatenteTaxi, Marca, Año);
 
-            if (bdsChoferes.Count == 0)
-                lblSinResultados.Visible = true;
+            //if (bdsChoferes.Count == 0)
+            //    lblSinResultados.Visible = true;
         }
 
         private void frmGestVehiculos_Load(object sender, EventArgs e)

@@ -12,7 +12,6 @@ namespace Vista
     public partial class frmChofer : Form
     {
         string frmModo;
-        //int ChapaTaxi;
         Modelo.Chofer oChofer;
         Controladora.ControladoraChoferes ctrlChoferes = Controladora.ControladoraChoferes.getINSTANCIA;
 
@@ -38,7 +37,6 @@ namespace Vista
                 btnGuardar.Enabled = false;
             }
 
-            //ChapaTaxi = Convert.ToInt32(oVehiculo.PatenteTaxi);
             LlenarCampos(oChofer);
 
         }
@@ -64,81 +62,62 @@ namespace Vista
 
         public bool ValidarCampos()
         {
-            if (txtPatente.Text == "")
+            if (txtNombre.Text == "")
             {
-                txtPatente.Focus();
-                MessageBox.Show("Complete la patente del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtNombre.Focus();
+                MessageBox.Show("Complete la patente del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if ((txtPatente.Text).ToString().Length != 7 /*|| (Convert.ToInt32(txtPatente.Text)).ToString().Length != 3*/)
+            if (txtApellido.Text == "")
             {
-                txtPatente.Focus();
-                MessageBox.Show("La patente del vehiculo debe contener 3 letras y 3 números", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtApellido.Focus();
+                MessageBox.Show("Complete la patente del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-
-            if (txtPatenteTaxi.Text != "")
-            {
-                try
-                {
-                    Convert.ToInt32(txtPatenteTaxi.Text);
-                }
-                catch
-                {
-                    txtPatenteTaxi.Focus();
-                    MessageBox.Show("La patente de Taxi debe ser numérica", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-            }
-
+                                  
             if (txtDocumento.Text == "")
             {
                 txtDocumento.Focus();
-                MessageBox.Show("Complete la marca del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtLicencia.Text == "")
-            {
-                txtLicencia.Focus();
-                MessageBox.Show("Complete el modelo del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtAño.Text == "")
-            {
-                txtAño.Focus();
-                MessageBox.Show("Complete el año del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if ((txtAño.Text).ToString().Length != 4)
-            {
-                txtAño.Focus();
-                MessageBox.Show("El año del vehiculo debe estar conformado 4 números. Ej: 2010", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtFechaNacimiento.Text == "")
-            {
-                txtFechaNacimiento.Focus();
-                MessageBox.Show("Complete el color del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (txtLocalidad.Text == "")
-            {
-                txtLocalidad.Focus();
-                MessageBox.Show("Complete el kilometraje del vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Complete documento del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            try
+            if (txtLicencia.Text == "")
             {
-                Convert.ToInt32(txtLocalidad.Text);
-            }
-            catch
-            {
-                txtLocalidad.Focus();
-                MessageBox.Show("El kilometraje debe ser numérico", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtLicencia.Focus();
+                MessageBox.Show("Complete la licencia de conductor del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+
+            if (txtFechaNacimiento.Text == "")
+            {
+                txtFechaNacimiento.Focus();
+                MessageBox.Show("Complete la fecha de nacimiento del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtLocalidad.Text == "")
+            {
+                txtLocalidad.Focus();
+                MessageBox.Show("Complete la localidad del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtDomicilio.Text == "")
+            {
+                txtDomicilio.Focus();
+                MessageBox.Show("Complete el domicilio del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (txtTelefono.Text == "")
+            {
+                txtTelefono.Focus();
+                MessageBox.Show("Complete el telefono del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
 
             return true;
         }
@@ -148,59 +127,57 @@ namespace Vista
         {
             if (ValidarCampos())
             {
-                oVehiculo = new Modelo.Vehiculo();
+                oChofer = new Modelo.Chofer();
 
+                oChofer.Nombre = txtNombre.Text;
+                oChofer.Apellido = txtApellido.Text;
+                oChofer.Documento = Convert.ToInt32(txtDocumento.Text);
+                oChofer.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
+                oChofer.Licencia = txtLicencia.Text.ToUpper();
 
-                oVehiculo.Patente = txtPatente.Text.ToUpper();
-                if (txtPatenteTaxi.Text != "")
+                oChofer.Localidad = txtLocalidad.Text;
+                oChofer.Correo = txtCorreoElectronico.Text;
+                oChofer.Domicilio = txtDomicilio.Text;
+                oChofer.Telefono = txtTelefono.Text;
+
+                if (txtCorreoElectronico.Text != "")
                 {
-                    oVehiculo.PatenteTaxi = Convert.ToInt32(txtPatenteTaxi.Text);
+                    oChofer.Correo = txtCorreoElectronico.Text;
                 }
-                oVehiculo.Marca = txtDocumento.Text.ToUpper();
-                oVehiculo.Modelo = txtLicencia.Text.ToUpper();
-                oVehiculo.Año = Convert.ToInt32(txtAño.Text);
-                oVehiculo.Color = txtFechaNacimiento.Text.ToUpper();
-                oVehiculo.Kilometraje = Convert.ToInt32(txtLocalidad.Text);
 
                 if (frmModo == "ALTA")
                 {
-                    if (ctrlVehiculos.VerificarVehiculo(oVehiculo))
+                    if (ctrlChoferes.VerificarChofer(oChofer))
                     {
-                        if (ctrlVehiculos.VerificarPatenteTaxi(oVehiculo))
+                        if (ctrlChoferes.VerificarLicencia(oChofer))
                         {
-                            ctrlVehiculos.AgregarVehiculo(oVehiculo);
+                            ctrlChoferes.AgregarChofer(oChofer);
                             this.DialogResult = DialogResult.OK;
                         }
                         else
                         {
-                            MessageBox.Show("La patente de taxi solicitada se encuentra activa en otro vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("La licencia introducida pertenece a otro chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
                     else
                     {
-                        MessageBox.Show("La patente solicitada ya pertenece a otro vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El documento introducido pertenece a otro chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (frmModo == "MODIFICACION")
                 {
-                    if (ChapaTaxi != oVehiculo.PatenteTaxi)
-                    {
-                        if (ctrlVehiculos.VerificarPatenteTaxi(oVehiculo))
+                        if (ctrlChoferes.VerificarLicencia(oChofer))
                         {
-                            ctrlVehiculos.ModificarVehiculo(oVehiculo);
+                            ctrlChoferes.ModificarChofer(oChofer);
                             this.DialogResult = DialogResult.OK;
                         }
                         else
                         {
-                            MessageBox.Show("La patente de taxi solicitada se encuentra activa en otro vehiculo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("La licencia introducida pertenece a otro chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-                    }
-                    else
-                    {
-                        ctrlVehiculos.ModificarVehiculo(oVehiculo);
-                        this.DialogResult = DialogResult.OK;
-                    }
+                    
+
                 }
 
             }
@@ -218,21 +195,6 @@ namespace Vista
         {
 
         }
-
-        private void checkActivo_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkActivo.Checked == true)
-            {
-                txtPatenteTaxi.Enabled = true;
-            }
-            else
-            {
-                txtPatenteTaxi.Enabled = false;
-                txtPatenteTaxi.Clear();
-            }
-        }
-
-
     
     }
 }
