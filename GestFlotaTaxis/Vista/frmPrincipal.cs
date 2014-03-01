@@ -234,6 +234,18 @@ namespace Vista
             ofrmAudGastos.ShowDialog();
         }
 
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGestionClientes ofrmGestClientes = new frmGestionClientes(oUsuarioActual);
+            ofrmGestClientes.ShowDialog();
+        }
+
+        private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGestionEmpresas ofrmGestClientes = new frmGestionEmpresas(oUsuarioActual);
+            ofrmGestEmpresas.ShowDialog();
+        }
+
 
         
 

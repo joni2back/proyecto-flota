@@ -14,7 +14,7 @@ namespace Vista
     public partial class frmGestionChoferes : Form
     {
         private Controladora.SISTFLOTA.Adapter.Target target;
-        //private ControladoraVehiculos miGestVehiculos;
+        private ControladoraVehiculos miGestVehiculos;
         private Modelo.Chofer oChofer;
         private Usuario oUsuarioActual;
         Controladora.ControladoraChoferes ctrlChoferes = Controladora.ControladoraChoferes.getINSTANCIA;

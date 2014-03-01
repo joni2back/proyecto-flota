@@ -116,6 +116,18 @@
     <Compile Include="SISTFLOTA\frmChofer.Designer.cs">
       <DependentUpon>frmChofer.cs</DependentUpon>
     </Compile>
+    <Compile Include="SISTFLOTA\frmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmCliente.Designer.cs">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmEmpresa.Designer.cs">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="SISTFLOTA\frmGestionChoferes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +145,18 @@
     </Compile>
     <Compile Include="SISTFLOTA\frmGasto.Designer.cs">
       <DependentUpon>frmGasto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionClientes.Designer.cs">
+      <DependentUpon>frmGestionClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionEmpresas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmGestionEmpresas.Designer.cs">
+      <DependentUpon>frmGestionEmpresas.cs</DependentUpon>
     </Compile>
     <Compile Include="SISTFLOTA\frmGestionGastos.cs">
       <SubType>Form</SubType>
@@ -205,6 +229,12 @@
     <EmbeddedResource Include="SISTFLOTA\frmChofer.resx">
       <DependentUpon>frmChofer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmCliente.resx">
+      <DependentUpon>frmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmEmpresa.resx">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SISTFLOTA\frmGestionChoferes.resx">
       <DependentUpon>frmGestionChoferes.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +243,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SISTFLOTA\frmGasto.resx">
       <DependentUpon>frmGasto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmGestionClientes.resx">
+      <DependentUpon>frmGestionClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmGestionEmpresas.resx">
+      <DependentUpon>frmGestionEmpresas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SISTFLOTA\frmGestionGastos.resx">
       <DependentUpon>frmGestionGastos.cs</DependentUpon>
@@ -273,7 +309,9 @@
       <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

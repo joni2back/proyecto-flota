@@ -226,6 +226,11 @@ namespace Vista
             }
         }
 
+        private void grpDetalle_Enter(object sender, EventArgs e)
+        {
+
+        }
+
 
     
     }

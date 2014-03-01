@@ -4,12 +4,13 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SistFlota_ModeloDatos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SistFlota_ModeloDatos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="SistFlota_ModeloDatosStoreContainer">
     <EntitySet Name="TiposdeGasto" EntityType="SistFlota_ModeloDatos.Store.TiposdeGasto" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Gastos" EntityType="SistFlota_ModeloDatos.Store.Gastos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Vehiculos" EntityType="SistFlota_ModeloDatos.Store.Vehiculos" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Choferes" EntityType="SistFlota_ModeloDatos.Store.Choferes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Empresa" EntityType="SistFlota_ModeloDatos.Store.Empresa" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="TipodeGastoGasto" Association="SistFlota_ModeloDatos.Store.TipodeGastoGasto">
       <End Role="TipodeGasto" EntitySet="TiposdeGasto" />
       <End Role="Gasto" EntitySet="Gastos" />
@@ -59,7 +60,7 @@
     <Key>
       <PropertyRef Name="Documento" />
     </Key>
-    <Property Name="Documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Documento" Type="int" Nullable="false" />
     <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Licencia" Type="nvarchar(max)" Nullable="false" />
@@ -69,6 +70,17 @@
     <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
     <Property Name="Correo" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Foto" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="CUIL" />
+    </Key>
+    <Property Name="CUIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <Association Name="TipodeGastoGasto">
     <End Role="TipodeGasto" Type="SistFlota_ModeloDatos.Store.TiposdeGasto" Multiplicity="1" />
@@ -111,6 +123,7 @@
             <End Role="Gasto" EntitySet="Gastos" />
           </AssociationSet>
           <EntitySet Name="Choferes" EntityType="SistFlota_ModeloDatos.Chofer" />
+          <EntitySet Name="Empresa" EntityType="SistFlota_ModeloDatos.Empresa" />
           </EntityContainer>
         <EntityType Name="TipodeGasto">
           <Key>
@@ -173,6 +186,17 @@
           <Property Type="String" Name="Correo" Nullable="true" />
           <Property Type="String" Name="Foto" Nullable="true" />
         </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="CUIL" />
+          </Key>
+          <Property Type="Int32" Name="CUIL" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="RazonSocial" Nullable="false" />
+          <Property Type="String" Name="Domicilio" Nullable="false" />
+          <Property Type="String" Name="Telefono" Nullable="false" />
+          <Property Type="String" Name="Localidad" Nullable="false" />
+          <Property Type="String" Name="Correo" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -232,6 +256,18 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="IsTypeOf(SistFlota_ModeloDatos.Empresa)">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="CUIL" ColumnName="CUIL" />
+          <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
+          <ScalarProperty Name="Domicilio" ColumnName="Domicilio" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="Localidad" ColumnName="Localidad" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="TipodeGastoGasto" TypeName="SistFlota_ModeloDatos.TipodeGastoGasto" StoreEntitySet="Gastos">
       <EndProperty Name="TipodeGasto">
         <ScalarProperty Name="Id" ColumnName="TipodeGasto_Id" />
@@ -262,6 +298,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
       </DesignerInfoPropertySet>
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
@@ -278,7 +315,8 @@
           <ConnectorPoint PointX="6" PointY="2.2785953776041667" />
           <ConnectorPoint PointX="4.75" PointY="2.2785953776041667" />
         </AssociationConnector>
-        <EntityTypeShape EntityType="SistFlota_ModeloDatos.Chofer" Width="1.5" PointX="7.875" PointY="2" Height="2.9417936197916656" />
+        <EntityTypeShape EntityType="SistFlota_ModeloDatos.Chofer" Width="1.5" PointX="7.875" PointY="2" Height="2.9617936197916652" />
+        <EntityTypeShape EntityType="SistFlota_ModeloDatos.Empresa" Width="1.5" PointX="5.625" PointY="4.375" Height="2.1725878906249996" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

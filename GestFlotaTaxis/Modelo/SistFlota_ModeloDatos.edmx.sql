@@ -2,16 +2,16 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 02/24/2014 23:39:59
--- Generated from EDMX file: C:\Users\Admin\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
+-- Date Created: 03/01/2014 12:32:41
+-- Generated from EDMX file: C:\Users\Adelquis\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
-
+GO
 USE [SistFlota_db];
-
+GO
 IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
-
+GO
 
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
@@ -19,24 +19,27 @@ IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
 
 IF OBJECT_ID(N'[dbo].[FK_TipodeGastoGasto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Gastos] DROP CONSTRAINT [FK_TipodeGastoGasto];
-
+GO
 IF OBJECT_ID(N'[dbo].[FK_VehiculoGasto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Gastos] DROP CONSTRAINT [FK_VehiculoGasto];
-
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[TiposdeGasto]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TiposdeGasto];
-
+IF OBJECT_ID(N'[dbo].[Choferes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Choferes];
+GO
 IF OBJECT_ID(N'[dbo].[Gastos]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Gastos];
-
+GO
+IF OBJECT_ID(N'[dbo].[TiposdeGasto]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TiposdeGasto];
+GO
 IF OBJECT_ID(N'[dbo].[Vehiculos]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Vehiculos];
-
+GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -47,7 +50,7 @@ CREATE TABLE [dbo].[TiposdeGasto] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Descripcion] nvarchar(max)  NOT NULL
 );
-
+GO
 
 -- Creating table 'Gastos'
 CREATE TABLE [dbo].[Gastos] (
@@ -64,7 +67,7 @@ CREATE TABLE [dbo].[Gastos] (
     [TipodeGasto_Id] int  NOT NULL,
     [Vehiculo_Patente] nvarchar(7)  NOT NULL
 );
-
+GO
 
 -- Creating table 'Vehiculos'
 CREATE TABLE [dbo].[Vehiculos] (
@@ -76,11 +79,11 @@ CREATE TABLE [dbo].[Vehiculos] (
     [Color] nvarchar(max)  NOT NULL,
     [Kilometraje] int  NOT NULL
 );
-
+GO
 
 -- Creating table 'Choferes'
 CREATE TABLE [dbo].[Choferes] (
-    [Documento] int IDENTITY(1,1) NOT NULL,
+    [Documento] int  NOT NULL,
     [Nombre] nvarchar(max)  NOT NULL,
     [Apellido] nvarchar(max)  NOT NULL,
     [Licencia] nvarchar(max)  NOT NULL,
@@ -91,7 +94,18 @@ CREATE TABLE [dbo].[Choferes] (
     [Correo] nvarchar(max)  NULL,
     [Foto] nvarchar(max)  NULL
 );
+GO
 
+-- Creating table 'Empresa'
+CREATE TABLE [dbo].[Empresa] (
+    [CUIL] int IDENTITY(1,1) NOT NULL,
+    [RazonSocial] nvarchar(max)  NOT NULL,
+    [Domicilio] nvarchar(max)  NOT NULL,
+    [Telefono] nvarchar(max)  NOT NULL,
+    [Localidad] nvarchar(max)  NOT NULL,
+    [Correo] nvarchar(max)  NOT NULL
+);
+GO
 
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
@@ -101,25 +115,31 @@ CREATE TABLE [dbo].[Choferes] (
 ALTER TABLE [dbo].[TiposdeGasto]
 ADD CONSTRAINT [PK_TiposdeGasto]
     PRIMARY KEY CLUSTERED ([Id] ASC);
-
+GO
 
 -- Creating primary key on [Id] in table 'Gastos'
 ALTER TABLE [dbo].[Gastos]
 ADD CONSTRAINT [PK_Gastos]
     PRIMARY KEY CLUSTERED ([Id] ASC);
-
+GO
 
 -- Creating primary key on [Patente] in table 'Vehiculos'
 ALTER TABLE [dbo].[Vehiculos]
 ADD CONSTRAINT [PK_Vehiculos]
     PRIMARY KEY CLUSTERED ([Patente] ASC);
-
+GO
 
 -- Creating primary key on [Documento] in table 'Choferes'
 ALTER TABLE [dbo].[Choferes]
 ADD CONSTRAINT [PK_Choferes]
     PRIMARY KEY CLUSTERED ([Documento] ASC);
+GO
 
+-- Creating primary key on [CUIL] in table 'Empresa'
+ALTER TABLE [dbo].[Empresa]
+ADD CONSTRAINT [PK_Empresa]
+    PRIMARY KEY CLUSTERED ([CUIL] ASC);
+GO
 
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
@@ -137,7 +157,7 @@ ADD CONSTRAINT [FK_TipodeGastoGasto]
 CREATE INDEX [IX_FK_TipodeGastoGasto]
 ON [dbo].[Gastos]
     ([TipodeGasto_Id]);
-
+GO
 
 -- Creating foreign key on [Vehiculo_Patente] in table 'Gastos'
 ALTER TABLE [dbo].[Gastos]
@@ -151,7 +171,7 @@ ADD CONSTRAINT [FK_VehiculoGasto]
 CREATE INDEX [IX_FK_VehiculoGasto]
 ON [dbo].[Gastos]
     ([Vehiculo_Patente]);
-
+GO
 
 -- --------------------------------------------------
 -- Script has ended

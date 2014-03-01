@@ -35,8 +35,10 @@
             this.menuCerrarSesion = new System.Windows.Forms.ToolStripMenuItem();
             this.menuSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGestionar = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuGestVehiculos = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGestChoferes = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGestGastos = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuGestVehiculos = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMonitores = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMonGastos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuInformes = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,7 +65,7 @@
             this.lblUsuarioActual = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNomyApeActual = new System.Windows.Forms.ToolStripStatusLabel();
-            this.menuGestChoferes = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -129,10 +131,26 @@
             this.menuGestionar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuGestChoferes,
             this.menuGestGastos,
-            this.menuGestVehiculos});
+            this.menuGestVehiculos,
+            this.clientesToolStripMenuItem,
+            this.empresasToolStripMenuItem});
             this.menuGestionar.Name = "menuGestionar";
             this.menuGestionar.Size = new System.Drawing.Size(72, 20);
             this.menuGestionar.Text = "Gestionar";
+            // 
+            // menuGestChoferes
+            // 
+            this.menuGestChoferes.Name = "menuGestChoferes";
+            this.menuGestChoferes.Size = new System.Drawing.Size(152, 22);
+            this.menuGestChoferes.Text = "Choferes";
+            this.menuGestChoferes.Click += new System.EventHandler(this.menuGestChoferes_Click);
+            // 
+            // menuGestGastos
+            // 
+            this.menuGestGastos.Name = "menuGestGastos";
+            this.menuGestGastos.Size = new System.Drawing.Size(152, 22);
+            this.menuGestGastos.Text = "Gastos";
+            this.menuGestGastos.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
             // menuGestVehiculos
             // 
@@ -141,12 +159,12 @@
             this.menuGestVehiculos.Text = "Vehículos";
             this.menuGestVehiculos.Click += new System.EventHandler(this.vehículosToolStripMenuItem_Click);
             // 
-            // menuGestGastos
+            // clientesToolStripMenuItem
             // 
-            this.menuGestGastos.Name = "menuGestGastos";
-            this.menuGestGastos.Size = new System.Drawing.Size(152, 22);
-            this.menuGestGastos.Text = "Gastos";
-            this.menuGestGastos.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // menuMonitores
             // 
@@ -282,7 +300,7 @@
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.Location = new System.Drawing.Point(539, 455);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(122, 42);
             this.btnSalir.TabIndex = 22;
@@ -298,7 +316,7 @@
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCerrarSesion.Location = new System.Drawing.Point(408, 455);
-            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCerrarSesion.Margin = new System.Windows.Forms.Padding(2);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(122, 42);
             this.btnCerrarSesion.TabIndex = 21;
@@ -372,12 +390,12 @@
             this.lblNomyApeActual.Size = new System.Drawing.Size(12, 17);
             this.lblNomyApeActual.Text = "-";
             // 
-            // menuGestChoferes
+            // empresasToolStripMenuItem
             // 
-            this.menuGestChoferes.Name = "menuGestChoferes";
-            this.menuGestChoferes.Size = new System.Drawing.Size(152, 22);
-            this.menuGestChoferes.Text = "Choferes";
-            this.menuGestChoferes.Click += new System.EventHandler(this.menuGestChoferes_Click);
+            this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
+            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.empresasToolStripMenuItem.Text = "Empresas";
+            this.empresasToolStripMenuItem.Click += new System.EventHandler(this.empresasToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -394,7 +412,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuPrincipal;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(873, 564);
             this.Name = "frmPrincipal";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
@@ -452,6 +470,8 @@
         private System.Windows.Forms.ToolStripMenuItem menuAudLogs;
         private System.Windows.Forms.ToolStripMenuItem gastosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuGestChoferes;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem empresasToolStripMenuItem;
     }
 }
 
