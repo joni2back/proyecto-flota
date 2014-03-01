@@ -259,6 +259,7 @@
             this.grpFiltros.TabIndex = 99;
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Busqueda de Vehiculos";
+            this.grpFiltros.Enter += new System.EventHandler(this.grpFiltros_Enter_1);
             // 
             // txtAñoFiltro
             // 
@@ -346,7 +347,7 @@
             this.label2.Location = new System.Drawing.Point(106, 54);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(75, 15);
+            this.label2.Size = new System.Drawing.Size(74, 15);
             this.label2.TabIndex = 8;
             this.label2.Text = "Patente Taxi";
             // 

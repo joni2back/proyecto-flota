@@ -44,7 +44,7 @@ namespace Controladora
 
         public bool VerificarEmpresa(Modelo.Empresa oEmpresa)
         {
-            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresa.Where(oEmpresa => oEmpresa.CUIL == oChofer.CUIL).ToList();
+            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresa.Where(oEmpr => oEmpr.CUIL == oEmpresa.CUIL).ToList();
 
             if (Lista.Count > 0)    
             {
@@ -53,6 +53,18 @@ namespace Controladora
             return true;
         }
 
-        
-    }
+        public bool VerificarCuil(Modelo.Empresa oEmpresa)
+        {
+            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresa.Where(oEmpr => oEmpr.CUIL == oEmpresa.CUIL).ToList();
+
+            if (Lista.Count > 0)
+            {
+                return false;
+            }
+            return true;
+        }
+
+
+
+      }
 }

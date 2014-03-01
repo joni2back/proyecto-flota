@@ -6,14 +6,33 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Controladora;
+using Modelo.SEGURIDAD;
 
 namespace Vista.SISTFLOTA
 {
     public partial class frmGestionEmpresas : Form
     {
-        public frmGestionEmpresas()
+        Controladora.ControladoraEmpresas ctrlEmpresas = Controladora.ControladoraEmpresas.getINSTANCIA;
+        Usuario oUsuarioActual;
+
+        public frmGestionEmpresas(Usuario oUsuario)
         {
+            oUsuarioActual = oUsuario;
             InitializeComponent();
+
+            btnNuevo.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+        }
+
+        private void ArmarGrilla()
+        {
+            lblSinResultados.Visible = false;
+            bdsEmpresa.Sort = null;
+            bdsEmpresa.DataSource = null;
+            bdsEmpresa.Clear();
+            bdsEmpresa.DataSource = ctrlEmpresas.ListarEmpresas();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)

@@ -74,7 +74,7 @@ namespace Vista.SISTFLOTA
             {
                 oEmpresa = new Modelo.Empresa();
 
-                oEmpresa. = txtRazonSocial.Text;
+                oEmpresa.RazonSocial = txtRazonSocial.Text;
                 oEmpresa.Localidad = txtLocalidad.Text;
                 oEmpresa.Correo = txtCorreoElectronico.Text;
                 oEmpresa.Domicilio = txtDomicilio.Text;
@@ -89,34 +89,19 @@ namespace Vista.SISTFLOTA
                 {
                     if (ctrlEmpresa.VerificarEmpresa(oEmpresa))
                     {
-                        if (ctrlChoferes.VerificarLicencia(oEmpresa))
-                        {
-                            ctrlChoferes.AgregarChofer(oEmpresa);
+                            ctrlEmpresa.AgregarEmpresa(oEmpresa);
                             this.DialogResult = DialogResult.OK;
-                        }
-                        else
-                        {
-                            MessageBox.Show("La licencia introducida pertenece a otro chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-
                     }
                     else
                     {
-                        MessageBox.Show("El documento introducido pertenece a otro chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El Cuil introducido pertenece a otra Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (frmModo == "MODIFICACION")
                 {
-                    if (ctrlChoferes.VerificarLicencia(oChofer))
-                    {
-                        ctrlChoferes.ModificarChofer(oChofer);
+                    
+                    ctrlEmpresa.ModificarEmpresa(oEmpresa);
                         this.DialogResult = DialogResult.OK;
-                    }
-                    else
-                    {
-                        MessageBox.Show("La licencia introducida pertenece a otro chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
 
                 }
 

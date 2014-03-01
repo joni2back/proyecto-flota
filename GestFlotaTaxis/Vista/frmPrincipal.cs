@@ -243,7 +243,7 @@ namespace Vista
         private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmGestionEmpresas ofrmGestClientes = new frmGestionEmpresas(oUsuarioActual);
-            ofrmGestEmpresas.ShowDialog();
+            ofrmGestClientes.ShowDialog();
         }
 
 

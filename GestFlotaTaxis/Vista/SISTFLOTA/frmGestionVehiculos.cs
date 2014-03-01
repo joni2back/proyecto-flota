@@ -213,6 +213,11 @@ namespace Vista
 
         }
 
+        private void grpFiltros_Enter_1(object sender, EventArgs e)
+        {
+
+        }
+
 
     }
 }

@@ -45,21 +45,11 @@
             this.txtNombreFiltro = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.grpVehiculos = new System.Windows.Forms.GroupBox();
-            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fotoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdsChoferes = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsEmpresa = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.grillaVehiculos)).BeginInit();
             this.grpFiltros.SuspendLayout();
             this.grpVehiculos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsChoferes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsEmpresa)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSinResultados
@@ -80,22 +70,9 @@
             // 
             this.grillaVehiculos.AllowUserToAddRows = false;
             this.grillaVehiculos.AllowUserToDeleteRows = false;
-            this.grillaVehiculos.AutoGenerateColumns = false;
             this.grillaVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grillaVehiculos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.grillaVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grillaVehiculos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.documentoDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.apellidoDataGridViewTextBoxColumn,
-            this.licenciaDataGridViewTextBoxColumn,
-            this.domicilioDataGridViewTextBoxColumn,
-            this.localidadDataGridViewTextBoxColumn,
-            this.telefonoDataGridViewTextBoxColumn,
-            this.fechaNacimientoDataGridViewTextBoxColumn,
-            this.correoDataGridViewTextBoxColumn,
-            this.fotoDataGridViewTextBoxColumn});
-            this.grillaVehiculos.DataSource = this.bdsChoferes;
             this.grillaVehiculos.Location = new System.Drawing.Point(27, 29);
             this.grillaVehiculos.MultiSelect = false;
             this.grillaVehiculos.Name = "grillaVehiculos";
@@ -281,80 +258,6 @@
             this.grpVehiculos.TabStop = false;
             this.grpVehiculos.Text = "Choferes";
             // 
-            // documentoDataGridViewTextBoxColumn
-            // 
-            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
-            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
-            this.documentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // apellidoDataGridViewTextBoxColumn
-            // 
-            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
-            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // licenciaDataGridViewTextBoxColumn
-            // 
-            this.licenciaDataGridViewTextBoxColumn.DataPropertyName = "Licencia";
-            this.licenciaDataGridViewTextBoxColumn.HeaderText = "Licencia";
-            this.licenciaDataGridViewTextBoxColumn.Name = "licenciaDataGridViewTextBoxColumn";
-            this.licenciaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // domicilioDataGridViewTextBoxColumn
-            // 
-            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
-            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localidadDataGridViewTextBoxColumn
-            // 
-            this.localidadDataGridViewTextBoxColumn.DataPropertyName = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.HeaderText = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.Name = "localidadDataGridViewTextBoxColumn";
-            this.localidadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaNacimientoDataGridViewTextBoxColumn
-            // 
-            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaNacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaNacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
-            this.fechaNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // correoDataGridViewTextBoxColumn
-            // 
-            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
-            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
-            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
-            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fotoDataGridViewTextBoxColumn
-            // 
-            this.fotoDataGridViewTextBoxColumn.DataPropertyName = "Foto";
-            this.fotoDataGridViewTextBoxColumn.HeaderText = "Foto";
-            this.fotoDataGridViewTextBoxColumn.Name = "fotoDataGridViewTextBoxColumn";
-            this.fotoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bdsChoferes
-            // 
-            this.bdsChoferes.DataSource = typeof(Modelo.Chofer);
-            // 
             // frmGestionEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -379,26 +282,15 @@
             this.grpFiltros.PerformLayout();
             this.grpVehiculos.ResumeLayout(false);
             this.grpVehiculos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsChoferes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsEmpresa)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridViewTextBoxColumn fotoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documentoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label lblSinResultados;
         private System.Windows.Forms.DataGridView grillaVehiculos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn licenciaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimientoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource bdsChoferes;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
@@ -412,5 +304,6 @@
         private System.Windows.Forms.TextBox txtNombreFiltro;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.GroupBox grpVehiculos;
+        private System.Windows.Forms.BindingSource bdsEmpresa;
     }
 }

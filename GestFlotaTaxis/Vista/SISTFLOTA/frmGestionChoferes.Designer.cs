@@ -39,27 +39,27 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtNombreFiltro = new System.Windows.Forms.TextBox();
+            this.txtLicenciaFiltro = new System.Windows.Forms.TextBox();
+            this.txtDocumentoFiltro = new System.Windows.Forms.TextBox();
+            this.txtApellidoFiltro = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtApellidoFiltro = new System.Windows.Forms.TextBox();
-            this.txtDocumentoFiltro = new System.Windows.Forms.TextBox();
-            this.txtLicenciaFiltro = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.txtNombreFiltro = new System.Windows.Forms.TextBox();
             this.bdsChoferes = new System.Windows.Forms.BindingSource(this.components);
-            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fotoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaVehiculos)).BeginInit();
             this.grpFiltros.SuspendLayout();
@@ -112,7 +112,6 @@
             // 
             this.grillaVehiculos.AllowUserToAddRows = false;
             this.grillaVehiculos.AllowUserToDeleteRows = false;
-            this.grillaVehiculos.AutoGenerateColumns = false;
             this.grillaVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grillaVehiculos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.grillaVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -127,7 +126,6 @@
             this.fechaNacimientoDataGridViewTextBoxColumn,
             this.correoDataGridViewTextBoxColumn,
             this.fotoDataGridViewTextBoxColumn});
-            this.grillaVehiculos.DataSource = this.bdsChoferes;
             this.grillaVehiculos.Location = new System.Drawing.Point(27, 29);
             this.grillaVehiculos.MultiSelect = false;
             this.grillaVehiculos.Name = "grillaVehiculos";
@@ -225,44 +223,32 @@
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Busqueda de Choferes";
             // 
-            // btnBuscar
+            // txtLicenciaFiltro
             // 
-            this.btnBuscar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
-            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscar.Location = new System.Drawing.Point(357, 85);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(99, 42);
-            this.btnBuscar.TabIndex = 5;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.txtLicenciaFiltro.Location = new System.Drawing.Point(398, 54);
+            this.txtLicenciaFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtLicenciaFiltro.MaxLength = 25;
+            this.txtLicenciaFiltro.Name = "txtLicenciaFiltro";
+            this.txtLicenciaFiltro.Size = new System.Drawing.Size(121, 20);
+            this.txtLicenciaFiltro.TabIndex = 39;
             // 
-            // btnLimpiar
+            // txtDocumentoFiltro
             // 
-            this.btnLimpiar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Image")));
-            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLimpiar.Location = new System.Drawing.Point(469, 85);
-            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(99, 42);
-            this.btnLimpiar.TabIndex = 6;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            this.txtDocumentoFiltro.Location = new System.Drawing.Point(167, 51);
+            this.txtDocumentoFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDocumentoFiltro.MaxLength = 25;
+            this.txtDocumentoFiltro.Name = "txtDocumentoFiltro";
+            this.txtDocumentoFiltro.Size = new System.Drawing.Size(124, 20);
+            this.txtDocumentoFiltro.TabIndex = 38;
             // 
-            // txtNombreFiltro
+            // txtApellidoFiltro
             // 
-            this.txtNombreFiltro.Location = new System.Drawing.Point(149, 26);
-            this.txtNombreFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombreFiltro.MaxLength = 25;
-            this.txtNombreFiltro.Name = "txtNombreFiltro";
-            this.txtNombreFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtNombreFiltro.TabIndex = 1;
+            this.txtApellidoFiltro.Location = new System.Drawing.Point(377, 26);
+            this.txtApellidoFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApellidoFiltro.MaxLength = 25;
+            this.txtApellidoFiltro.Name = "txtApellidoFiltro";
+            this.txtApellidoFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtApellidoFiltro.TabIndex = 37;
             // 
             // label10
             // 
@@ -308,92 +294,55 @@
             this.label4.TabIndex = 34;
             this.label4.Text = "Apellido";
             // 
-            // txtApellidoFiltro
+            // btnBuscar
             // 
-            this.txtApellidoFiltro.Location = new System.Drawing.Point(377, 26);
-            this.txtApellidoFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApellidoFiltro.MaxLength = 25;
-            this.txtApellidoFiltro.Name = "txtApellidoFiltro";
-            this.txtApellidoFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtApellidoFiltro.TabIndex = 37;
+            this.btnBuscar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscar.Location = new System.Drawing.Point(357, 85);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(99, 42);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // txtDocumentoFiltro
+            // btnLimpiar
             // 
-            this.txtDocumentoFiltro.Location = new System.Drawing.Point(167, 51);
-            this.txtDocumentoFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDocumentoFiltro.MaxLength = 25;
-            this.txtDocumentoFiltro.Name = "txtDocumentoFiltro";
-            this.txtDocumentoFiltro.Size = new System.Drawing.Size(124, 20);
-            this.txtDocumentoFiltro.TabIndex = 38;
+            this.btnLimpiar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Image = ((System.Drawing.Image)(resources.GetObject("btnLimpiar.Image")));
+            this.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLimpiar.Location = new System.Drawing.Point(469, 85);
+            this.btnLimpiar.Margin = new System.Windows.Forms.Padding(2);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(99, 42);
+            this.btnLimpiar.TabIndex = 6;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // txtLicenciaFiltro
+            // txtNombreFiltro
             // 
-            this.txtLicenciaFiltro.Location = new System.Drawing.Point(398, 54);
-            this.txtLicenciaFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLicenciaFiltro.MaxLength = 25;
-            this.txtLicenciaFiltro.Name = "txtLicenciaFiltro";
-            this.txtLicenciaFiltro.Size = new System.Drawing.Size(121, 20);
-            this.txtLicenciaFiltro.TabIndex = 39;
+            this.txtNombreFiltro.Location = new System.Drawing.Point(149, 26);
+            this.txtNombreFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombreFiltro.MaxLength = 25;
+            this.txtNombreFiltro.Name = "txtNombreFiltro";
+            this.txtNombreFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtNombreFiltro.TabIndex = 1;
             // 
             // bdsChoferes
             // 
             this.bdsChoferes.DataSource = typeof(Modelo.Chofer);
             // 
-            // documentoDataGridViewTextBoxColumn
+            // fotoDataGridViewTextBoxColumn
             // 
-            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
-            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
-            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
-            this.documentoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // apellidoDataGridViewTextBoxColumn
-            // 
-            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
-            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
-            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // licenciaDataGridViewTextBoxColumn
-            // 
-            this.licenciaDataGridViewTextBoxColumn.DataPropertyName = "Licencia";
-            this.licenciaDataGridViewTextBoxColumn.HeaderText = "Licencia";
-            this.licenciaDataGridViewTextBoxColumn.Name = "licenciaDataGridViewTextBoxColumn";
-            this.licenciaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // domicilioDataGridViewTextBoxColumn
-            // 
-            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
-            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localidadDataGridViewTextBoxColumn
-            // 
-            this.localidadDataGridViewTextBoxColumn.DataPropertyName = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.HeaderText = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.Name = "localidadDataGridViewTextBoxColumn";
-            this.localidadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaNacimientoDataGridViewTextBoxColumn
-            // 
-            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaNacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaNacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
-            this.fechaNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fotoDataGridViewTextBoxColumn.DataPropertyName = "Foto";
+            this.fotoDataGridViewTextBoxColumn.HeaderText = "Foto";
+            this.fotoDataGridViewTextBoxColumn.Name = "fotoDataGridViewTextBoxColumn";
+            this.fotoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // correoDataGridViewTextBoxColumn
             // 
@@ -402,12 +351,61 @@
             this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
             this.correoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // fotoDataGridViewTextBoxColumn
+            // fechaNacimientoDataGridViewTextBoxColumn
             // 
-            this.fotoDataGridViewTextBoxColumn.DataPropertyName = "Foto";
-            this.fotoDataGridViewTextBoxColumn.HeaderText = "Foto";
-            this.fotoDataGridViewTextBoxColumn.Name = "fotoDataGridViewTextBoxColumn";
-            this.fotoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaNacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaNacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
+            this.fechaNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localidadDataGridViewTextBoxColumn
+            // 
+            this.localidadDataGridViewTextBoxColumn.DataPropertyName = "Localidad";
+            this.localidadDataGridViewTextBoxColumn.HeaderText = "Localidad";
+            this.localidadDataGridViewTextBoxColumn.Name = "localidadDataGridViewTextBoxColumn";
+            this.localidadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // domicilioDataGridViewTextBoxColumn
+            // 
+            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
+            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // licenciaDataGridViewTextBoxColumn
+            // 
+            this.licenciaDataGridViewTextBoxColumn.DataPropertyName = "Licencia";
+            this.licenciaDataGridViewTextBoxColumn.HeaderText = "Licencia";
+            this.licenciaDataGridViewTextBoxColumn.Name = "licenciaDataGridViewTextBoxColumn";
+            this.licenciaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // apellidoDataGridViewTextBoxColumn
+            // 
+            this.apellidoDataGridViewTextBoxColumn.DataPropertyName = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.HeaderText = "Apellido";
+            this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
+            this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // documentoDataGridViewTextBoxColumn
+            // 
+            this.documentoDataGridViewTextBoxColumn.DataPropertyName = "Documento";
+            this.documentoDataGridViewTextBoxColumn.HeaderText = "Documento";
+            this.documentoDataGridViewTextBoxColumn.Name = "documentoDataGridViewTextBoxColumn";
+            this.documentoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmGestionChoferes
             // 
@@ -453,7 +451,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtNombreFiltro;
-        private System.Windows.Forms.BindingSource bdsChoferes;
         private System.Windows.Forms.Label lblSinResultados;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
@@ -472,5 +469,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimientoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fotoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bdsChoferes;
     }
 }

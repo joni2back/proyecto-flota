@@ -10,7 +10,7 @@ namespace Controladora.SEGURIDAD
 {
     public class ControladoraLogin
     {
-        Usuario oUsuario;
+        //Usuario oUsuario;
         Controladora.SEGURIDAD.ControladoraUsuarios ctrlUsuarios = new ControladoraUsuarios();
         Controladora.AUDITORIA.ControladoraAudLog ctrlAudLog = new Controladora.AUDITORIA.ControladoraAudLog();
 

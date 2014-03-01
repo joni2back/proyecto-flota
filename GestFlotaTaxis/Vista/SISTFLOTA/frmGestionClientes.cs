@@ -6,14 +6,24 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Controladora;
+using Modelo.SEGURIDAD;
 
 namespace Vista.SISTFLOTA
 {
     public partial class frmGestionClientes : Form
     {
-        public frmGestionClientes()
+        Controladora.ControladoraClientes ctrlCliente = Controladora.ControladoraClientes.getINSTANCIA;
+        Usuario oUsuarioActual;
+
+        public frmGestionClientes(Usuario oUsuario)
         {
+            oUsuarioActual = oUsuario;
             InitializeComponent();
+
+            btnNuevo.Enabled = false;
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
         }
 
         private void frmGestionClientes_Load(object sender, EventArgs e)

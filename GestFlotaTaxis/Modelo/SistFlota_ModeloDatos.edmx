@@ -5,108 +5,108 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="SistFlota_ModeloDatos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-  <EntityContainer Name="SistFlota_ModeloDatosStoreContainer">
-    <EntitySet Name="TiposdeGasto" EntityType="SistFlota_ModeloDatos.Store.TiposdeGasto" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Gastos" EntityType="SistFlota_ModeloDatos.Store.Gastos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Vehiculos" EntityType="SistFlota_ModeloDatos.Store.Vehiculos" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Choferes" EntityType="SistFlota_ModeloDatos.Store.Choferes" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="Empresa" EntityType="SistFlota_ModeloDatos.Store.Empresa" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="TipodeGastoGasto" Association="SistFlota_ModeloDatos.Store.TipodeGastoGasto">
-      <End Role="TipodeGasto" EntitySet="TiposdeGasto" />
-      <End Role="Gasto" EntitySet="Gastos" />
-    </AssociationSet>
-    <AssociationSet Name="VehiculoGasto" Association="SistFlota_ModeloDatos.Store.VehiculoGasto">
-      <End Role="Vehiculo" EntitySet="Vehiculos" />
-      <End Role="Gasto" EntitySet="Gastos" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="TiposdeGasto">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Gastos">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Monto" Type="decimal" Nullable="false" />
-    <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="FechaVencimiento" Type="datetime" Nullable="false" />
-    <Property Name="HoraEmision" Type="datetime" Nullable="true" />
-    <Property Name="FechaEmision" Type="datetime" Nullable="true" />
-    <Property Name="Usuario" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="FechayHora" Type="datetime" Nullable="false" />
-    <Property Name="Operacion" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="TipodeGasto_Id" Type="int" Nullable="false" />
-    <Property Name="Vehiculo_Patente" Type="nvarchar" MaxLength="7" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Vehiculos">
-    <Key>
-      <PropertyRef Name="Patente" />
-    </Key>
-    <Property Name="Patente" Type="nvarchar" Nullable="false" MaxLength="7" />
-    <Property Name="PatenteTaxi" Type="int" Nullable="true" />
-    <Property Name="Marca" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Modelo" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Año" Type="int" Nullable="false" />
-    <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Kilometraje" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="Choferes">
-    <Key>
-      <PropertyRef Name="Documento" />
-    </Key>
-    <Property Name="Documento" Type="int" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Licencia" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telefono" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
-    <Property Name="Correo" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Foto" Type="nvarchar(max)" Nullable="true" />
-  </EntityType>
-  <EntityType Name="Empresa">
-    <Key>
-      <PropertyRef Name="CUIL" />
-    </Key>
-    <Property Name="CUIL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="RazonSocial" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <Association Name="TipodeGastoGasto">
-    <End Role="TipodeGasto" Type="SistFlota_ModeloDatos.Store.TiposdeGasto" Multiplicity="1" />
-    <End Role="Gasto" Type="SistFlota_ModeloDatos.Store.Gastos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TipodeGasto">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="Gasto">
-        <PropertyRef Name="TipodeGasto_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="VehiculoGasto">
-    <End Role="Vehiculo" Type="SistFlota_ModeloDatos.Store.Vehiculos" Multiplicity="1" />
-    <End Role="Gasto" Type="SistFlota_ModeloDatos.Store.Gastos" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Vehiculo">
-        <PropertyRef Name="Patente" />
-      </Principal>
-      <Dependent Role="Gasto">
-        <PropertyRef Name="Vehiculo_Patente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="SistFlota_ModeloDatosStoreContainer">
+          <EntitySet Name="Choferes" EntityType="SistFlota_ModeloDatos.Store.Choferes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Empresa" EntityType="SistFlota_ModeloDatos.Store.Empresa" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Gastos" EntityType="SistFlota_ModeloDatos.Store.Gastos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TiposdeGasto" EntityType="SistFlota_ModeloDatos.Store.TiposdeGasto" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Vehiculos" EntityType="SistFlota_ModeloDatos.Store.Vehiculos" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_TipodeGastoGasto" Association="SistFlota_ModeloDatos.Store.FK_TipodeGastoGasto">
+            <End Role="TiposdeGasto" EntitySet="TiposdeGasto" />
+            <End Role="Gastos" EntitySet="Gastos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VehiculoGasto" Association="SistFlota_ModeloDatos.Store.FK_VehiculoGasto">
+            <End Role="Vehiculos" EntitySet="Vehiculos" />
+            <End Role="Gastos" EntitySet="Gastos" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Choferes">
+          <Key>
+            <PropertyRef Name="Documento" />
+          </Key>
+          <Property Name="Documento" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Licencia" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar(max)" />
+          <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
+          <Property Name="Correo" Type="nvarchar(max)" />
+          <Property Name="Foto" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Empresa">
+          <Key>
+            <PropertyRef Name="CUIL" />
+          </Key>
+          <Property Name="CUIL" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="RazonSocial" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gastos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Monto" Type="decimal" Nullable="false" />
+          <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="FechaVencimiento" Type="datetime" Nullable="false" />
+          <Property Name="HoraEmision" Type="datetime" />
+          <Property Name="FechaEmision" Type="datetime" />
+          <Property Name="Usuario" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="FechayHora" Type="datetime" Nullable="false" />
+          <Property Name="Operacion" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="TipodeGasto_Id" Type="int" Nullable="false" />
+          <Property Name="Vehiculo_Patente" Type="nvarchar" Nullable="false" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="TiposdeGasto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehiculos">
+          <Key>
+            <PropertyRef Name="Patente" />
+          </Key>
+          <Property Name="Patente" Type="nvarchar" Nullable="false" MaxLength="7" />
+          <Property Name="PatenteTaxi" Type="int" />
+          <Property Name="Marca" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Modelo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Año" Type="int" Nullable="false" />
+          <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kilometraje" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TipodeGastoGasto">
+          <End Role="TiposdeGasto" Type="SistFlota_ModeloDatos.Store.TiposdeGasto" Multiplicity="1" />
+          <End Role="Gastos" Type="SistFlota_ModeloDatos.Store.Gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposdeGasto">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Gastos">
+              <PropertyRef Name="TipodeGasto_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VehiculoGasto">
+          <End Role="Vehiculos" Type="SistFlota_ModeloDatos.Store.Vehiculos" Multiplicity="1" />
+          <End Role="Gastos" Type="SistFlota_ModeloDatos.Store.Gastos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehiculos">
+              <PropertyRef Name="Patente" />
+            </Principal>
+            <Dependent Role="Gastos">
+              <PropertyRef Name="Vehiculo_Patente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="SistFlota_ModeloDatos" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
