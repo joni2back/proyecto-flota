@@ -18,7 +18,38 @@ namespace Vista.SISTFLOTA
         public frmEmpresa()
         {
             InitializeComponent();
+            frmModo = "ALTA";
         }
+
+        public frmEmpresa(string modo, Modelo.Empresa oEmpresa)
+        {
+            InitializeComponent();
+            frmModo = modo;
+
+            if (frmModo == "MODIFICACION")
+            {
+                txtCuit.Enabled = false;
+            }
+
+            if (frmModo == "CONSULTA")
+            {
+                grpDetalle.Enabled = false;
+                btnGuardar.Enabled = false;
+            }
+
+            LlenarCampos(oEmpresa);
+        }
+
+        private void LlenarCampos(Modelo.Empresa oEmpresa)
+        {
+            txtCuit.Text = oEmpresa.Cuit.ToString();
+            txtRazonSocial.Text = oEmpresa.RazonSocial;
+            txtLocalidad.Text = oEmpresa.Localidad;
+            txtCorreoElectronico.Text = oEmpresa.Correo;
+            txtDomicilio.Text = oEmpresa.Domicilio;
+            txtTelefono.Text = oEmpresa.Telefono;
+
+         }
 
         private void frmEmpresa_Load(object sender, EventArgs e)
         {
@@ -35,10 +66,10 @@ namespace Vista.SISTFLOTA
             }
 
          
-            if (txtCuil.Text == "")
+            if (txtCuit.Text == "")
             {
-                txtCuil.Focus();
-                MessageBox.Show("Complete el CUIL de la Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtCuit.Focus();
+                MessageBox.Show("Complete el Cuit de la Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
@@ -106,6 +137,11 @@ namespace Vista.SISTFLOTA
                 }
 
             }
+        }
+
+        private void txtCuit_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

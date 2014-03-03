@@ -218,6 +218,11 @@ namespace Vista
 
         }
 
+        private void grillaVehiculos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
 
     }
 }

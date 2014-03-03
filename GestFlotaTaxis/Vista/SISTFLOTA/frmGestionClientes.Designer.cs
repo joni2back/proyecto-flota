@@ -50,8 +50,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblSinResultados = new System.Windows.Forms.Label();
             this.grillaClientes = new System.Windows.Forms.DataGridView();
-            this.grpVehiculos = new System.Windows.Forms.GroupBox();
-            this.bdsClientes = new System.Windows.Forms.BindingSource(this.components);
             this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,10 +59,12 @@
             this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresaCUILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.empresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bdsClientes = new System.Windows.Forms.BindingSource(this.components);
+            this.grpVehiculos = new System.Windows.Forms.GroupBox();
             this.grpFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaClientes)).BeginInit();
-            this.grpVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsClientes)).BeginInit();
+            this.grpVehiculos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -80,7 +80,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtApellidoFiltro
             // 
@@ -104,7 +103,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnModificar
             // 
@@ -119,7 +117,6 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtNombreFiltro
             // 
@@ -143,7 +140,6 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // grpFiltros
             // 
@@ -167,7 +163,6 @@
             this.grpFiltros.TabIndex = 106;
             this.grpFiltros.TabStop = false;
             this.grpFiltros.Text = "Busqueda de Clientes";
-            this.grpFiltros.Enter += new System.EventHandler(this.grpFiltros_Enter);
             // 
             // label1
             // 
@@ -292,7 +287,6 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // lblSinResultados
             // 
@@ -342,25 +336,6 @@
             this.grillaClientes.ShowRowErrors = false;
             this.grillaClientes.Size = new System.Drawing.Size(534, 240);
             this.grillaClientes.TabIndex = 7;
-            this.grillaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaClientes_CellContentClick);
-            // 
-            // grpVehiculos
-            // 
-            this.grpVehiculos.Controls.Add(this.lblSinResultados);
-            this.grpVehiculos.Controls.Add(this.grillaClientes);
-            this.grpVehiculos.Location = new System.Drawing.Point(14, 149);
-            this.grpVehiculos.Margin = new System.Windows.Forms.Padding(2);
-            this.grpVehiculos.Name = "grpVehiculos";
-            this.grpVehiculos.Padding = new System.Windows.Forms.Padding(2);
-            this.grpVehiculos.Size = new System.Drawing.Size(586, 288);
-            this.grpVehiculos.TabIndex = 105;
-            this.grpVehiculos.TabStop = false;
-            this.grpVehiculos.Text = "Clientes";
-            this.grpVehiculos.Enter += new System.EventHandler(this.grpVehiculos_Enter);
-            // 
-            // bdsClientes
-            // 
-            this.bdsClientes.DataSource = typeof(Modelo.Cliente);
             // 
             // documentoDataGridViewTextBoxColumn
             // 
@@ -425,6 +400,23 @@
             this.empresaDataGridViewTextBoxColumn.Name = "empresaDataGridViewTextBoxColumn";
             this.empresaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // bdsClientes
+            // 
+            this.bdsClientes.DataSource = typeof(Modelo.Cliente);
+            // 
+            // grpVehiculos
+            // 
+            this.grpVehiculos.Controls.Add(this.lblSinResultados);
+            this.grpVehiculos.Controls.Add(this.grillaClientes);
+            this.grpVehiculos.Location = new System.Drawing.Point(14, 149);
+            this.grpVehiculos.Margin = new System.Windows.Forms.Padding(2);
+            this.grpVehiculos.Name = "grpVehiculos";
+            this.grpVehiculos.Padding = new System.Windows.Forms.Padding(2);
+            this.grpVehiculos.Size = new System.Drawing.Size(586, 288);
+            this.grpVehiculos.TabIndex = 105;
+            this.grpVehiculos.TabStop = false;
+            this.grpVehiculos.Text = "Clientes";
+            // 
             // frmGestionClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,9 +441,9 @@
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsClientes)).EndInit();
             this.grpVehiculos.ResumeLayout(false);
             this.grpVehiculos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsClientes)).EndInit();
             this.ResumeLayout(false);
 
         }

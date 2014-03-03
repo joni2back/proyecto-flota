@@ -44,7 +44,7 @@ namespace Controladora
 
         public bool VerificarEmpresa(Modelo.Empresa oEmpresa)
         {
-            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresas.Where(oEmpr => oEmpr.CUIL == oEmpresa.CUIL).ToList();
+            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresas.Where(oEmpr => oEmpr.Cuit == oEmpresa.Cuit).ToList();
 
             if (Lista.Count > 0)    
             {

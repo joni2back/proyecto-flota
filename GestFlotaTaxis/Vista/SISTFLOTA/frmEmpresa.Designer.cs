@@ -33,31 +33,31 @@
             this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDomicilio = new System.Windows.Forms.TextBox();
-            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCuil = new System.Windows.Forms.TextBox();
+            this.txtCuit = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.grpDetalle.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpDetalle
             // 
+            this.grpDetalle.Controls.Add(this.txtRazonSocial);
             this.grpDetalle.Controls.Add(this.txtCorreoElectronico);
             this.grpDetalle.Controls.Add(this.txtTelefono);
             this.grpDetalle.Controls.Add(this.txtDomicilio);
-            this.grpDetalle.Controls.Add(this.txtRazonSocial);
             this.grpDetalle.Controls.Add(this.label2);
             this.grpDetalle.Controls.Add(this.label1);
             this.grpDetalle.Controls.Add(this.txtLocalidad);
             this.grpDetalle.Controls.Add(this.label11);
-            this.grpDetalle.Controls.Add(this.txtCuil);
+            this.grpDetalle.Controls.Add(this.txtCuit);
             this.grpDetalle.Controls.Add(this.label9);
             this.grpDetalle.Controls.Add(this.label8);
             this.grpDetalle.Controls.Add(this.label7);
@@ -96,15 +96,6 @@
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(150, 20);
             this.txtDomicilio.TabIndex = 40;
-            // 
-            // txtRazonSocial
-            // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(139, 24);
-            this.txtRazonSocial.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRazonSocial.MaxLength = 50;
-            this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(149, 20);
-            this.txtRazonSocial.TabIndex = 39;
             // 
             // label2
             // 
@@ -148,20 +139,20 @@
             this.label11.TabIndex = 34;
             this.label11.Text = "Localidad";
             // 
-            // txtCuil
+            // txtCuit
             // 
-            this.txtCuil.Location = new System.Drawing.Point(372, 29);
-            this.txtCuil.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCuil.MaxLength = 50;
-            this.txtCuil.Name = "txtCuil";
-            this.txtCuil.Size = new System.Drawing.Size(149, 20);
-            this.txtCuil.TabIndex = 4;
+            this.txtCuit.Location = new System.Drawing.Point(139, 22);
+            this.txtCuit.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCuit.MaxLength = 50;
+            this.txtCuit.Name = "txtCuit";
+            this.txtCuit.Size = new System.Drawing.Size(149, 20);
+            this.txtCuit.TabIndex = 4;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(337, 29);
+            this.label9.Location = new System.Drawing.Point(104, 22);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 15);
@@ -172,7 +163,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(65, 29);
+            this.label8.Location = new System.Drawing.Point(298, 22);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 15);
@@ -219,6 +210,15 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial.Location = new System.Drawing.Point(372, 20);
+            this.txtRazonSocial.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRazonSocial.MaxLength = 50;
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(149, 20);
+            this.txtRazonSocial.TabIndex = 43;
+            // 
             // frmEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,17 +247,17 @@
         private System.Windows.Forms.TextBox txtCorreoElectronico;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.TextBox txtDomicilio;
-        private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLocalidad;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCuil;
+        private System.Windows.Forms.TextBox txtCuit;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.TextBox txtRazonSocial;
 
     }
 }

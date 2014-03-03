@@ -133,6 +133,7 @@
             this.grillaVehiculos.ShowRowErrors = false;
             this.grillaVehiculos.Size = new System.Drawing.Size(534, 240);
             this.grillaVehiculos.TabIndex = 7;
+            this.grillaVehiculos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaVehiculos_CellContentClick);
             // 
             // patenteDataGridViewTextBoxColumn
             // 

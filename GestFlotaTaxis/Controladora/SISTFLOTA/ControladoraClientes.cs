@@ -12,7 +12,7 @@ namespace Controladora
         private ControladoraClientes()
         {
         }
-        public static ControladoraEmpresas getINSTANCIA
+        public static ControladoraClientes getINSTANCIA
         {
             get
             {
@@ -23,22 +23,22 @@ namespace Controladora
 
         public void AgregarCliente(Modelo.Cliente oCliente)
         {
-            Modelo.Datos.ObtenerInstancia().AddToEmpresa(oCliente);
+            Modelo.Datos.ObtenerInstancia().AddToClientes(oCliente);
             Modelo.Datos.ObtenerInstancia().SaveChanges();
         }
-        public void EliminarEmpresa(Modelo.Cliente oCliente)
+        public void EliminarCliente(Modelo.Cliente oCliente)
         {
             Modelo.Datos.ObtenerInstancia().DeleteObject(oCliente);
             Modelo.Datos.ObtenerInstancia().SaveChanges();
         }
-        public void ModificarCliente(Modelo.Empresa oCliente)
+        public void ModificarCliente(Modelo.Cliente oCliente)
         {
-            Modelo.Datos.ObtenerInstancia().Empresa.ApplyCurrentValues(oCliente);
+            Modelo.Datos.ObtenerInstancia().Clientes.ApplyCurrentValues(oCliente);
             Modelo.Datos.ObtenerInstancia().SaveChanges();
         }
-        public List<Modelo.Empresa> ListarClientes()
+        public List<Modelo.Cliente> ListarClientes()
         {
-            return Modelo.Datos.ObtenerInstancia().Cliente.ToList();
+            return Modelo.Datos.ObtenerInstancia().Clientes.ToList();
 
         }
 

@@ -63,8 +63,8 @@ namespace Vista.SISTFLOTA
             DialogResult drABIERTO = ofrmCliente.ShowDialog();
             if (drABIERTO == DialogResult.OK)
             {
-                ArmarGrilla();
-                MessageBox.Show("El Cliente se agregó correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //ArmarGrilla();
+                //MessageBox.Show("El Cliente se agregó correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -82,5 +82,6 @@ namespace Vista.SISTFLOTA
         {
 
         }
+       
     }
 }
