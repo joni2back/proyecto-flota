@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCliente));
             this.grpDetalle = new System.Windows.Forms.GroupBox();
+            this.cmbCompania = new System.Windows.Forms.ComboBox();
             this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDomicilio = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.cmbCompania = new System.Windows.Forms.ComboBox();
             this.grpDetalle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -81,6 +81,14 @@
             this.grpDetalle.TabIndex = 24;
             this.grpDetalle.TabStop = false;
             this.grpDetalle.Text = "Detalle del Cliente";
+            // 
+            // cmbCompania
+            // 
+            this.cmbCompania.FormattingEnabled = true;
+            this.cmbCompania.Location = new System.Drawing.Point(140, 201);
+            this.cmbCompania.Name = "cmbCompania";
+            this.cmbCompania.Size = new System.Drawing.Size(143, 21);
+            this.cmbCompania.TabIndex = 45;
             // 
             // txtCorreoElectronico
             // 
@@ -176,9 +184,9 @@
             this.label10.Location = new System.Drawing.Point(63, 208);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(61, 15);
+            this.label10.Size = new System.Drawing.Size(54, 15);
             this.label10.TabIndex = 32;
-            this.label10.Text = "Compañia";
+            this.label10.Text = "Empresa";
             // 
             // txtDocumento
             // 
@@ -281,14 +289,6 @@
             this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardar.UseVisualStyleBackColor = true;
             // 
-            // cmbCompania
-            // 
-            this.cmbCompania.FormattingEnabled = true;
-            this.cmbCompania.Location = new System.Drawing.Point(140, 201);
-            this.cmbCompania.Name = "cmbCompania";
-            this.cmbCompania.Size = new System.Drawing.Size(143, 21);
-            this.cmbCompania.TabIndex = 45;
-            // 
             // frmCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -304,6 +304,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Datos Cliente";
+            this.Load += new System.EventHandler(this.frmCliente_Load);
             this.grpDetalle.ResumeLayout(false);
             this.grpDetalle.PerformLayout();
             this.ResumeLayout(false);

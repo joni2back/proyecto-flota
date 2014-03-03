@@ -46,5 +46,10 @@ namespace Vista.SISTFLOTA
                 MessageBox.Show("La Empresa se agregó correctamente", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

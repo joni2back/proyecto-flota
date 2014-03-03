@@ -159,6 +159,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SistFlota_Seguridad_Modelo.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="SistFlota_ModeloDatos.edmx.sqlce" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

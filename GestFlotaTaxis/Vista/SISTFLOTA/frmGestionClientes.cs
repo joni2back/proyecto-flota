@@ -77,5 +77,10 @@ namespace Vista.SISTFLOTA
         {
 
         }
+
+        private void grillaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

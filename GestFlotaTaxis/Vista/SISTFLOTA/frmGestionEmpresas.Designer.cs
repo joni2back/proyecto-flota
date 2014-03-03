@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionEmpresas));
             this.lblSinResultados = new System.Windows.Forms.Label();
-            this.grillaVehiculos = new System.Windows.Forms.DataGridView();
+            this.grillaEmpresas = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -46,7 +46,14 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.grpVehiculos = new System.Windows.Forms.GroupBox();
             this.bdsEmpresa = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.grillaVehiculos)).BeginInit();
+            this.cUILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.razonSocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.localidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaEmpresas)).BeginInit();
             this.grpFiltros.SuspendLayout();
             this.grpVehiculos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsEmpresa)).BeginInit();
@@ -66,28 +73,38 @@
             this.lblSinResultados.Text = "No se encontraron resultados con los parámetros de busqueda introducidos";
             this.lblSinResultados.Visible = false;
             // 
-            // grillaVehiculos
+            // grillaEmpresas
             // 
-            this.grillaVehiculos.AllowUserToAddRows = false;
-            this.grillaVehiculos.AllowUserToDeleteRows = false;
-            this.grillaVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grillaVehiculos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.grillaVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grillaVehiculos.Location = new System.Drawing.Point(27, 29);
-            this.grillaVehiculos.MultiSelect = false;
-            this.grillaVehiculos.Name = "grillaVehiculos";
-            this.grillaVehiculos.ReadOnly = true;
-            this.grillaVehiculos.RowHeadersVisible = false;
-            this.grillaVehiculos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.grillaVehiculos.RowTemplate.Height = 24;
-            this.grillaVehiculos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grillaVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grillaVehiculos.ShowCellErrors = false;
-            this.grillaVehiculos.ShowCellToolTips = false;
-            this.grillaVehiculos.ShowEditingIcon = false;
-            this.grillaVehiculos.ShowRowErrors = false;
-            this.grillaVehiculos.Size = new System.Drawing.Size(534, 240);
-            this.grillaVehiculos.TabIndex = 7;
+            this.grillaEmpresas.AllowUserToAddRows = false;
+            this.grillaEmpresas.AllowUserToDeleteRows = false;
+            this.grillaEmpresas.AutoGenerateColumns = false;
+            this.grillaEmpresas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grillaEmpresas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.grillaEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grillaEmpresas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cUILDataGridViewTextBoxColumn,
+            this.razonSocialDataGridViewTextBoxColumn,
+            this.domicilioDataGridViewTextBoxColumn,
+            this.telefonoDataGridViewTextBoxColumn,
+            this.localidadDataGridViewTextBoxColumn,
+            this.correoDataGridViewTextBoxColumn,
+            this.clienteDataGridViewTextBoxColumn});
+            this.grillaEmpresas.DataSource = this.bdsEmpresa;
+            this.grillaEmpresas.Location = new System.Drawing.Point(27, 29);
+            this.grillaEmpresas.MultiSelect = false;
+            this.grillaEmpresas.Name = "grillaEmpresas";
+            this.grillaEmpresas.ReadOnly = true;
+            this.grillaEmpresas.RowHeadersVisible = false;
+            this.grillaEmpresas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.grillaEmpresas.RowTemplate.Height = 24;
+            this.grillaEmpresas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grillaEmpresas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grillaEmpresas.ShowCellErrors = false;
+            this.grillaEmpresas.ShowCellToolTips = false;
+            this.grillaEmpresas.ShowEditingIcon = false;
+            this.grillaEmpresas.ShowRowErrors = false;
+            this.grillaEmpresas.Size = new System.Drawing.Size(534, 240);
+            this.grillaEmpresas.TabIndex = 7;
             // 
             // btnCancelar
             // 
@@ -169,7 +186,7 @@
             this.grpFiltros.Size = new System.Drawing.Size(587, 138);
             this.grpFiltros.TabIndex = 113;
             this.grpFiltros.TabStop = false;
-            this.grpFiltros.Text = "Busqueda de Clientes";
+            this.grpFiltros.Text = "Busqueda de Empresas";
             // 
             // label8
             // 
@@ -189,9 +206,10 @@
             this.label4.Location = new System.Drawing.Point(324, 33);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 15);
+            this.label4.Size = new System.Drawing.Size(29, 15);
             this.label4.TabIndex = 34;
-            this.label4.Text = "Teléfono";
+            this.label4.Text = "Cuit";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnBuscar
             // 
@@ -248,7 +266,7 @@
             // grpVehiculos
             // 
             this.grpVehiculos.Controls.Add(this.lblSinResultados);
-            this.grpVehiculos.Controls.Add(this.grillaVehiculos);
+            this.grpVehiculos.Controls.Add(this.grillaEmpresas);
             this.grpVehiculos.Location = new System.Drawing.Point(9, 144);
             this.grpVehiculos.Margin = new System.Windows.Forms.Padding(2);
             this.grpVehiculos.Name = "grpVehiculos";
@@ -256,7 +274,60 @@
             this.grpVehiculos.Size = new System.Drawing.Size(586, 288);
             this.grpVehiculos.TabIndex = 112;
             this.grpVehiculos.TabStop = false;
-            this.grpVehiculos.Text = "Choferes";
+            this.grpVehiculos.Text = "Empresas";
+            // 
+            // bdsEmpresa
+            // 
+            this.bdsEmpresa.DataSource = typeof(Modelo.Empresa);
+            // 
+            // cUILDataGridViewTextBoxColumn
+            // 
+            this.cUILDataGridViewTextBoxColumn.DataPropertyName = "CUIL";
+            this.cUILDataGridViewTextBoxColumn.HeaderText = "CUIL";
+            this.cUILDataGridViewTextBoxColumn.Name = "cUILDataGridViewTextBoxColumn";
+            this.cUILDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // razonSocialDataGridViewTextBoxColumn
+            // 
+            this.razonSocialDataGridViewTextBoxColumn.DataPropertyName = "RazonSocial";
+            this.razonSocialDataGridViewTextBoxColumn.HeaderText = "RazonSocial";
+            this.razonSocialDataGridViewTextBoxColumn.Name = "razonSocialDataGridViewTextBoxColumn";
+            this.razonSocialDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // domicilioDataGridViewTextBoxColumn
+            // 
+            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
+            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localidadDataGridViewTextBoxColumn
+            // 
+            this.localidadDataGridViewTextBoxColumn.DataPropertyName = "Localidad";
+            this.localidadDataGridViewTextBoxColumn.HeaderText = "Localidad";
+            this.localidadDataGridViewTextBoxColumn.Name = "localidadDataGridViewTextBoxColumn";
+            this.localidadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // correoDataGridViewTextBoxColumn
+            // 
+            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
+            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
+            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
+            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmGestionEmpresas
             // 
@@ -277,7 +348,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestión de Empresas";
-            ((System.ComponentModel.ISupportInitialize)(this.grillaVehiculos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaEmpresas)).EndInit();
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
             this.grpVehiculos.ResumeLayout(false);
@@ -290,7 +361,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblSinResultados;
-        private System.Windows.Forms.DataGridView grillaVehiculos;
+        private System.Windows.Forms.DataGridView grillaEmpresas;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
@@ -305,5 +376,12 @@
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.GroupBox grpVehiculos;
         private System.Windows.Forms.BindingSource bdsEmpresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cUILDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn razonSocialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn localidadDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clienteDataGridViewTextBoxColumn;
     }
 }

@@ -164,9 +164,9 @@
             this.label9.Location = new System.Drawing.Point(337, 29);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(31, 15);
+            this.label9.Size = new System.Drawing.Size(29, 15);
             this.label9.TabIndex = 30;
-            this.label9.Text = "CUIL";
+            this.label9.Text = "Cuit";
             // 
             // label8
             // 

@@ -31,41 +31,40 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionClientes));
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtLicenciaFiltro = new System.Windows.Forms.TextBox();
+            this.txtApellidoFiltro = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.txtDocumentoFiltro = new System.Windows.Forms.TextBox();
+            this.txtNombreFiltro = new System.Windows.Forms.TextBox();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.txtApellidoFiltro = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDocumentoFiltro = new System.Windows.Forms.TextBox();
+            this.txtCuitFiltro = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtNombreFiltro = new System.Windows.Forms.TextBox();
+            this.txtEmpresaFiltro = new System.Windows.Forms.TextBox();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.lblSinResultados = new System.Windows.Forms.Label();
-            this.grillaVehiculos = new System.Windows.Forms.DataGridView();
+            this.grillaClientes = new System.Windows.Forms.DataGridView();
             this.grpVehiculos = new System.Windows.Forms.GroupBox();
+            this.bdsClientes = new System.Windows.Forms.BindingSource(this.components);
             this.documentoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.apellidoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenciaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.localidadDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fechaNacimientoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fotoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdsChoferes = new System.Windows.Forms.BindingSource(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.empresaCUILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.empresaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaVehiculos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaClientes)).BeginInit();
             this.grpVehiculos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsChoferes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsClientes)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -83,14 +82,14 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // txtLicenciaFiltro
+            // txtApellidoFiltro
             // 
-            this.txtLicenciaFiltro.Location = new System.Drawing.Point(398, 54);
-            this.txtLicenciaFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtLicenciaFiltro.MaxLength = 25;
-            this.txtLicenciaFiltro.Name = "txtLicenciaFiltro";
-            this.txtLicenciaFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtLicenciaFiltro.TabIndex = 39;
+            this.txtApellidoFiltro.Location = new System.Drawing.Point(398, 54);
+            this.txtApellidoFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApellidoFiltro.MaxLength = 25;
+            this.txtApellidoFiltro.Name = "txtApellidoFiltro";
+            this.txtApellidoFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtApellidoFiltro.TabIndex = 39;
             // 
             // btnEliminar
             // 
@@ -122,14 +121,14 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // txtDocumentoFiltro
+            // txtNombreFiltro
             // 
-            this.txtDocumentoFiltro.Location = new System.Drawing.Point(149, 52);
-            this.txtDocumentoFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDocumentoFiltro.MaxLength = 25;
-            this.txtDocumentoFiltro.Name = "txtDocumentoFiltro";
-            this.txtDocumentoFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtDocumentoFiltro.TabIndex = 38;
+            this.txtNombreFiltro.Location = new System.Drawing.Point(149, 52);
+            this.txtNombreFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombreFiltro.MaxLength = 25;
+            this.txtNombreFiltro.Name = "txtNombreFiltro";
+            this.txtNombreFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtNombreFiltro.TabIndex = 38;
             // 
             // btnConsultar
             // 
@@ -149,17 +148,17 @@
             // grpFiltros
             // 
             this.grpFiltros.Controls.Add(this.label1);
-            this.grpFiltros.Controls.Add(this.textBox1);
-            this.grpFiltros.Controls.Add(this.txtLicenciaFiltro);
             this.grpFiltros.Controls.Add(this.txtDocumentoFiltro);
             this.grpFiltros.Controls.Add(this.txtApellidoFiltro);
+            this.grpFiltros.Controls.Add(this.txtNombreFiltro);
+            this.grpFiltros.Controls.Add(this.txtCuitFiltro);
             this.grpFiltros.Controls.Add(this.label10);
             this.grpFiltros.Controls.Add(this.label9);
             this.grpFiltros.Controls.Add(this.label8);
             this.grpFiltros.Controls.Add(this.label4);
             this.grpFiltros.Controls.Add(this.btnBuscar);
             this.grpFiltros.Controls.Add(this.btnLimpiar);
-            this.grpFiltros.Controls.Add(this.txtNombreFiltro);
+            this.grpFiltros.Controls.Add(this.txtEmpresaFiltro);
             this.grpFiltros.Location = new System.Drawing.Point(14, 7);
             this.grpFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.grpFiltros.Name = "grpFiltros";
@@ -170,14 +169,34 @@
             this.grpFiltros.Text = "Busqueda de Clientes";
             this.grpFiltros.Enter += new System.EventHandler(this.grpFiltros_Enter);
             // 
-            // txtApellidoFiltro
+            // label1
             // 
-            this.txtApellidoFiltro.Location = new System.Drawing.Point(398, 28);
-            this.txtApellidoFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApellidoFiltro.MaxLength = 25;
-            this.txtApellidoFiltro.Name = "txtApellidoFiltro";
-            this.txtApellidoFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtApellidoFiltro.TabIndex = 37;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(76, 76);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 15);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "DNI Cliente";
+            // 
+            // txtDocumentoFiltro
+            // 
+            this.txtDocumentoFiltro.Location = new System.Drawing.Point(149, 76);
+            this.txtDocumentoFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDocumentoFiltro.MaxLength = 25;
+            this.txtDocumentoFiltro.Name = "txtDocumentoFiltro";
+            this.txtDocumentoFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtDocumentoFiltro.TabIndex = 40;
+            // 
+            // txtCuitFiltro
+            // 
+            this.txtCuitFiltro.Location = new System.Drawing.Point(398, 28);
+            this.txtCuitFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCuitFiltro.MaxLength = 25;
+            this.txtCuitFiltro.Name = "txtCuitFiltro";
+            this.txtCuitFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtCuitFiltro.TabIndex = 37;
             // 
             // label10
             // 
@@ -219,9 +238,9 @@
             this.label4.Location = new System.Drawing.Point(362, 26);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 15);
+            this.label4.Size = new System.Drawing.Size(29, 15);
             this.label4.TabIndex = 34;
-            this.label4.Text = "Cuil";
+            this.label4.Text = "Cuit";
             // 
             // btnBuscar
             // 
@@ -251,14 +270,14 @@
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
-            // txtNombreFiltro
+            // txtEmpresaFiltro
             // 
-            this.txtNombreFiltro.Location = new System.Drawing.Point(149, 26);
-            this.txtNombreFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombreFiltro.MaxLength = 25;
-            this.txtNombreFiltro.Name = "txtNombreFiltro";
-            this.txtNombreFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtNombreFiltro.TabIndex = 1;
+            this.txtEmpresaFiltro.Location = new System.Drawing.Point(149, 26);
+            this.txtEmpresaFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtEmpresaFiltro.MaxLength = 25;
+            this.txtEmpresaFiltro.Name = "txtEmpresaFiltro";
+            this.txtEmpresaFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtEmpresaFiltro.TabIndex = 1;
             // 
             // btnNuevo
             // 
@@ -289,46 +308,46 @@
             this.lblSinResultados.Text = "No se encontraron resultados con los parámetros de busqueda introducidos";
             this.lblSinResultados.Visible = false;
             // 
-            // grillaVehiculos
+            // grillaClientes
             // 
-            this.grillaVehiculos.AllowUserToAddRows = false;
-            this.grillaVehiculos.AllowUserToDeleteRows = false;
-            this.grillaVehiculos.AutoGenerateColumns = false;
-            this.grillaVehiculos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grillaVehiculos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.grillaVehiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grillaVehiculos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grillaClientes.AllowUserToAddRows = false;
+            this.grillaClientes.AllowUserToDeleteRows = false;
+            this.grillaClientes.AutoGenerateColumns = false;
+            this.grillaClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grillaClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.grillaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grillaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.documentoDataGridViewTextBoxColumn,
             this.nombreDataGridViewTextBoxColumn,
             this.apellidoDataGridViewTextBoxColumn,
-            this.licenciaDataGridViewTextBoxColumn,
-            this.domicilioDataGridViewTextBoxColumn,
-            this.localidadDataGridViewTextBoxColumn,
-            this.telefonoDataGridViewTextBoxColumn,
             this.fechaNacimientoDataGridViewTextBoxColumn,
+            this.domicilioDataGridViewTextBoxColumn,
+            this.telefonoDataGridViewTextBoxColumn,
             this.correoDataGridViewTextBoxColumn,
-            this.fotoDataGridViewTextBoxColumn});
-            this.grillaVehiculos.DataSource = this.bdsChoferes;
-            this.grillaVehiculos.Location = new System.Drawing.Point(27, 29);
-            this.grillaVehiculos.MultiSelect = false;
-            this.grillaVehiculos.Name = "grillaVehiculos";
-            this.grillaVehiculos.ReadOnly = true;
-            this.grillaVehiculos.RowHeadersVisible = false;
-            this.grillaVehiculos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.grillaVehiculos.RowTemplate.Height = 24;
-            this.grillaVehiculos.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.grillaVehiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grillaVehiculos.ShowCellErrors = false;
-            this.grillaVehiculos.ShowCellToolTips = false;
-            this.grillaVehiculos.ShowEditingIcon = false;
-            this.grillaVehiculos.ShowRowErrors = false;
-            this.grillaVehiculos.Size = new System.Drawing.Size(534, 240);
-            this.grillaVehiculos.TabIndex = 7;
+            this.empresaCUILDataGridViewTextBoxColumn,
+            this.empresaDataGridViewTextBoxColumn});
+            this.grillaClientes.DataSource = this.bdsClientes;
+            this.grillaClientes.Location = new System.Drawing.Point(27, 29);
+            this.grillaClientes.MultiSelect = false;
+            this.grillaClientes.Name = "grillaClientes";
+            this.grillaClientes.ReadOnly = true;
+            this.grillaClientes.RowHeadersVisible = false;
+            this.grillaClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.grillaClientes.RowTemplate.Height = 24;
+            this.grillaClientes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.grillaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grillaClientes.ShowCellErrors = false;
+            this.grillaClientes.ShowCellToolTips = false;
+            this.grillaClientes.ShowEditingIcon = false;
+            this.grillaClientes.ShowRowErrors = false;
+            this.grillaClientes.Size = new System.Drawing.Size(534, 240);
+            this.grillaClientes.TabIndex = 7;
+            this.grillaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaClientes_CellContentClick);
             // 
             // grpVehiculos
             // 
             this.grpVehiculos.Controls.Add(this.lblSinResultados);
-            this.grpVehiculos.Controls.Add(this.grillaVehiculos);
+            this.grpVehiculos.Controls.Add(this.grillaClientes);
             this.grpVehiculos.Location = new System.Drawing.Point(14, 149);
             this.grpVehiculos.Margin = new System.Windows.Forms.Padding(2);
             this.grpVehiculos.Name = "grpVehiculos";
@@ -336,8 +355,12 @@
             this.grpVehiculos.Size = new System.Drawing.Size(586, 288);
             this.grpVehiculos.TabIndex = 105;
             this.grpVehiculos.TabStop = false;
-            this.grpVehiculos.Text = "Choferes";
+            this.grpVehiculos.Text = "Clientes";
             this.grpVehiculos.Enter += new System.EventHandler(this.grpVehiculos_Enter);
+            // 
+            // bdsClientes
+            // 
+            this.bdsClientes.DataSource = typeof(Modelo.Cliente);
             // 
             // documentoDataGridViewTextBoxColumn
             // 
@@ -360,12 +383,12 @@
             this.apellidoDataGridViewTextBoxColumn.Name = "apellidoDataGridViewTextBoxColumn";
             this.apellidoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // licenciaDataGridViewTextBoxColumn
+            // fechaNacimientoDataGridViewTextBoxColumn
             // 
-            this.licenciaDataGridViewTextBoxColumn.DataPropertyName = "Licencia";
-            this.licenciaDataGridViewTextBoxColumn.HeaderText = "Licencia";
-            this.licenciaDataGridViewTextBoxColumn.Name = "licenciaDataGridViewTextBoxColumn";
-            this.licenciaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaNacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaNacimiento";
+            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
+            this.fechaNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // domicilioDataGridViewTextBoxColumn
             // 
@@ -374,26 +397,12 @@
             this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
             this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // localidadDataGridViewTextBoxColumn
-            // 
-            this.localidadDataGridViewTextBoxColumn.DataPropertyName = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.HeaderText = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.Name = "localidadDataGridViewTextBoxColumn";
-            this.localidadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // telefonoDataGridViewTextBoxColumn
             // 
             this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
             this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
             this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
             this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fechaNacimientoDataGridViewTextBoxColumn
-            // 
-            this.fechaNacimientoDataGridViewTextBoxColumn.DataPropertyName = "FechaNacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.HeaderText = "FechaNacimiento";
-            this.fechaNacimientoDataGridViewTextBoxColumn.Name = "fechaNacimientoDataGridViewTextBoxColumn";
-            this.fechaNacimientoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // correoDataGridViewTextBoxColumn
             // 
@@ -402,37 +411,19 @@
             this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
             this.correoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // fotoDataGridViewTextBoxColumn
+            // empresaCUILDataGridViewTextBoxColumn
             // 
-            this.fotoDataGridViewTextBoxColumn.DataPropertyName = "Foto";
-            this.fotoDataGridViewTextBoxColumn.HeaderText = "Foto";
-            this.fotoDataGridViewTextBoxColumn.Name = "fotoDataGridViewTextBoxColumn";
-            this.fotoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.empresaCUILDataGridViewTextBoxColumn.DataPropertyName = "EmpresaCUIL";
+            this.empresaCUILDataGridViewTextBoxColumn.HeaderText = "EmpresaCUIL";
+            this.empresaCUILDataGridViewTextBoxColumn.Name = "empresaCUILDataGridViewTextBoxColumn";
+            this.empresaCUILDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // bdsChoferes
+            // empresaDataGridViewTextBoxColumn
             // 
-            this.bdsChoferes.DataSource = typeof(Modelo.Chofer);
-            this.bdsChoferes.CurrentChanged += new System.EventHandler(this.bdsChoferes_CurrentChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(149, 76);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.MaxLength = 25;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(142, 20);
-            this.textBox1.TabIndex = 40;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(76, 76);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 15);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "DNI Cliente";
+            this.empresaDataGridViewTextBoxColumn.DataPropertyName = "Empresa";
+            this.empresaDataGridViewTextBoxColumn.HeaderText = "Empresa";
+            this.empresaDataGridViewTextBoxColumn.Name = "empresaDataGridViewTextBoxColumn";
+            this.empresaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // frmGestionClientes
             // 
@@ -457,10 +448,10 @@
             this.Load += new System.EventHandler(this.frmGestionClientes_Load);
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaVehiculos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaClientes)).EndInit();
             this.grpVehiculos.ResumeLayout(false);
             this.grpVehiculos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsChoferes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsClientes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -468,36 +459,35 @@
         #endregion
 
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.TextBox txtLicenciaFiltro;
+        private System.Windows.Forms.TextBox txtApellidoFiltro;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.TextBox txtDocumentoFiltro;
+        private System.Windows.Forms.TextBox txtNombreFiltro;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.GroupBox grpFiltros;
-        private System.Windows.Forms.TextBox txtApellidoFiltro;
+        private System.Windows.Forms.TextBox txtCuitFiltro;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.TextBox txtNombreFiltro;
+        private System.Windows.Forms.TextBox txtEmpresaFiltro;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label lblSinResultados;
-        private System.Windows.Forms.BindingSource bdsChoferes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn documentoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView grillaVehiculos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn licenciaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn localidadDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimientoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fotoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView grillaClientes;
         private System.Windows.Forms.GroupBox grpVehiculos;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDocumentoFiltro;
+        private System.Windows.Forms.BindingSource bdsClientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn documentoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellidoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaNacimientoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn correoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresaCUILDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn empresaDataGridViewTextBoxColumn;
     }
 }

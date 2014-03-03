@@ -15,5 +15,10 @@ namespace Vista.SISTFLOTA
         {
             InitializeComponent();
         }
+
+        private void frmCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

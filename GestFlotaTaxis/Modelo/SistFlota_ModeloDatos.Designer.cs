@@ -21,6 +21,7 @@ using System.Xml.Serialization;
 
 [assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "TipodeGastoGasto", "TipodeGasto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.TipodeGasto), "Gasto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Gasto))]
 [assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "VehiculoGasto", "Vehiculo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Vehiculo), "Gasto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Gasto))]
+[assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "EmpresaCliente", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Cliente), true)]
 
 #endregion
 
@@ -139,18 +140,34 @@ namespace Modelo
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        public ObjectSet<Empresa> Empresa
+        public ObjectSet<Empresa> Empresas
         {
             get
             {
-                if ((_Empresa == null))
+                if ((_Empresas == null))
                 {
-                    _Empresa = base.CreateObjectSet<Empresa>("Empresa");
+                    _Empresas = base.CreateObjectSet<Empresa>("Empresas");
                 }
-                return _Empresa;
+                return _Empresas;
             }
         }
-        private ObjectSet<Empresa> _Empresa;
+        private ObjectSet<Empresa> _Empresas;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Cliente> Clientes
+        {
+            get
+            {
+                if ((_Clientes == null))
+                {
+                    _Clientes = base.CreateObjectSet<Cliente>("Clientes");
+                }
+                return _Clientes;
+            }
+        }
+        private ObjectSet<Cliente> _Clientes;
 
         #endregion
 
@@ -189,11 +206,19 @@ namespace Modelo
         }
     
         /// <summary>
-        /// Método desusado para agregar un nuevo objeto al EntitySet Empresa. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// Método desusado para agregar un nuevo objeto al EntitySet Empresas. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
         /// </summary>
-        public void AddToEmpresa(Empresa empresa)
+        public void AddToEmpresas(Empresa empresa)
         {
-            base.AddObject("Empresa", empresa);
+            base.AddObject("Empresas", empresa);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Clientes. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToClientes(Cliente cliente)
+        {
+            base.AddObject("Clientes", cliente);
         }
 
         #endregion
@@ -492,6 +517,287 @@ namespace Modelo
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SistFlota_ModeloDatos", Name="Cliente")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Cliente : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Cliente.
+        /// </summary>
+        /// <param name="documento">Valor inicial de la propiedad Documento.</param>
+        /// <param name="nombre">Valor inicial de la propiedad Nombre.</param>
+        /// <param name="apellido">Valor inicial de la propiedad Apellido.</param>
+        /// <param name="fechaNacimiento">Valor inicial de la propiedad FechaNacimiento.</param>
+        /// <param name="domicilio">Valor inicial de la propiedad Domicilio.</param>
+        /// <param name="telefono">Valor inicial de la propiedad Telefono.</param>
+        /// <param name="correo">Valor inicial de la propiedad Correo.</param>
+        /// <param name="empresaCUIL">Valor inicial de la propiedad EmpresaCUIL.</param>
+        public static Cliente CreateCliente(global::System.Int32 documento, global::System.String nombre, global::System.String apellido, global::System.DateTime fechaNacimiento, global::System.String domicilio, global::System.String telefono, global::System.String correo, global::System.Int32 empresaCUIL)
+        {
+            Cliente cliente = new Cliente();
+            cliente.Documento = documento;
+            cliente.Nombre = nombre;
+            cliente.Apellido = apellido;
+            cliente.FechaNacimiento = fechaNacimiento;
+            cliente.Domicilio = domicilio;
+            cliente.Telefono = telefono;
+            cliente.Correo = correo;
+            cliente.EmpresaCUIL = empresaCUIL;
+            return cliente;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Documento
+        {
+            get
+            {
+                return _Documento;
+            }
+            set
+            {
+                if (_Documento != value)
+                {
+                    OnDocumentoChanging(value);
+                    ReportPropertyChanging("Documento");
+                    _Documento = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Documento");
+                    OnDocumentoChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Documento;
+        partial void OnDocumentoChanging(global::System.Int32 value);
+        partial void OnDocumentoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Nombre
+        {
+            get
+            {
+                return _Nombre;
+            }
+            set
+            {
+                OnNombreChanging(value);
+                ReportPropertyChanging("Nombre");
+                _Nombre = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Nombre");
+                OnNombreChanged();
+            }
+        }
+        private global::System.String _Nombre;
+        partial void OnNombreChanging(global::System.String value);
+        partial void OnNombreChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Apellido
+        {
+            get
+            {
+                return _Apellido;
+            }
+            set
+            {
+                OnApellidoChanging(value);
+                ReportPropertyChanging("Apellido");
+                _Apellido = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Apellido");
+                OnApellidoChanged();
+            }
+        }
+        private global::System.String _Apellido;
+        partial void OnApellidoChanging(global::System.String value);
+        partial void OnApellidoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FechaNacimiento
+        {
+            get
+            {
+                return _FechaNacimiento;
+            }
+            set
+            {
+                OnFechaNacimientoChanging(value);
+                ReportPropertyChanging("FechaNacimiento");
+                _FechaNacimiento = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaNacimiento");
+                OnFechaNacimientoChanged();
+            }
+        }
+        private global::System.DateTime _FechaNacimiento;
+        partial void OnFechaNacimientoChanging(global::System.DateTime value);
+        partial void OnFechaNacimientoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Domicilio
+        {
+            get
+            {
+                return _Domicilio;
+            }
+            set
+            {
+                OnDomicilioChanging(value);
+                ReportPropertyChanging("Domicilio");
+                _Domicilio = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Domicilio");
+                OnDomicilioChanged();
+            }
+        }
+        private global::System.String _Domicilio;
+        partial void OnDomicilioChanging(global::System.String value);
+        partial void OnDomicilioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Telefono
+        {
+            get
+            {
+                return _Telefono;
+            }
+            set
+            {
+                OnTelefonoChanging(value);
+                ReportPropertyChanging("Telefono");
+                _Telefono = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Telefono");
+                OnTelefonoChanged();
+            }
+        }
+        private global::System.String _Telefono;
+        partial void OnTelefonoChanging(global::System.String value);
+        partial void OnTelefonoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Correo
+        {
+            get
+            {
+                return _Correo;
+            }
+            set
+            {
+                OnCorreoChanging(value);
+                ReportPropertyChanging("Correo");
+                _Correo = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Correo");
+                OnCorreoChanged();
+            }
+        }
+        private global::System.String _Correo;
+        partial void OnCorreoChanging(global::System.String value);
+        partial void OnCorreoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 EmpresaCUIL
+        {
+            get
+            {
+                return _EmpresaCUIL;
+            }
+            set
+            {
+                OnEmpresaCUILChanging(value);
+                ReportPropertyChanging("EmpresaCUIL");
+                _EmpresaCUIL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("EmpresaCUIL");
+                OnEmpresaCUILChanged();
+            }
+        }
+        private global::System.Int32 _EmpresaCUIL;
+        partial void OnEmpresaCUILChanging(global::System.Int32 value);
+        partial void OnEmpresaCUILChanged();
+
+        #endregion
+
+    
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "EmpresaCliente", "Empresa")]
+        public Empresa Empresa
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Empresa> EmpresaReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa", value);
+                }
+            }
+        }
+
+        #endregion
+
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="SistFlota_ModeloDatos", Name="Empresa")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -502,16 +808,16 @@ namespace Modelo
         /// <summary>
         /// Crear un nuevo objeto Empresa.
         /// </summary>
-        /// <param name="cUIL">Valor inicial de la propiedad CUIL.</param>
+        /// <param name="cuit">Valor inicial de la propiedad Cuit.</param>
         /// <param name="razonSocial">Valor inicial de la propiedad RazonSocial.</param>
         /// <param name="domicilio">Valor inicial de la propiedad Domicilio.</param>
         /// <param name="telefono">Valor inicial de la propiedad Telefono.</param>
         /// <param name="localidad">Valor inicial de la propiedad Localidad.</param>
         /// <param name="correo">Valor inicial de la propiedad Correo.</param>
-        public static Empresa CreateEmpresa(global::System.Int32 cUIL, global::System.String razonSocial, global::System.String domicilio, global::System.String telefono, global::System.String localidad, global::System.String correo)
+        public static Empresa CreateEmpresa(global::System.Int32 cuit, global::System.String razonSocial, global::System.String domicilio, global::System.String telefono, global::System.String localidad, global::System.String correo)
         {
             Empresa empresa = new Empresa();
-            empresa.CUIL = cUIL;
+            empresa.Cuit = cuit;
             empresa.RazonSocial = razonSocial;
             empresa.Domicilio = domicilio;
             empresa.Telefono = telefono;
@@ -529,27 +835,27 @@ namespace Modelo
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
         [DataMemberAttribute()]
-        public global::System.Int32 CUIL
+        public global::System.Int32 Cuit
         {
             get
             {
-                return _CUIL;
+                return _Cuit;
             }
             set
             {
-                if (_CUIL != value)
+                if (_Cuit != value)
                 {
-                    OnCUILChanging(value);
-                    ReportPropertyChanging("CUIL");
-                    _CUIL = StructuralObject.SetValidValue(value);
-                    ReportPropertyChanged("CUIL");
-                    OnCUILChanged();
+                    OnCuitChanging(value);
+                    ReportPropertyChanging("Cuit");
+                    _Cuit = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Cuit");
+                    OnCuitChanged();
                 }
             }
         }
-        private global::System.Int32 _CUIL;
-        partial void OnCUILChanging(global::System.Int32 value);
-        partial void OnCUILChanged();
+        private global::System.Int32 _Cuit;
+        partial void OnCuitChanging(global::System.Int32 value);
+        partial void OnCuitChanged();
     
         /// <summary>
         /// No hay documentación de metadatos disponible.
@@ -674,6 +980,32 @@ namespace Modelo
         #endregion
 
     
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "EmpresaCliente", "Cliente")]
+        public EntityCollection<Cliente> Cliente
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Cliente>("SistFlota_ModeloDatos.EmpresaCliente", "Cliente");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Cliente>("SistFlota_ModeloDatos.EmpresaCliente", "Cliente", value);
+                }
+            }
+        }
+
+        #endregion
+
     }
     
     /// <summary>

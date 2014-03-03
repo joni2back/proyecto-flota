@@ -1,0 +1,207 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server Compact Edition
+-- --------------------------------------------------
+-- Date Created: 03/03/2014 16:17:08
+-- Generated from EDMX file: C:\Users\Adelquis\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- NOTE: if the constraint does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    ALTER TABLE [Gastos] DROP CONSTRAINT [FK_TipodeGastoGasto];
+GO
+    ALTER TABLE [Gastos] DROP CONSTRAINT [FK_VehiculoGasto];
+GO
+    ALTER TABLE [Clientes] DROP CONSTRAINT [FK_EmpresaCliente];
+GO
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- NOTE: if the table does not exist, an ignorable error will be reported.
+-- --------------------------------------------------
+
+    DROP TABLE [TiposdeGasto];
+GO
+    DROP TABLE [Gastos];
+GO
+    DROP TABLE [Vehiculos];
+GO
+    DROP TABLE [Choferes];
+GO
+    DROP TABLE [Empresas];
+GO
+    DROP TABLE [Clientes];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'TiposdeGasto'
+CREATE TABLE [TiposdeGasto] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Descripcion] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- Creating table 'Gastos'
+CREATE TABLE [Gastos] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Descripcion] nvarchar(4000)  NOT NULL,
+    [Monto] decimal(18,0)  NOT NULL,
+    [Estado] nvarchar(4000)  NOT NULL,
+    [FechaVencimiento] datetime  NOT NULL,
+    [HoraEmision] datetime  NULL,
+    [FechaEmision] datetime  NULL,
+    [Usuario] nvarchar(50)  NOT NULL,
+    [FechayHora] datetime  NOT NULL,
+    [Operacion] nvarchar(4000)  NOT NULL,
+    [TipodeGasto_Id] int  NOT NULL,
+    [Vehiculo_Patente] nvarchar(7)  NOT NULL
+);
+GO
+
+-- Creating table 'Vehiculos'
+CREATE TABLE [Vehiculos] (
+    [Patente] nvarchar(7)  NOT NULL,
+    [PatenteTaxi] int  NULL,
+    [Marca] nvarchar(4000)  NOT NULL,
+    [Modelo] nvarchar(4000)  NOT NULL,
+    [Año] int  NOT NULL,
+    [Color] nvarchar(4000)  NOT NULL,
+    [Kilometraje] int  NOT NULL
+);
+GO
+
+-- Creating table 'Choferes'
+CREATE TABLE [Choferes] (
+    [Documento] int  NOT NULL,
+    [Nombre] nvarchar(4000)  NOT NULL,
+    [Apellido] nvarchar(4000)  NOT NULL,
+    [Licencia] nvarchar(4000)  NOT NULL,
+    [Domicilio] nvarchar(4000)  NOT NULL,
+    [Localidad] nvarchar(4000)  NOT NULL,
+    [Telefono] nvarchar(4000)  NULL,
+    [FechaNacimiento] datetime  NOT NULL,
+    [Correo] nvarchar(4000)  NULL,
+    [Foto] nvarchar(4000)  NULL
+);
+GO
+
+-- Creating table 'Empresas'
+CREATE TABLE [Empresas] (
+    [Cuit] int  NOT NULL,
+    [RazonSocial] nvarchar(4000)  NOT NULL,
+    [Domicilio] nvarchar(4000)  NOT NULL,
+    [Telefono] nvarchar(4000)  NOT NULL,
+    [Localidad] nvarchar(4000)  NOT NULL,
+    [Correo] nvarchar(4000)  NOT NULL
+);
+GO
+
+-- Creating table 'Clientes'
+CREATE TABLE [Clientes] (
+    [Documento] int  NOT NULL,
+    [Nombre] nvarchar(4000)  NOT NULL,
+    [Apellido] nvarchar(4000)  NOT NULL,
+    [FechaNacimiento] datetime  NOT NULL,
+    [Domicilio] nvarchar(4000)  NOT NULL,
+    [Telefono] nvarchar(4000)  NOT NULL,
+    [Correo] nvarchar(4000)  NOT NULL,
+    [EmpresaCUIL] int  NOT NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [Id] in table 'TiposdeGasto'
+ALTER TABLE [TiposdeGasto]
+ADD CONSTRAINT [PK_TiposdeGasto]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Id] in table 'Gastos'
+ALTER TABLE [Gastos]
+ADD CONSTRAINT [PK_Gastos]
+    PRIMARY KEY ([Id] );
+GO
+
+-- Creating primary key on [Patente] in table 'Vehiculos'
+ALTER TABLE [Vehiculos]
+ADD CONSTRAINT [PK_Vehiculos]
+    PRIMARY KEY ([Patente] );
+GO
+
+-- Creating primary key on [Documento] in table 'Choferes'
+ALTER TABLE [Choferes]
+ADD CONSTRAINT [PK_Choferes]
+    PRIMARY KEY ([Documento] );
+GO
+
+-- Creating primary key on [Cuit] in table 'Empresas'
+ALTER TABLE [Empresas]
+ADD CONSTRAINT [PK_Empresas]
+    PRIMARY KEY ([Cuit] );
+GO
+
+-- Creating primary key on [Documento] in table 'Clientes'
+ALTER TABLE [Clientes]
+ADD CONSTRAINT [PK_Clientes]
+    PRIMARY KEY ([Documento] );
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- Creating foreign key on [TipodeGasto_Id] in table 'Gastos'
+ALTER TABLE [Gastos]
+ADD CONSTRAINT [FK_TipodeGastoGasto]
+    FOREIGN KEY ([TipodeGasto_Id])
+    REFERENCES [TiposdeGasto]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_TipodeGastoGasto'
+CREATE INDEX [IX_FK_TipodeGastoGasto]
+ON [Gastos]
+    ([TipodeGasto_Id]);
+GO
+
+-- Creating foreign key on [Vehiculo_Patente] in table 'Gastos'
+ALTER TABLE [Gastos]
+ADD CONSTRAINT [FK_VehiculoGasto]
+    FOREIGN KEY ([Vehiculo_Patente])
+    REFERENCES [Vehiculos]
+        ([Patente])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_VehiculoGasto'
+CREATE INDEX [IX_FK_VehiculoGasto]
+ON [Gastos]
+    ([Vehiculo_Patente]);
+GO
+
+-- Creating foreign key on [EmpresaCUIL] in table 'Clientes'
+ALTER TABLE [Clientes]
+ADD CONSTRAINT [FK_EmpresaCliente]
+    FOREIGN KEY ([EmpresaCUIL])
+    REFERENCES [Empresas]
+        ([Cuit])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmpresaCliente'
+CREATE INDEX [IX_FK_EmpresaCliente]
+ON [Clientes]
+    ([EmpresaCUIL]);
+GO
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

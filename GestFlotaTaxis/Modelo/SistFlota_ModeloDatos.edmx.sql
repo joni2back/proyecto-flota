@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/01/2014 12:32:41
+-- Date Created: 03/03/2014 15:30:38
 -- Generated from EDMX file: C:\Users\Adelquis\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
 -- --------------------------------------------------
 
@@ -23,22 +23,31 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_VehiculoGasto]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Gastos] DROP CONSTRAINT [FK_VehiculoGasto];
 GO
+IF OBJECT_ID(N'[dbo].[FK_EmpresaCliente]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Cliente] DROP CONSTRAINT [FK_EmpresaCliente];
+GO
 
 -- --------------------------------------------------
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Choferes]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Choferes];
+IF OBJECT_ID(N'[dbo].[TiposdeGasto]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[TiposdeGasto];
 GO
 IF OBJECT_ID(N'[dbo].[Gastos]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Gastos];
 GO
-IF OBJECT_ID(N'[dbo].[TiposdeGasto]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[TiposdeGasto];
-GO
 IF OBJECT_ID(N'[dbo].[Vehiculos]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Vehiculos];
+GO
+IF OBJECT_ID(N'[dbo].[Choferes]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Choferes];
+GO
+IF OBJECT_ID(N'[dbo].[Empresa]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Empresa];
+GO
+IF OBJECT_ID(N'[dbo].[Cliente]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Cliente];
 GO
 
 -- --------------------------------------------------
@@ -107,6 +116,20 @@ CREATE TABLE [dbo].[Empresa] (
 );
 GO
 
+-- Creating table 'Cliente'
+CREATE TABLE [dbo].[Cliente] (
+    [Documento] int IDENTITY(1,1) NOT NULL,
+    [Nombre] nvarchar(max)  NOT NULL,
+    [Apellido] nvarchar(max)  NOT NULL,
+    [Domicilio] nvarchar(max)  NOT NULL,
+    [FechaNacimiento] datetime  NOT NULL,
+    [Localidad] nvarchar(max)  NOT NULL,
+    [Correo] nvarchar(max)  NOT NULL,
+    [Telefono] nvarchar(max)  NOT NULL,
+    [EmpresaCUIL] int  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -141,6 +164,12 @@ ADD CONSTRAINT [PK_Empresa]
     PRIMARY KEY CLUSTERED ([CUIL] ASC);
 GO
 
+-- Creating primary key on [Documento] in table 'Cliente'
+ALTER TABLE [dbo].[Cliente]
+ADD CONSTRAINT [PK_Cliente]
+    PRIMARY KEY CLUSTERED ([Documento] ASC);
+GO
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -171,6 +200,20 @@ ADD CONSTRAINT [FK_VehiculoGasto]
 CREATE INDEX [IX_FK_VehiculoGasto]
 ON [dbo].[Gastos]
     ([Vehiculo_Patente]);
+GO
+
+-- Creating foreign key on [EmpresaCUIL] in table 'Cliente'
+ALTER TABLE [dbo].[Cliente]
+ADD CONSTRAINT [FK_EmpresaCliente]
+    FOREIGN KEY ([EmpresaCUIL])
+    REFERENCES [dbo].[Empresa]
+        ([CUIL])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmpresaCliente'
+CREATE INDEX [IX_FK_EmpresaCliente]
+ON [dbo].[Cliente]
+    ([EmpresaCUIL]);
 GO
 
 -- --------------------------------------------------

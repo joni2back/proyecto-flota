@@ -23,7 +23,7 @@ namespace Controladora
 
         public void AgregarEmpresa(Modelo.Empresa oEmpresa)
         {
-            Modelo.Datos.ObtenerInstancia().AddToEmpresa(oEmpresa);
+            Modelo.Datos.ObtenerInstancia().AddToEmpresas(oEmpresa);
             Modelo.Datos.ObtenerInstancia().SaveChanges();
         }
         public void EliminarEmpresa(Modelo.Empresa oEmpresa)
@@ -33,18 +33,18 @@ namespace Controladora
         }
         public void ModificarEmpresa(Modelo.Empresa oEmpresa)
         {
-            Modelo.Datos.ObtenerInstancia().Empresa.ApplyCurrentValues(oEmpresa);
+            Modelo.Datos.ObtenerInstancia().Empresas.ApplyCurrentValues(oEmpresa);
             Modelo.Datos.ObtenerInstancia().SaveChanges();
         }
         public List<Modelo.Empresa> ListarEmpresas()
         {
-            return Modelo.Datos.ObtenerInstancia().Empresa.ToList();
+            return Modelo.Datos.ObtenerInstancia().Empresas.ToList();
 
         }
 
         public bool VerificarEmpresa(Modelo.Empresa oEmpresa)
         {
-            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresa.Where(oEmpr => oEmpr.CUIL == oEmpresa.CUIL).ToList();
+            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresas.Where(oEmpr => oEmpr.CUIL == oEmpresa.CUIL).ToList();
 
             if (Lista.Count > 0)    
             {
@@ -53,18 +53,6 @@ namespace Controladora
             return true;
         }
 
-        public bool VerificarCuil(Modelo.Empresa oEmpresa)
-        {
-            List<Modelo.Empresa> Lista = Modelo.Datos.ObtenerInstancia().Empresa.Where(oEmpr => oEmpr.CUIL == oEmpresa.CUIL).ToList();
-
-            if (Lista.Count > 0)
-            {
-                return false;
-            }
-            return true;
-        }
-
-
-
+       
       }
 }
