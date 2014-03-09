@@ -72,7 +72,20 @@ namespace Vista.SISTFLOTA
                 MessageBox.Show("Complete el Cuit de la Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+                
+                try
+                {
+                    Convert.ToDecimal(txtCuit.Text);
+                }
+                catch
+                {
+                    txtCuit.Focus();
+                    MessageBox.Show("El Cuit debe ser numérico", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+               
 
+          
           
             if (txtLocalidad.Text == "")
             {
@@ -105,6 +118,7 @@ namespace Vista.SISTFLOTA
             {
                 oEmpresa = new Modelo.Empresa();
 
+                oEmpresa.Cuit = Convert.ToInt32(txtCuit.Text);
                 oEmpresa.RazonSocial = txtRazonSocial.Text;
                 oEmpresa.Localidad = txtLocalidad.Text;
                 oEmpresa.Correo = txtCorreoElectronico.Text;
@@ -115,6 +129,7 @@ namespace Vista.SISTFLOTA
                 {
                     oEmpresa.Correo = txtCorreoElectronico.Text;
                 }
+              
 
                 if (frmModo == "ALTA")
                 {
@@ -125,7 +140,7 @@ namespace Vista.SISTFLOTA
                     }
                     else
                     {
-                        MessageBox.Show("El Cuil introducido pertenece a otra Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("El Cuit introducido pertenece a otra Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 if (frmModo == "MODIFICACION")
@@ -142,6 +157,11 @@ namespace Vista.SISTFLOTA
         private void txtCuit_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

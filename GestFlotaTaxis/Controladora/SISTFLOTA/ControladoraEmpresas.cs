@@ -53,6 +53,16 @@ namespace Controladora
             return true;
         }
 
+        public List<Modelo.Empresa> ListarEmpresasFiltradas(String RSocial, String Cuit)
+       {
+           List<Modelo.Empresa> Filtrado = Modelo.Datos.ObtenerInstancia().Empresas.OrderBy(c => c.Cuit).ToList();
+           if (Cuit != "")
+               Filtrado = Filtrado.Where(oEmp => oEmp.Cuit == Convert.ToInt32(Cuit)).ToList();
+           if (RSocial != "")
+               Filtrado = Filtrado.Where(oEmp => oEmp.RazonSocial==RSocial).ToList();
+
+           return Filtrado;
        
+       }
       }
 }

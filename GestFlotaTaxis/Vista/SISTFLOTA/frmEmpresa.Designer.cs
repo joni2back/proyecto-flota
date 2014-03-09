@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEmpresa));
             this.grpDetalle = new System.Windows.Forms.GroupBox();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.txtDomicilio = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.grpDetalle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,15 @@
             this.grpDetalle.TabIndex = 27;
             this.grpDetalle.TabStop = false;
             this.grpDetalle.Text = "Detalle de la Empresa";
+            // 
+            // txtRazonSocial
+            // 
+            this.txtRazonSocial.Location = new System.Drawing.Point(372, 20);
+            this.txtRazonSocial.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRazonSocial.MaxLength = 50;
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(149, 20);
+            this.txtRazonSocial.TabIndex = 43;
             // 
             // txtCorreoElectronico
             // 
@@ -209,15 +218,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // txtRazonSocial
-            // 
-            this.txtRazonSocial.Location = new System.Drawing.Point(372, 20);
-            this.txtRazonSocial.Margin = new System.Windows.Forms.Padding(2);
-            this.txtRazonSocial.MaxLength = 50;
-            this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.Size = new System.Drawing.Size(149, 20);
-            this.txtRazonSocial.TabIndex = 43;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmEmpresa
             // 

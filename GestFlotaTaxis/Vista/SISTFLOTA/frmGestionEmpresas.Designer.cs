@@ -32,7 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGestionEmpresas));
             this.lblSinResultados = new System.Windows.Forms.Label();
             this.grillaEmpresas = new System.Windows.Forms.DataGridView();
-            this.cUILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.txtCuitFiltro = new System.Windows.Forms.TextBox();
+            this.grpFiltros = new System.Windows.Forms.GroupBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.txtRSFiltro = new System.Windows.Forms.TextBox();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.grpVehiculos = new System.Windows.Forms.GroupBox();
+            this.cuitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.razonSocialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.domicilioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.telefonoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,23 +53,10 @@
             this.correoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bdsEmpresa = new System.Windows.Forms.BindingSource(this.components);
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.txtApellidoFiltro = new System.Windows.Forms.TextBox();
-            this.grpFiltros = new System.Windows.Forms.GroupBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtNombreFiltro = new System.Windows.Forms.TextBox();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.grpVehiculos = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.grillaEmpresas)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsEmpresa)).BeginInit();
             this.grpFiltros.SuspendLayout();
             this.grpVehiculos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsEmpresa)).BeginInit();
             this.SuspendLayout();
             // 
             // lblSinResultados
@@ -82,7 +82,7 @@
             this.grillaEmpresas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.grillaEmpresas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.grillaEmpresas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cUILDataGridViewTextBoxColumn,
+            this.cuitDataGridViewTextBoxColumn,
             this.razonSocialDataGridViewTextBoxColumn,
             this.domicilioDataGridViewTextBoxColumn,
             this.telefonoDataGridViewTextBoxColumn,
@@ -106,59 +106,6 @@
             this.grillaEmpresas.Size = new System.Drawing.Size(534, 240);
             this.grillaEmpresas.TabIndex = 7;
             this.grillaEmpresas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaEmpresas_CellContentClick);
-            // 
-            // cUILDataGridViewTextBoxColumn
-            // 
-            this.cUILDataGridViewTextBoxColumn.DataPropertyName = "CUIL";
-            this.cUILDataGridViewTextBoxColumn.HeaderText = "CUIL";
-            this.cUILDataGridViewTextBoxColumn.Name = "cUILDataGridViewTextBoxColumn";
-            this.cUILDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // razonSocialDataGridViewTextBoxColumn
-            // 
-            this.razonSocialDataGridViewTextBoxColumn.DataPropertyName = "RazonSocial";
-            this.razonSocialDataGridViewTextBoxColumn.HeaderText = "RazonSocial";
-            this.razonSocialDataGridViewTextBoxColumn.Name = "razonSocialDataGridViewTextBoxColumn";
-            this.razonSocialDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // domicilioDataGridViewTextBoxColumn
-            // 
-            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
-            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
-            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telefonoDataGridViewTextBoxColumn
-            // 
-            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
-            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
-            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // localidadDataGridViewTextBoxColumn
-            // 
-            this.localidadDataGridViewTextBoxColumn.DataPropertyName = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.HeaderText = "Localidad";
-            this.localidadDataGridViewTextBoxColumn.Name = "localidadDataGridViewTextBoxColumn";
-            this.localidadDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // correoDataGridViewTextBoxColumn
-            // 
-            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
-            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
-            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
-            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // clienteDataGridViewTextBoxColumn
-            // 
-            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
-            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
-            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // bdsEmpresa
-            // 
-            this.bdsEmpresa.DataSource = typeof(Modelo.Empresa);
             // 
             // btnCancelar
             // 
@@ -220,23 +167,23 @@
             this.btnConsultar.UseVisualStyleBackColor = true;
             this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
-            // txtApellidoFiltro
+            // txtCuitFiltro
             // 
-            this.txtApellidoFiltro.Location = new System.Drawing.Point(382, 33);
-            this.txtApellidoFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApellidoFiltro.MaxLength = 25;
-            this.txtApellidoFiltro.Name = "txtApellidoFiltro";
-            this.txtApellidoFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtApellidoFiltro.TabIndex = 37;
+            this.txtCuitFiltro.Location = new System.Drawing.Point(382, 33);
+            this.txtCuitFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCuitFiltro.MaxLength = 25;
+            this.txtCuitFiltro.Name = "txtCuitFiltro";
+            this.txtCuitFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtCuitFiltro.TabIndex = 37;
             // 
             // grpFiltros
             // 
-            this.grpFiltros.Controls.Add(this.txtApellidoFiltro);
+            this.grpFiltros.Controls.Add(this.txtCuitFiltro);
             this.grpFiltros.Controls.Add(this.label8);
             this.grpFiltros.Controls.Add(this.label4);
             this.grpFiltros.Controls.Add(this.btnBuscar);
             this.grpFiltros.Controls.Add(this.btnLimpiar);
-            this.grpFiltros.Controls.Add(this.txtNombreFiltro);
+            this.grpFiltros.Controls.Add(this.txtRSFiltro);
             this.grpFiltros.Location = new System.Drawing.Point(9, 2);
             this.grpFiltros.Margin = new System.Windows.Forms.Padding(2);
             this.grpFiltros.Name = "grpFiltros";
@@ -267,7 +214,6 @@
             this.label4.Size = new System.Drawing.Size(29, 15);
             this.label4.TabIndex = 34;
             this.label4.Text = "Cuit";
-            
             // 
             // btnBuscar
             // 
@@ -282,6 +228,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnLimpiar
             // 
@@ -296,15 +243,16 @@
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // txtNombreFiltro
+            // txtRSFiltro
             // 
-            this.txtNombreFiltro.Location = new System.Drawing.Point(133, 31);
-            this.txtNombreFiltro.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombreFiltro.MaxLength = 25;
-            this.txtNombreFiltro.Name = "txtNombreFiltro";
-            this.txtNombreFiltro.Size = new System.Drawing.Size(142, 20);
-            this.txtNombreFiltro.TabIndex = 1;
+            this.txtRSFiltro.Location = new System.Drawing.Point(133, 31);
+            this.txtRSFiltro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRSFiltro.MaxLength = 25;
+            this.txtRSFiltro.Name = "txtRSFiltro";
+            this.txtRSFiltro.Size = new System.Drawing.Size(142, 20);
+            this.txtRSFiltro.TabIndex = 1;
             // 
             // btnNuevo
             // 
@@ -334,6 +282,59 @@
             this.grpVehiculos.TabStop = false;
             this.grpVehiculos.Text = "Empresas";
             // 
+            // cuitDataGridViewTextBoxColumn
+            // 
+            this.cuitDataGridViewTextBoxColumn.DataPropertyName = "Cuit";
+            this.cuitDataGridViewTextBoxColumn.HeaderText = "Cuit";
+            this.cuitDataGridViewTextBoxColumn.Name = "cuitDataGridViewTextBoxColumn";
+            this.cuitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // razonSocialDataGridViewTextBoxColumn
+            // 
+            this.razonSocialDataGridViewTextBoxColumn.DataPropertyName = "RazonSocial";
+            this.razonSocialDataGridViewTextBoxColumn.HeaderText = "RazonSocial";
+            this.razonSocialDataGridViewTextBoxColumn.Name = "razonSocialDataGridViewTextBoxColumn";
+            this.razonSocialDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // domicilioDataGridViewTextBoxColumn
+            // 
+            this.domicilioDataGridViewTextBoxColumn.DataPropertyName = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.HeaderText = "Domicilio";
+            this.domicilioDataGridViewTextBoxColumn.Name = "domicilioDataGridViewTextBoxColumn";
+            this.domicilioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // telefonoDataGridViewTextBoxColumn
+            // 
+            this.telefonoDataGridViewTextBoxColumn.DataPropertyName = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.HeaderText = "Telefono";
+            this.telefonoDataGridViewTextBoxColumn.Name = "telefonoDataGridViewTextBoxColumn";
+            this.telefonoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // localidadDataGridViewTextBoxColumn
+            // 
+            this.localidadDataGridViewTextBoxColumn.DataPropertyName = "Localidad";
+            this.localidadDataGridViewTextBoxColumn.HeaderText = "Localidad";
+            this.localidadDataGridViewTextBoxColumn.Name = "localidadDataGridViewTextBoxColumn";
+            this.localidadDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // correoDataGridViewTextBoxColumn
+            // 
+            this.correoDataGridViewTextBoxColumn.DataPropertyName = "Correo";
+            this.correoDataGridViewTextBoxColumn.HeaderText = "Correo";
+            this.correoDataGridViewTextBoxColumn.Name = "correoDataGridViewTextBoxColumn";
+            this.correoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // clienteDataGridViewTextBoxColumn
+            // 
+            this.clienteDataGridViewTextBoxColumn.DataPropertyName = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.HeaderText = "Cliente";
+            this.clienteDataGridViewTextBoxColumn.Name = "clienteDataGridViewTextBoxColumn";
+            this.clienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bdsEmpresa
+            // 
+            this.bdsEmpresa.DataSource = typeof(Modelo.Empresa);
+            // 
             // frmGestionEmpresas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,12 +354,13 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestión de Empresas";
+            this.Load += new System.EventHandler(this.frmGestionEmpresas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grillaEmpresas)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsEmpresa)).EndInit();
             this.grpFiltros.ResumeLayout(false);
             this.grpFiltros.PerformLayout();
             this.grpVehiculos.ResumeLayout(false);
             this.grpVehiculos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsEmpresa)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -371,17 +373,18 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.TextBox txtApellidoFiltro;
+        private System.Windows.Forms.TextBox txtCuitFiltro;
         private System.Windows.Forms.GroupBox grpFiltros;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.TextBox txtNombreFiltro;
+        private System.Windows.Forms.TextBox txtRSFiltro;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.GroupBox grpVehiculos;
-        private System.Windows.Forms.BindingSource bdsEmpresa;
         private System.Windows.Forms.DataGridViewTextBoxColumn cUILDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource bdsEmpresa;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cuitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn razonSocialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn domicilioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefonoDataGridViewTextBoxColumn;

@@ -90,7 +90,7 @@ namespace Vista.SISTFLOTA
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un Vehículo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -110,13 +110,75 @@ namespace Vista.SISTFLOTA
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un Vehículo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un Empresa", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmGestionEmpresas_Load(object sender, EventArgs e)
+        {
+            ArmarGrilla();
+            ArmarPerfil();
+        }
+
+        private void ArmarPerfil()
+        {
+            bool admin = false;
+
+            foreach (Grupo g in oUsuarioActual.Grupo)
+                if (g.IDgrupo == "Administrador")
+                {
+                    admin = true;
+                }
+
+            if (admin)
+            {
+                btnNuevo.Enabled = true;
+                btnEliminar.Enabled = true;
+                btnModificar.Enabled = true;
+            }
+            else
+            {
+                Controladora.SEGURIDAD.ControladoraPerfiles ctrlPerfiles = new Controladora.SEGURIDAD.ControladoraPerfiles();
+
+                List<Modelo.SEGURIDAD.Permiso> _PERMISOS = new List<Modelo.SEGURIDAD.Permiso>();
+                _PERMISOS = ctrlPerfiles.ObtenerPermisos(this.Name.ToString().Substring(3), oUsuarioActual);
+
+                foreach (Modelo.SEGURIDAD.Permiso oPERMISO in _PERMISOS)
+                {
+                    switch (oPERMISO.IDpermiso)
+                    {
+                        case "ALTA": btnNuevo.Enabled = true; break;
+                        case "BAJA": btnEliminar.Enabled = true; break;
+                        case "MODIFICACION": btnModificar.Enabled = true; break;
+                        case "TOTAL": btnNuevo.Enabled = true; btnEliminar.Enabled = true; btnModificar.Enabled = true; break;
+
+                    }
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            lblSinResultados.Visible = false;
+            string RSocial = txtRSFiltro.Text;
+            string Cuit = txtCuitFiltro.Text;
+            
+            bdsEmpresa.DataSource = ctrlEmpresas.ListarEmpresasFiltradas(RSocial, Cuit);
+
+            if (bdsEmpresa.Count == 0)
+                lblSinResultados.Visible = true;
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCuitFiltro.Clear();
+            txtRSFiltro.Clear();
+            ArmarGrilla();
         }
     }
 }

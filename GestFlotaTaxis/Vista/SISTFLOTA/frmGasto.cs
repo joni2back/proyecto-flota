@@ -250,7 +250,7 @@ namespace Vista.SistFlota
             try {
                 Convert.ToDecimal(txtMonto.Text);
                 }
-            catch{
+            catch {
                 txtMonto.Focus();
                 MessageBox.Show("El monto del gasto debe ser numérico", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
