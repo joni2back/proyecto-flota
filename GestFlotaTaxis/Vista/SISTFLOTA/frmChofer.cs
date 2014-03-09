@@ -85,6 +85,17 @@ namespace Vista
                 return false;
             }
 
+            try
+            {
+                Convert.ToDecimal(txtDocumento.Text);
+            }
+            catch
+            {
+                txtDocumento.Focus();
+                MessageBox.Show("El Documento debe ser numérico", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             if (txtLicencia.Text == "")
             {
                 txtLicencia.Focus();
@@ -96,6 +107,17 @@ namespace Vista
             {
                 txtFechaNacimiento.Focus();
                 MessageBox.Show("Complete la fecha de nacimiento del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            try
+            {
+                Convert.ToDateTime(txtFechaNacimiento.Text);
+            }
+            catch
+            {
+                txtFechaNacimiento.Focus();
+                MessageBox.Show("La Fecha de Nacimiento debe tener formato Fecha (dd/mm/aaaa)", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
