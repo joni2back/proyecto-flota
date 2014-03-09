@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTurno));
             this.grpDetalle = new System.Windows.Forms.GroupBox();
+            this.btnAgregarCC = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.lblNumero = new System.Windows.Forms.Label();
             this.dtpFechaVencimientoPago = new System.Windows.Forms.DateTimePicker();
@@ -60,6 +61,7 @@
             // 
             // grpDetalle
             // 
+            this.grpDetalle.Controls.Add(this.btnAgregarCC);
             this.grpDetalle.Controls.Add(this.txtId);
             this.grpDetalle.Controls.Add(this.lblNumero);
             this.grpDetalle.Controls.Add(this.dtpFechaVencimientoPago);
@@ -86,6 +88,16 @@
             this.grpDetalle.TabIndex = 3;
             this.grpDetalle.TabStop = false;
             this.grpDetalle.Text = "Detalle del Turno";
+            // 
+            // btnAgregarCC
+            // 
+            this.btnAgregarCC.Location = new System.Drawing.Point(600, 19);
+            this.btnAgregarCC.Name = "btnAgregarCC";
+            this.btnAgregarCC.Size = new System.Drawing.Size(75, 50);
+            this.btnAgregarCC.TabIndex = 29;
+            this.btnAgregarCC.Text = "Agregar Cuentas Corrientes";
+            this.btnAgregarCC.UseVisualStyleBackColor = true;
+            this.btnAgregarCC.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtId
             // 
@@ -378,5 +390,6 @@
         private System.Windows.Forms.Label lblNumero;
         private System.Windows.Forms.BindingSource bdsVehiculos;
         private System.Windows.Forms.BindingSource bdsChoferes;
+        private System.Windows.Forms.Button btnAgregarCC;
     }
 }

@@ -84,8 +84,7 @@ namespace Vista.SISTFLOTA
                     return false;
                 }
                
-
-          
+                    
           
             if (txtLocalidad.Text == "")
             {

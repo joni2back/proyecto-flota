@@ -299,6 +299,13 @@ namespace Vista.SistFlota
 
         }
 
+        private void btnAgregarCC_Click(object sender, EventArgs e)
+        {
+            /*frmCuentasCorrientes ofrmCC = new frmCuentasCorrientes(oTurno);
+
+            DialogResult drABIERTO = ofrmCC.ShowDialog();*/
+        }
+
 
 
     }

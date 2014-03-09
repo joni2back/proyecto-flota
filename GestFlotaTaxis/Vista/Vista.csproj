@@ -110,6 +110,12 @@
     <Compile Include="SEGURIDAD\frmUsuario.Designer.cs">
       <DependentUpon>frmUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="SISTFLOTA\frmCuentasCorrientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISTFLOTA\frmCuentasCorrientes.Designer.cs">
+      <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="SISTFLOTA\frmTurno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -237,6 +243,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SEGURIDAD\frmUsuario.resx">
       <DependentUpon>frmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISTFLOTA\frmCuentasCorrientes.resx">
+      <DependentUpon>frmCuentasCorrientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SISTFLOTA\frmTurno.resx">
       <DependentUpon>frmTurno.cs</DependentUpon>
