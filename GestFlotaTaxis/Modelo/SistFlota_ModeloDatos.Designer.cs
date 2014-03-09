@@ -8,13 +8,12 @@
 //------------------------------------------------------------------------------
 
 using System;
-using System.ComponentModel;
-using System.Data.EntityClient;
 using System.Data.Objects;
 using System.Data.Objects.DataClasses;
-using System.Linq;
-using System.Runtime.Serialization;
+using System.Data.EntityClient;
+using System.ComponentModel;
 using System.Xml.Serialization;
+using System.Runtime.Serialization;
 
 [assembly: EdmSchemaAttribute()]
 #region Metadatos de relaciones en EDM
@@ -170,7 +169,6 @@ namespace Modelo
         private ObjectSet<Cliente> _Clientes;
 
         #endregion
-
         #region Métodos AddTo
     
         /// <summary>
@@ -222,11 +220,11 @@ namespace Modelo
         }
 
         #endregion
-
     }
+    
 
     #endregion
-
+    
     #region Entidades
     
     /// <summary>
@@ -263,7 +261,6 @@ namespace Modelo
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -510,7 +507,6 @@ namespace Modelo
         partial void OnFotoChanged();
 
         #endregion
-
     
     }
     
@@ -550,7 +546,6 @@ namespace Modelo
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -749,7 +744,6 @@ namespace Modelo
         partial void OnEmpresaCUILChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -792,7 +786,6 @@ namespace Modelo
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -827,7 +820,6 @@ namespace Modelo
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -978,7 +970,6 @@ namespace Modelo
         partial void OnCorreoChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1005,7 +996,6 @@ namespace Modelo
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1044,7 +1034,6 @@ namespace Modelo
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1291,7 +1280,6 @@ namespace Modelo
         partial void OnOperacionChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1372,7 +1360,6 @@ namespace Modelo
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1399,7 +1386,6 @@ namespace Modelo
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1454,7 +1440,6 @@ namespace Modelo
         partial void OnDescripcionChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1481,7 +1466,6 @@ namespace Modelo
         }
 
         #endregion
-
     }
     
     /// <summary>
@@ -1516,7 +1500,6 @@ namespace Modelo
         }
 
         #endregion
-
         #region Propiedades primitivas
     
         /// <summary>
@@ -1691,7 +1674,6 @@ namespace Modelo
         partial void OnKilometrajeChanged();
 
         #endregion
-
     
         #region Propiedades de navegación
     
@@ -1718,10 +1700,8 @@ namespace Modelo
         }
 
         #endregion
-
     }
 
     #endregion
-
     
 }

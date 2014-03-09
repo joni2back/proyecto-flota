@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="SistFlota_ModeloDatos.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="SistFlota_ModeloDatos.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="SistFlota_ModeloDatosStoreContainer">
     <EntitySet Name="TiposdeGasto" EntityType="SistFlota_ModeloDatos.Store.TiposdeGasto" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Gastos" EntityType="SistFlota_ModeloDatos.Store.Gastos" store:Type="Tables" Schema="dbo" />
@@ -30,22 +30,22 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="nvarchar" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Gastos">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Descripcion" Type="nvarchar" Nullable="false" />
+    <Property Name="Descripcion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Monto" Type="decimal" Nullable="false" />
-    <Property Name="Estado" Type="nvarchar" Nullable="false" />
+    <Property Name="Estado" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FechaVencimiento" Type="datetime" Nullable="false" />
     <Property Name="HoraEmision" Type="datetime" Nullable="true" />
     <Property Name="FechaEmision" Type="datetime" Nullable="true" />
     <Property Name="Usuario" Type="nvarchar" Nullable="false" MaxLength="50" />
     <Property Name="FechayHora" Type="datetime" Nullable="false" />
-    <Property Name="Operacion" Type="nvarchar" Nullable="false" />
+    <Property Name="Operacion" Type="nvarchar(max)" Nullable="false" />
     <Property Name="TipodeGasto_Id" Type="int" Nullable="false" />
     <Property Name="Vehiculo_Patente" Type="nvarchar" MaxLength="7" Nullable="false" />
   </EntityType>
@@ -55,10 +55,10 @@
     </Key>
     <Property Name="Patente" Type="nvarchar" Nullable="false" MaxLength="7" />
     <Property Name="PatenteTaxi" Type="int" Nullable="true" />
-    <Property Name="Marca" Type="nvarchar" Nullable="false" />
-    <Property Name="Modelo" Type="nvarchar" Nullable="false" />
+    <Property Name="Marca" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Modelo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Año" Type="int" Nullable="false" />
-    <Property Name="Color" Type="nvarchar" Nullable="false" />
+    <Property Name="Color" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Kilometraje" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Choferes">
@@ -66,38 +66,38 @@
       <PropertyRef Name="Documento" />
     </Key>
     <Property Name="Documento" Type="int" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar" Nullable="false" />
-    <Property Name="Apellido" Type="nvarchar" Nullable="false" />
-    <Property Name="Licencia" Type="nvarchar" Nullable="false" />
-    <Property Name="Domicilio" Type="nvarchar" Nullable="false" />
-    <Property Name="Localidad" Type="nvarchar" Nullable="false" />
-    <Property Name="Telefono" Type="nvarchar" Nullable="true" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Licencia" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="true" />
     <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
-    <Property Name="Correo" Type="nvarchar" Nullable="true" />
-    <Property Name="Foto" Type="nvarchar" Nullable="true" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Foto" Type="nvarchar(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Empresas">
     <Key>
       <PropertyRef Name="Cuit" />
     </Key>
     <Property Name="Cuit" Type="int" Nullable="false" />
-    <Property Name="RazonSocial" Type="nvarchar" Nullable="false" />
-    <Property Name="Domicilio" Type="nvarchar" Nullable="false" />
-    <Property Name="Telefono" Type="nvarchar" Nullable="false" />
-    <Property Name="Localidad" Type="nvarchar" Nullable="false" />
-    <Property Name="Correo" Type="nvarchar" Nullable="false" />
+    <Property Name="RazonSocial" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Localidad" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="Clientes">
     <Key>
       <PropertyRef Name="Documento" />
     </Key>
     <Property Name="Documento" Type="int" Nullable="false" />
-    <Property Name="Nombre" Type="nvarchar" Nullable="false" />
-    <Property Name="Apellido" Type="nvarchar" Nullable="false" />
+    <Property Name="Nombre" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Apellido" Type="nvarchar(max)" Nullable="false" />
     <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
-    <Property Name="Domicilio" Type="nvarchar" Nullable="false" />
-    <Property Name="Telefono" Type="nvarchar" Nullable="false" />
-    <Property Name="Correo" Type="nvarchar" Nullable="false" />
+    <Property Name="Domicilio" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Telefono" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EmpresaCUIL" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="TipodeGastoGasto">

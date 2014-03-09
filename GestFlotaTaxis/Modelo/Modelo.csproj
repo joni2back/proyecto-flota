@@ -147,11 +147,11 @@
     <Content Include="SistFlota_ModeloDatos.edmx.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.Config" />
     <EntityDeploy Include="AUDITORIA\SistFlota_Auditoria_Modelo.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SistFlota_Auditoria_Modelo.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="App.Config" />
     <None Include="Properties\DataSources\Modelo.AUDITORIA.SistFlota_Auditoria_ModeloContainer.datasource" />
     <None Include="Properties\DataSources\Modelo.SEGURIDAD.SistFlota_Seguridad_ModeloContainer.datasource" />
     <None Include="Properties\DataSources\SistFlota_ModeloDatosContainer.datasource" />
@@ -159,7 +159,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SistFlota_Seguridad_Modelo.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="SistFlota_ModeloDatos.edmx.sqlce" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
