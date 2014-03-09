@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/09/2014 01:10:51
+-- Date Created: 03/09/2014 03:48:20
 -- Generated from EDMX file: C:\Users\Admin\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
 -- --------------------------------------------------
 
@@ -129,6 +129,12 @@ CREATE TABLE [dbo].[Clientes] (
 );
 
 
+-- Creating table 'Turnos'
+CREATE TABLE [dbo].[Turnos] (
+    [Id] int IDENTITY(1,1) NOT NULL
+);
+
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -167,6 +173,12 @@ ADD CONSTRAINT [PK_Empresas]
 ALTER TABLE [dbo].[Clientes]
 ADD CONSTRAINT [PK_Clientes]
     PRIMARY KEY CLUSTERED ([Documento] ASC);
+
+
+-- Creating primary key on [Id] in table 'Turnos'
+ALTER TABLE [dbo].[Turnos]
+ADD CONSTRAINT [PK_Turnos]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 
 
 -- --------------------------------------------------

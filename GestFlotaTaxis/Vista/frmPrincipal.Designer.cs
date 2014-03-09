@@ -39,6 +39,8 @@
             this.menuGestGastos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuGestVehiculos = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuTurnos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMonitores = new System.Windows.Forms.ToolStripMenuItem();
             this.menuMonGastos = new System.Windows.Forms.ToolStripMenuItem();
             this.menuInformes = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +67,6 @@
             this.lblUsuarioActual = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblNomyApeActual = new System.Windows.Forms.ToolStripStatusLabel();
-            this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -81,6 +82,7 @@
             this.menuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuSistema,
             this.menuGestionar,
+            this.menuTurnos,
             this.menuMonitores,
             this.menuInformes,
             this.menuAdministrar,
@@ -141,30 +143,44 @@
             // menuGestChoferes
             // 
             this.menuGestChoferes.Name = "menuGestChoferes";
-            this.menuGestChoferes.Size = new System.Drawing.Size(152, 22);
+            this.menuGestChoferes.Size = new System.Drawing.Size(126, 22);
             this.menuGestChoferes.Text = "Choferes";
             this.menuGestChoferes.Click += new System.EventHandler(this.menuGestChoferes_Click);
             // 
             // menuGestGastos
             // 
             this.menuGestGastos.Name = "menuGestGastos";
-            this.menuGestGastos.Size = new System.Drawing.Size(152, 22);
+            this.menuGestGastos.Size = new System.Drawing.Size(126, 22);
             this.menuGestGastos.Text = "Gastos";
             this.menuGestGastos.Click += new System.EventHandler(this.gastosToolStripMenuItem_Click);
             // 
             // menuGestVehiculos
             // 
             this.menuGestVehiculos.Name = "menuGestVehiculos";
-            this.menuGestVehiculos.Size = new System.Drawing.Size(152, 22);
+            this.menuGestVehiculos.Size = new System.Drawing.Size(126, 22);
             this.menuGestVehiculos.Text = "Vehículos";
             this.menuGestVehiculos.Click += new System.EventHandler(this.vehículosToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // empresasToolStripMenuItem
+            // 
+            this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
+            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.empresasToolStripMenuItem.Text = "Empresas";
+            this.empresasToolStripMenuItem.Click += new System.EventHandler(this.empresasToolStripMenuItem_Click);
+            // 
+            // menuTurnos
+            // 
+            this.menuTurnos.Name = "menuTurnos";
+            this.menuTurnos.Size = new System.Drawing.Size(55, 20);
+            this.menuTurnos.Text = "Turnos";
+            this.menuTurnos.Click += new System.EventHandler(this.menuTurnos_Click);
             // 
             // menuMonitores
             // 
@@ -390,13 +406,6 @@
             this.lblNomyApeActual.Size = new System.Drawing.Size(12, 17);
             this.lblNomyApeActual.Text = "-";
             // 
-            // empresasToolStripMenuItem
-            // 
-            this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
-            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.empresasToolStripMenuItem.Text = "Empresas";
-            this.empresasToolStripMenuItem.Click += new System.EventHandler(this.empresasToolStripMenuItem_Click);
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,6 +481,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuGestChoferes;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empresasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuTurnos;
     }
 }
 

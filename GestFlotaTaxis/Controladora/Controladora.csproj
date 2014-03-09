@@ -67,6 +67,7 @@
     <Compile Include="SISTFLOTA\ControladoraVehiculos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SISTFLOTA\ControladoraClientes.cs" />
+    <Compile Include="SISTFLOTA\ControladoraTurnos.cs" />
     <Compile Include="SISTFLOTA\Strategy\Contexto.cs" />
     <Compile Include="SISTFLOTA\Strategy\DOCStrategy.cs" />
     <Compile Include="SISTFLOTA\Strategy\IStrategy.cs" />

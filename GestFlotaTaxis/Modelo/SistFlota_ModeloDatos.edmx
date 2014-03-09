@@ -12,6 +12,7 @@
     <EntitySet Name="Choferes" EntityType="SistFlota_ModeloDatos.Store.Choferes" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Empresas" EntityType="SistFlota_ModeloDatos.Store.Empresas" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Clientes" EntityType="SistFlota_ModeloDatos.Store.Clientes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Turnos" EntityType="SistFlota_ModeloDatos.Store.Turnos" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="TipodeGastoGasto" Association="SistFlota_ModeloDatos.Store.TipodeGastoGasto">
       <End Role="TipodeGasto" EntitySet="TiposdeGasto" />
       <End Role="Gasto" EntitySet="Gastos" />
@@ -100,6 +101,12 @@
     <Property Name="Correo" Type="nvarchar(max)" Nullable="false" />
     <Property Name="EmpresaCUIL" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Turnos">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
   <Association Name="TipodeGastoGasto">
     <End Role="TipodeGasto" Type="SistFlota_ModeloDatos.Store.TiposdeGasto" Multiplicity="1" />
     <End Role="Gasto" Type="SistFlota_ModeloDatos.Store.Gastos" Multiplicity="*" />
@@ -159,6 +166,7 @@
             <End Role="Empresa" EntitySet="Empresas" />
             <End Role="Cliente" EntitySet="Clientes" />
           </AssociationSet>
+          <EntitySet Name="Turnos" EntityType="SistFlota_ModeloDatos.Turno" />
           </EntityContainer>
         <EntityType Name="TipodeGasto">
           <Key>
@@ -259,6 +267,12 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Turno">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -344,6 +358,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Turnos">
+      <EntityTypeMapping TypeName="IsTypeOf(SistFlota_ModeloDatos.Turno)">
+        <MappingFragment StoreEntitySet="Turnos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="TipodeGastoGasto" TypeName="SistFlota_ModeloDatos.TipodeGastoGasto" StoreEntitySet="Gastos">
       <EndProperty Name="TipodeGasto">
         <ScalarProperty Name="Id" ColumnName="TipodeGasto_Id" />
@@ -398,6 +419,7 @@
           <ConnectorPoint PointX="5.625" PointY="5.6824446614583337" />
           <ConnectorPoint PointX="4.875" PointY="5.6824446614583337" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="SistFlota_ModeloDatos.Turno" Width="1.5" PointX="7.875" PointY="5.625" Height="1.2110807291666665" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

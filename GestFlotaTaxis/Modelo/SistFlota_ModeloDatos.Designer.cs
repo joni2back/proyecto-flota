@@ -167,6 +167,22 @@ namespace Modelo
             }
         }
         private ObjectSet<Cliente> _Clientes;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<Turno> Turnos
+        {
+            get
+            {
+                if ((_Turnos == null))
+                {
+                    _Turnos = base.CreateObjectSet<Turno>("Turnos");
+                }
+                return _Turnos;
+            }
+        }
+        private ObjectSet<Turno> _Turnos;
 
         #endregion
         #region Métodos AddTo
@@ -217,6 +233,14 @@ namespace Modelo
         public void AddToClientes(Cliente cliente)
         {
             base.AddObject("Clientes", cliente);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet Turnos. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToTurnos(Turno turno)
+        {
+            base.AddObject("Turnos", turno);
         }
 
         #endregion
@@ -1466,6 +1490,61 @@ namespace Modelo
         }
 
         #endregion
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SistFlota_ModeloDatos", Name="Turno")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Turno : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto Turno.
+        /// </summary>
+        /// <param name="id">Valor inicial de la propiedad Id.</param>
+        public static Turno CreateTurno(global::System.Int32 id)
+        {
+            Turno turno = new Turno();
+            turno.Id = id;
+            return turno;
+        }
+
+        #endregion
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+
+        #endregion
+    
     }
     
     /// <summary>

@@ -246,6 +246,12 @@ namespace Vista
             ofrmGestClientes.ShowDialog();
         }
 
+        private void menuTurnos_Click(object sender, EventArgs e)
+        {
+            frmGestionTurnos ofrmGestTurnos = new frmGestionTurnos(oUsuarioActual);
+            ofrmGestTurnos.ShowDialog();
+        }
+
 
         
 
