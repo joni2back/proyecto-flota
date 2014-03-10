@@ -30,6 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChofer));
             this.grpDetalle = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.imgFotoChofer = new System.Windows.Forms.PictureBox();
+            this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
+            this.txtDomicilio = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLocalidad = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -44,20 +52,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtApellido = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtDomicilio = new System.Windows.Forms.TextBox();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtCorreoElectronico = new System.Windows.Forms.TextBox();
-            this.imgFotoChofer = new System.Windows.Forms.PictureBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.btnEliminarFoto = new System.Windows.Forms.Button();
             this.grpDetalle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgFotoChofer)).BeginInit();
             this.SuspendLayout();
             // 
             // grpDetalle
             // 
+            this.grpDetalle.Controls.Add(this.btnEliminarFoto);
             this.grpDetalle.Controls.Add(this.label5);
             this.grpDetalle.Controls.Add(this.imgFotoChofer);
             this.grpDetalle.Controls.Add(this.txtCorreoElectronico);
@@ -82,10 +84,93 @@
             this.grpDetalle.Margin = new System.Windows.Forms.Padding(2);
             this.grpDetalle.Name = "grpDetalle";
             this.grpDetalle.Padding = new System.Windows.Forms.Padding(2);
-            this.grpDetalle.Size = new System.Drawing.Size(587, 246);
+            this.grpDetalle.Size = new System.Drawing.Size(587, 258);
             this.grpDetalle.TabIndex = 21;
             this.grpDetalle.TabStop = false;
             this.grpDetalle.Text = "Detalle del Chofer";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(360, 91);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 15);
+            this.label5.TabIndex = 44;
+            this.label5.Text = "Foto";
+            // 
+            // imgFotoChofer
+            // 
+            this.imgFotoChofer.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.imgFotoChofer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgFotoChofer.BackgroundImage")));
+            this.imgFotoChofer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imgFotoChofer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imgFotoChofer.ErrorImage = ((System.Drawing.Image)(resources.GetObject("imgFotoChofer.ErrorImage")));
+            this.imgFotoChofer.InitialImage = ((System.Drawing.Image)(resources.GetObject("imgFotoChofer.InitialImage")));
+            this.imgFotoChofer.Location = new System.Drawing.Point(396, 88);
+            this.imgFotoChofer.Name = "imgFotoChofer";
+            this.imgFotoChofer.Size = new System.Drawing.Size(143, 140);
+            this.imgFotoChofer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgFotoChofer.TabIndex = 43;
+            this.imgFotoChofer.TabStop = false;
+            this.imgFotoChofer.Click += new System.EventHandler(this.imgFotoChofer_Click);
+            // 
+            // txtCorreoElectronico
+            // 
+            this.txtCorreoElectronico.Location = new System.Drawing.Point(175, 211);
+            this.txtCorreoElectronico.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCorreoElectronico.MaxLength = 50;
+            this.txtCorreoElectronico.Name = "txtCorreoElectronico";
+            this.txtCorreoElectronico.Size = new System.Drawing.Size(184, 20);
+            this.txtCorreoElectronico.TabIndex = 42;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Location = new System.Drawing.Point(140, 181);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTelefono.MaxLength = 50;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(143, 20);
+            this.txtTelefono.TabIndex = 41;
+            // 
+            // txtDomicilio
+            // 
+            this.txtDomicilio.Location = new System.Drawing.Point(145, 148);
+            this.txtDomicilio.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDomicilio.MaxLength = 50;
+            this.txtDomicilio.Name = "txtDomicilio";
+            this.txtDomicilio.Size = new System.Drawing.Size(143, 20);
+            this.txtDomicilio.TabIndex = 40;
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(140, 27);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
+            this.txtNombre.MaxLength = 50;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(149, 20);
+            this.txtNombre.TabIndex = 39;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.Location = new System.Drawing.Point(396, 24);
+            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApellido.MaxLength = 50;
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(143, 20);
+            this.txtApellido.TabIndex = 38;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(63, 213);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 15);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Correo Electronico";
             // 
             // label1
             // 
@@ -216,7 +301,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(526, 268);
+            this.btnCancelar.Location = new System.Drawing.Point(526, 280);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(99, 42);
@@ -231,7 +316,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardar.Location = new System.Drawing.Point(418, 268);
+            this.btnGuardar.Location = new System.Drawing.Point(418, 280);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(99, 42);
@@ -241,92 +326,24 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label2
+            // btnEliminarFoto
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(63, 213);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 15);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Correo Electronico";
-            // 
-            // txtApellido
-            // 
-            this.txtApellido.Location = new System.Drawing.Point(396, 24);
-            this.txtApellido.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApellido.MaxLength = 50;
-            this.txtApellido.Name = "txtApellido";
-            this.txtApellido.Size = new System.Drawing.Size(143, 20);
-            this.txtApellido.TabIndex = 38;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(140, 27);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
-            this.txtNombre.MaxLength = 50;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(149, 20);
-            this.txtNombre.TabIndex = 39;
-            // 
-            // txtDomicilio
-            // 
-            this.txtDomicilio.Location = new System.Drawing.Point(145, 148);
-            this.txtDomicilio.Margin = new System.Windows.Forms.Padding(2);
-            this.txtDomicilio.MaxLength = 50;
-            this.txtDomicilio.Name = "txtDomicilio";
-            this.txtDomicilio.Size = new System.Drawing.Size(143, 20);
-            this.txtDomicilio.TabIndex = 40;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.Location = new System.Drawing.Point(140, 181);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(2);
-            this.txtTelefono.MaxLength = 50;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(143, 20);
-            this.txtTelefono.TabIndex = 41;
-            // 
-            // txtCorreoElectronico
-            // 
-            this.txtCorreoElectronico.Location = new System.Drawing.Point(175, 211);
-            this.txtCorreoElectronico.Margin = new System.Windows.Forms.Padding(2);
-            this.txtCorreoElectronico.MaxLength = 50;
-            this.txtCorreoElectronico.Name = "txtCorreoElectronico";
-            this.txtCorreoElectronico.Size = new System.Drawing.Size(184, 20);
-            this.txtCorreoElectronico.TabIndex = 42;
-            // 
-            // imgFotoChofer
-            // 
-            this.imgFotoChofer.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.imgFotoChofer.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgFotoChofer.BackgroundImage")));
-            this.imgFotoChofer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.imgFotoChofer.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.imgFotoChofer.ErrorImage = ((System.Drawing.Image)(resources.GetObject("imgFotoChofer.ErrorImage")));
-            this.imgFotoChofer.InitialImage = ((System.Drawing.Image)(resources.GetObject("imgFotoChofer.InitialImage")));
-            this.imgFotoChofer.Location = new System.Drawing.Point(396, 88);
-            this.imgFotoChofer.Name = "imgFotoChofer";
-            this.imgFotoChofer.Size = new System.Drawing.Size(143, 140);
-            this.imgFotoChofer.TabIndex = 43;
-            this.imgFotoChofer.TabStop = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(360, 91);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 15);
-            this.label5.TabIndex = 44;
-            this.label5.Text = "Foto";
+            this.btnEliminarFoto.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarFoto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEliminarFoto.Location = new System.Drawing.Point(396, 229);
+            this.btnEliminarFoto.Margin = new System.Windows.Forms.Padding(1);
+            this.btnEliminarFoto.Name = "btnEliminarFoto";
+            this.btnEliminarFoto.Size = new System.Drawing.Size(143, 19);
+            this.btnEliminarFoto.TabIndex = 45;
+            this.btnEliminarFoto.Text = "ELIMINAR FOTO";
+            this.btnEliminarFoto.UseVisualStyleBackColor = true;
+            this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
             // 
             // frmChofer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 321);
+            this.ClientSize = new System.Drawing.Size(636, 333);
             this.Controls.Add(this.grpDetalle);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -372,5 +389,6 @@
         private System.Windows.Forms.TextBox txtDomicilio;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox imgFotoChofer;
+        private System.Windows.Forms.Button btnEliminarFoto;
     }
 }

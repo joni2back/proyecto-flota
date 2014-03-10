@@ -511,11 +511,11 @@ namespace Modelo
         /// </summary>
         [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.String Foto
+        public global::System.Byte[] Foto
         {
             get
             {
-                return _Foto;
+                return StructuralObject.GetValidValue(_Foto);
             }
             set
             {
@@ -526,8 +526,8 @@ namespace Modelo
                 OnFotoChanged();
             }
         }
-        private global::System.String _Foto;
-        partial void OnFotoChanging(global::System.String value);
+        private global::System.Byte[] _Foto;
+        partial void OnFotoChanging(global::System.Byte[] value);
         partial void OnFotoChanged();
 
         #endregion

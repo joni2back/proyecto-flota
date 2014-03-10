@@ -29,11 +29,9 @@ namespace Vista.SistFlota
 
             oUsuarioActual = oUsuario;
 
-            dtpFechaVencimientoPago.Format = DateTimePickerFormat.Short;
-            dtpFechaVencimientoPago.Value = DateTime.Now;
+            dtpFecha.Format = DateTimePickerFormat.Short;
+            dtpFecha.Value = DateTime.Now;
 
-            dtpHoraEmision.Value = DateTime.Now;
-            dtpHoraEmision.Value = DateTime.Now;
             oTurno = new Modelo.Turno();
             CargarCombos();
         }
@@ -95,12 +93,12 @@ namespace Vista.SistFlota
             bdsChoferes.DataSource = ctrlChoferes.ListarChoferes();
             //cbxTipoTurno.SelectedItem = null;
 
-            if (cbxEstado.Items.Count == 0)
+            if (cbxTurno.Items.Count == 0)
             {
-                cbxEstado.Items.Add("PENDIENTE");
-                cbxEstado.Items.Add("PAGADO");
+                cbxTurno.Items.Add("PENDIENTE");
+                cbxTurno.Items.Add("PAGADO");
             }
-            cbxEstado.SelectedItem = "PENDIENTE";
+            cbxTurno.SelectedItem = "PENDIENTE";
        
         }
 
@@ -211,15 +209,15 @@ namespace Vista.SistFlota
                 return false;
             }
 
-            if (cbxTipoGasto.Text == "")
+            if (cbxChofer.Text == "")
             {
-                cbxTipoGasto.Focus();
+                cbxChofer.Focus();
                 MessageBox.Show("Complete el tipo de turno del turno", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
 
-            if (txtDescripcion.Text == "")
+            if (txtComentarios.Text == "")
             {
                 //txtDescripcion.Focus();
                 //MessageBox.Show("Complete la descripción del turno", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -228,58 +226,49 @@ namespace Vista.SistFlota
             }
 
 
-            if (txtMonto.Text == "")
+            if (txtKmRecorridos.Text == "")
             {
-                txtMonto.Focus();
+                txtKmRecorridos.Focus();
                 MessageBox.Show("Complete el monto del turno", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             try {
-                Convert.ToDecimal(txtMonto.Text);
+                Convert.ToDecimal(txtKmRecorridos.Text);
                 }
             catch{
-                txtMonto.Focus();
-                MessageBox.Show("El monto del turno debe ser numérico", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtKmRecorridos.Focus();
+                MessageBox.Show("La cantidad de Kilometros Recorridos debe ser numérica", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
 
-            if (dtpFechaVencimientoPago.Text == "")
+            if (dtpFecha.Text == "")
             {
-                dtpFechaVencimientoPago.Focus();
+                dtpFecha.Focus();
                 MessageBox.Show("Complete la fecha de vencimiento del turno", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
-            if (cbxTipoGasto.Text == "INFRACCION")
+            
+            if (dtpFecha.Value.Date > DateTime.Today.Date)
             {
-                if (dtpFechaEmision.Text == "")
-                {
-                    dtpFechaEmision.Focus();
-                    MessageBox.Show("Complete la fecha de emisión de la infracción", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
-                if (dtpFechaEmision.Value.Date > DateTime.Today.Date)
-                {
-                    dtpFechaEmision.Focus();
-                    MessageBox.Show("La fecha de emisión de la infracción no puede ser posterior a la fecha de hoy", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
-
-
-                if (dtpHoraEmision.Text == "")
-                {
-                    dtpHoraEmision.Focus();
-                    MessageBox.Show("Complete la hora de emisión de la infracción", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
-                }
+                dtpFecha.Focus();
+                MessageBox.Show("La fecha del turno no puede ser posterior a la fecha de hoy", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
 
-            return true;
+            if (txtHorasTrabajadas.Text == "")
+            {
+                txtHorasTrabajadas.Focus();
+                MessageBox.Show("Complete las horas trabajadas del turno", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+         return true;
         }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -288,14 +277,6 @@ namespace Vista.SistFlota
 
         private void cbxEstado_SelectedValueChanged(object sender, EventArgs e)
         {
-            if (cbxEstado.Text == "PAGADO")
-            {
-                lblFechaPV.Text = "Fecha de Pago";
-            }
-            else
-            {
-                lblFechaPV.Text = "Fecha Vencimiento";
-            }
 
         }
 
@@ -304,6 +285,11 @@ namespace Vista.SistFlota
             /*frmCuentasCorrientes ofrmCC = new frmCuentasCorrientes(oTurno);
 
             DialogResult drABIERTO = ofrmCC.ShowDialog();*/
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
 

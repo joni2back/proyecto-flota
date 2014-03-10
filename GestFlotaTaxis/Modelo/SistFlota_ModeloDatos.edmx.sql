@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 03/09/2014 03:48:20
+-- Date Created: 03/10/2014 02:14:17
 -- Generated from EDMX file: C:\Users\Admin\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
 -- --------------------------------------------------
 
@@ -48,6 +48,9 @@ IF OBJECT_ID(N'[dbo].[Empresas]', 'U') IS NOT NULL
 
 IF OBJECT_ID(N'[dbo].[Clientes]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Clientes];
+
+IF OBJECT_ID(N'[dbo].[Turnos]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Turnos];
 
 
 -- --------------------------------------------------
@@ -101,7 +104,7 @@ CREATE TABLE [dbo].[Choferes] (
     [Telefono] nvarchar(max)  NULL,
     [FechaNacimiento] datetime  NOT NULL,
     [Correo] nvarchar(max)  NULL,
-    [Foto] nvarchar(max)  NULL
+    [Foto] varbinary(max)  NULL
 );
 
 

@@ -75,7 +75,7 @@
     <Property Name="Telefono" Type="nvarchar(max)" Nullable="true" />
     <Property Name="FechaNacimiento" Type="datetime" Nullable="false" />
     <Property Name="Correo" Type="nvarchar(max)" Nullable="true" />
-    <Property Name="Foto" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Foto" Type="varbinary(max)" Nullable="true" />
   </EntityType>
   <EntityType Name="Empresas">
     <Key>
@@ -227,7 +227,7 @@
           <Property Type="String" Name="Telefono" Nullable="true" />
           <Property Type="DateTime" Name="FechaNacimiento" Nullable="false" />
           <Property Type="String" Name="Correo" Nullable="true" />
-          <Property Type="String" Name="Foto" Nullable="true" />
+          <Property Type="Binary" Name="Foto" Nullable="true" MaxLength="Max" />
         </EntityType>
         <EntityType Name="Empresa">
           <Key>

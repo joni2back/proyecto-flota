@@ -6,7 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-
+using System.IO;
+using System.Windows;
 
 
 namespace Vista
@@ -55,10 +56,11 @@ namespace Vista
             txtDomicilio.Text = oChofer.Domicilio;
             txtTelefono.Text = oChofer.Telefono;
 
-            //imgFotoChofer.Image = (System.Drawing.Image)oChofer.Foto;
+            byte[] FotoChofer = new byte[0];
+            FotoChofer = (byte[])oChofer.Foto;
+            MemoryStream ms = new MemoryStream(FotoChofer);
+            imgFotoChofer.Image = Image.FromStream(ms);
 
-            
-           
         }
 
 
@@ -218,6 +220,41 @@ namespace Vista
         private void frmChofer_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void imgFotoChofer_Click(object sender, EventArgs e)
+        {
+
+                OpenFileDialog openFileDialog1 = new OpenFileDialog();
+                openFileDialog1.Filter = "Image Files|*.jpg";
+                openFileDialog1.Title = "Seleccione la foto del chofer";
+                
+                if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    FileStream stream = new FileStream(openFileDialog1.FileName, FileMode.Open, FileAccess.Read);
+
+                    if (stream.Length <= 1048576)
+                    {
+                        byte[] binData = new byte[stream.Length];
+                        stream.Read(binData, 0, Convert.ToInt32(stream.Length));
+
+
+                        imgFotoChofer.Image = Image.FromStream(stream);
+
+                        //oChofer = new Modelo.Chofer();
+                        //oChofer.Foto = binData;
+                    }
+                    else
+                    {
+                        MessageBox.Show("La imagen seleccionada debe tener un tamaño menor a 1 MB. Seleccione otra imagen de menor tamaño", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+            }
+
+        }
+
+        private void btnEliminarFoto_Click(object sender, EventArgs e)
+        {
+            imgFotoChofer.Image = null;
         }
     
     }
