@@ -101,6 +101,41 @@ namespace Vista.SistFlota
                 MessageBox.Show("No hay vehiculos cargados al sistema", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaHastaFiltro_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaDesdeFiltro_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
       
     }
 }
