@@ -1,18 +1,3 @@
-
--- --------------------------------------------------
--- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
--- --------------------------------------------------
--- Date Created: 03/10/2014 02:14:17
--- Generated from EDMX file: C:\Users\Admin\Documents\GitHub\proyecto-flota\GestFlotaTaxis\Modelo\SistFlota_ModeloDatos.edmx
--- --------------------------------------------------
-
-SET QUOTED_IDENTIFIER OFF;
-
-USE [SistFlota_db];
-
-IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
-
-
 -- --------------------------------------------------
 -- Dropping existing FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -77,7 +62,8 @@ CREATE TABLE [dbo].[Gastos] (
     [FechayHora] datetime  NOT NULL,
     [Operacion] nvarchar(max)  NOT NULL,
     [TipodeGasto_Id] int  NOT NULL,
-    [Vehiculo_Patente] nvarchar(7)  NOT NULL
+    [Vehiculo_Patente] nvarchar(7)  NOT NULL,
+    [Turno_Id] int  NULL
 );
 
 
@@ -134,7 +120,29 @@ CREATE TABLE [dbo].[Clientes] (
 
 -- Creating table 'Turnos'
 CREATE TABLE [dbo].[Turnos] (
-    [Id] int IDENTITY(1,1) NOT NULL
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [FechaInicio] datetime  NOT NULL,
+    [HoraInicio] datetime  NOT NULL,
+    [FechaFin] datetime  NOT NULL,
+    [HoraFin] datetime  NOT NULL,
+    [KmRecorridos] decimal(18,0)  NOT NULL,
+    [KmOcupados] decimal(18,0)  NOT NULL,
+    [CantidadViajes] int  NOT NULL,
+    [RecaudacionEfectivo] decimal(18,0)  NOT NULL,
+    [Comentarios] nvarchar(max)  NOT NULL,
+    [Chofer_Documento] int  NOT NULL,
+    [Vehiculo_Patente] nvarchar(7)  NOT NULL
+);
+
+
+-- Creating table 'CuentasCorrientes'
+CREATE TABLE [dbo].[CuentasCorrientes] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [Fecha] datetime  NOT NULL,
+    [Monto] decimal(18,0)  NOT NULL,
+    [Estado] nvarchar(max)  NOT NULL,
+    [Turno_Id] int  NOT NULL,
+    [Empresa_Cuit] int  NOT NULL
 );
 
 
@@ -184,6 +192,12 @@ ADD CONSTRAINT [PK_Turnos]
     PRIMARY KEY CLUSTERED ([Id] ASC);
 
 
+-- Creating primary key on [Id] in table 'CuentasCorrientes'
+ALTER TABLE [dbo].[CuentasCorrientes]
+ADD CONSTRAINT [PK_CuentasCorrientes]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
+
+
 -- --------------------------------------------------
 -- Creating all FOREIGN KEY constraints
 -- --------------------------------------------------
@@ -216,18 +230,74 @@ ON [dbo].[Gastos]
     ([Vehiculo_Patente]);
 
 
--- Creating foreign key on [EmpresaCUIL] in table 'Clientes'
-ALTER TABLE [dbo].[Clientes]
-ADD CONSTRAINT [FK_EmpresaCliente]
-    FOREIGN KEY ([EmpresaCUIL])
+-- Creating foreign key on [Chofer_Documento] in table 'Turnos'
+ALTER TABLE [dbo].[Turnos]
+ADD CONSTRAINT [FK_ChoferTurno]
+    FOREIGN KEY ([Chofer_Documento])
+    REFERENCES [dbo].[Choferes]
+        ([Documento])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_ChoferTurno'
+CREATE INDEX [IX_FK_ChoferTurno]
+ON [dbo].[Turnos]
+    ([Chofer_Documento]);
+
+
+-- Creating foreign key on [Vehiculo_Patente] in table 'Turnos'
+ALTER TABLE [dbo].[Turnos]
+ADD CONSTRAINT [FK_VehiculoTurno]
+    FOREIGN KEY ([Vehiculo_Patente])
+    REFERENCES [dbo].[Vehiculos]
+        ([Patente])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_VehiculoTurno'
+CREATE INDEX [IX_FK_VehiculoTurno]
+ON [dbo].[Turnos]
+    ([Vehiculo_Patente]);
+
+
+-- Creating foreign key on [Turno_Id] in table 'Gastos'
+ALTER TABLE [dbo].[Gastos]
+ADD CONSTRAINT [FK_GastoTurno]
+    FOREIGN KEY ([Turno_Id])
+    REFERENCES [dbo].[Turnos]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_GastoTurno'
+CREATE INDEX [IX_FK_GastoTurno]
+ON [dbo].[Gastos]
+    ([Turno_Id]);
+
+
+-- Creating foreign key on [Turno_Id] in table 'CuentasCorrientes'
+ALTER TABLE [dbo].[CuentasCorrientes]
+ADD CONSTRAINT [FK_CuentaCorrienteTurno]
+    FOREIGN KEY ([Turno_Id])
+    REFERENCES [dbo].[Turnos]
+        ([Id])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CuentaCorrienteTurno'
+CREATE INDEX [IX_FK_CuentaCorrienteTurno]
+ON [dbo].[CuentasCorrientes]
+    ([Turno_Id]);
+
+
+-- Creating foreign key on [Empresa_Cuit] in table 'CuentasCorrientes'
+ALTER TABLE [dbo].[CuentasCorrientes]
+ADD CONSTRAINT [FK_EmpresaCuentaCorriente]
+    FOREIGN KEY ([Empresa_Cuit])
     REFERENCES [dbo].[Empresas]
         ([Cuit])
     ON DELETE NO ACTION ON UPDATE NO ACTION;
 
--- Creating non-clustered index for FOREIGN KEY 'FK_EmpresaCliente'
-CREATE INDEX [IX_FK_EmpresaCliente]
-ON [dbo].[Clientes]
-    ([EmpresaCUIL]);
+-- Creating non-clustered index for FOREIGN KEY 'FK_EmpresaCuentaCorriente'
+CREATE INDEX [IX_FK_EmpresaCuentaCorriente]
+ON [dbo].[CuentasCorrientes]
+    ([Empresa_Cuit]);
 
 
 -- --------------------------------------------------

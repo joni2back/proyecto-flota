@@ -311,6 +311,7 @@
     <None Include="Properties\DataSources\Modelo.AUDITORIA.LoginLogout.datasource" />
     <None Include="Properties\DataSources\Modelo.Chofer.datasource" />
     <None Include="Properties\DataSources\Modelo.Cliente.datasource" />
+    <None Include="Properties\DataSources\Modelo.CuentaCorriente.datasource" />
     <None Include="Properties\DataSources\Modelo.Empresa.datasource" />
     <None Include="Properties\DataSources\Modelo.Gasto.datasource" />
     <None Include="Properties\DataSources\Modelo.SEGURIDAD.Formulario.datasource" />

@@ -20,7 +20,11 @@ using System.Runtime.Serialization;
 
 [assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "TipodeGastoGasto", "TipodeGasto", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.TipodeGasto), "Gasto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Gasto))]
 [assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "VehiculoGasto", "Vehiculo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Vehiculo), "Gasto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Gasto))]
-[assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "EmpresaCliente", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "Cliente", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Cliente), true)]
+[assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "ChoferTurno", "Chofer", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Chofer), "Turno", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Turno))]
+[assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "VehiculoTurno", "Vehiculo", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Vehiculo), "Turno", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Turno))]
+[assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "GastoTurno", "Gasto", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.Gasto), "Turno", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(Modelo.Turno))]
+[assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "CuentaCorrienteTurno", "CuentaCorriente", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.CuentaCorriente), "Turno", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Turno))]
+[assembly: EdmRelationshipAttribute("SistFlota_ModeloDatos", "EmpresaCuentaCorriente", "Empresa", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Modelo.Empresa), "CuentaCorriente", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Modelo.CuentaCorriente))]
 
 #endregion
 
@@ -183,6 +187,22 @@ namespace Modelo
             }
         }
         private ObjectSet<Turno> _Turnos;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<CuentaCorriente> CuentasCorrientes
+        {
+            get
+            {
+                if ((_CuentasCorrientes == null))
+                {
+                    _CuentasCorrientes = base.CreateObjectSet<CuentaCorriente>("CuentasCorrientes");
+                }
+                return _CuentasCorrientes;
+            }
+        }
+        private ObjectSet<CuentaCorriente> _CuentasCorrientes;
 
         #endregion
         #region Métodos AddTo
@@ -241,6 +261,14 @@ namespace Modelo
         public void AddToTurnos(Turno turno)
         {
             base.AddObject("Turnos", turno);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet CuentasCorrientes. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToCuentasCorrientes(CuentaCorriente cuentaCorriente)
+        {
+            base.AddObject("CuentasCorrientes", cuentaCorriente);
         }
 
         #endregion
@@ -532,6 +560,31 @@ namespace Modelo
 
         #endregion
     
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "ChoferTurno", "Turno")]
+        public EntityCollection<Turno> Turno
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Turno>("SistFlota_ModeloDatos.ChoferTurno", "Turno");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Turno>("SistFlota_ModeloDatos.ChoferTurno", "Turno", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -769,6 +822,139 @@ namespace Modelo
 
         #endregion
     
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SistFlota_ModeloDatos", Name="CuentaCorriente")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class CuentaCorriente : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto CuentaCorriente.
+        /// </summary>
+        /// <param name="id">Valor inicial de la propiedad Id.</param>
+        /// <param name="fecha">Valor inicial de la propiedad Fecha.</param>
+        /// <param name="monto">Valor inicial de la propiedad Monto.</param>
+        /// <param name="estado">Valor inicial de la propiedad Estado.</param>
+        public static CuentaCorriente CreateCuentaCorriente(global::System.Int32 id, global::System.DateTime fecha, global::System.Decimal monto, global::System.String estado)
+        {
+            CuentaCorriente cuentaCorriente = new CuentaCorriente();
+            cuentaCorriente.Id = id;
+            cuentaCorriente.Fecha = fecha;
+            cuentaCorriente.Monto = monto;
+            cuentaCorriente.Estado = estado;
+            return cuentaCorriente;
+        }
+
+        #endregion
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 Id
+        {
+            get
+            {
+                return _Id;
+            }
+            set
+            {
+                if (_Id != value)
+                {
+                    OnIdChanging(value);
+                    ReportPropertyChanging("Id");
+                    _Id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("Id");
+                    OnIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _Id;
+        partial void OnIdChanging(global::System.Int32 value);
+        partial void OnIdChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime Fecha
+        {
+            get
+            {
+                return _Fecha;
+            }
+            set
+            {
+                OnFechaChanging(value);
+                ReportPropertyChanging("Fecha");
+                _Fecha = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Fecha");
+                OnFechaChanged();
+            }
+        }
+        private global::System.DateTime _Fecha;
+        partial void OnFechaChanging(global::System.DateTime value);
+        partial void OnFechaChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal Monto
+        {
+            get
+            {
+                return _Monto;
+            }
+            set
+            {
+                OnMontoChanging(value);
+                ReportPropertyChanging("Monto");
+                _Monto = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Monto");
+                OnMontoChanged();
+            }
+        }
+        private global::System.Decimal _Monto;
+        partial void OnMontoChanging(global::System.Decimal value);
+        partial void OnMontoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Estado
+        {
+            get
+            {
+                return _Estado;
+            }
+            set
+            {
+                OnEstadoChanging(value);
+                ReportPropertyChanging("Estado");
+                _Estado = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Estado");
+                OnEstadoChanged();
+            }
+        }
+        private global::System.String _Estado;
+        partial void OnEstadoChanging(global::System.String value);
+        partial void OnEstadoChanged();
+
+        #endregion
+    
         #region Propiedades de navegación
     
         /// <summary>
@@ -777,16 +963,54 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "EmpresaCliente", "Empresa")]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "CuentaCorrienteTurno", "Turno")]
+        public Turno Turno
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turno>("SistFlota_ModeloDatos.CuentaCorrienteTurno", "Turno").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turno>("SistFlota_ModeloDatos.CuentaCorrienteTurno", "Turno").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Turno> TurnoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turno>("SistFlota_ModeloDatos.CuentaCorrienteTurno", "Turno");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Turno>("SistFlota_ModeloDatos.CuentaCorrienteTurno", "Turno", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "EmpresaCuentaCorriente", "Empresa")]
         public Empresa Empresa
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCuentaCorriente", "Empresa").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCuentaCorriente", "Empresa").Value = value;
             }
         }
         /// <summary>
@@ -798,13 +1022,13 @@ namespace Modelo
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCuentaCorriente", "Empresa");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCliente", "Empresa", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Empresa>("SistFlota_ModeloDatos.EmpresaCuentaCorriente", "Empresa", value);
                 }
             }
         }
@@ -1003,18 +1227,18 @@ namespace Modelo
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "EmpresaCliente", "Cliente")]
-        public EntityCollection<Cliente> Cliente
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "EmpresaCuentaCorriente", "CuentaCorriente")]
+        public EntityCollection<CuentaCorriente> CuentaCorriente
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Cliente>("SistFlota_ModeloDatos.EmpresaCliente", "Cliente");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CuentaCorriente>("SistFlota_ModeloDatos.EmpresaCuentaCorriente", "CuentaCorriente");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Cliente>("SistFlota_ModeloDatos.EmpresaCliente", "Cliente", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CuentaCorriente>("SistFlota_ModeloDatos.EmpresaCuentaCorriente", "CuentaCorriente", value);
                 }
             }
         }
@@ -1382,6 +1606,44 @@ namespace Modelo
                 }
             }
         }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "GastoTurno", "Turno")]
+        public Turno Turno
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turno>("SistFlota_ModeloDatos.GastoTurno", "Turno").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turno>("SistFlota_ModeloDatos.GastoTurno", "Turno").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Turno> TurnoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Turno>("SistFlota_ModeloDatos.GastoTurno", "Turno");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Turno>("SistFlota_ModeloDatos.GastoTurno", "Turno", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1506,10 +1768,28 @@ namespace Modelo
         /// Crear un nuevo objeto Turno.
         /// </summary>
         /// <param name="id">Valor inicial de la propiedad Id.</param>
-        public static Turno CreateTurno(global::System.Int32 id)
+        /// <param name="fechaInicio">Valor inicial de la propiedad FechaInicio.</param>
+        /// <param name="horaInicio">Valor inicial de la propiedad HoraInicio.</param>
+        /// <param name="fechaFin">Valor inicial de la propiedad FechaFin.</param>
+        /// <param name="horaFin">Valor inicial de la propiedad HoraFin.</param>
+        /// <param name="kmRecorridos">Valor inicial de la propiedad KmRecorridos.</param>
+        /// <param name="kmOcupados">Valor inicial de la propiedad KmOcupados.</param>
+        /// <param name="cantidadViajes">Valor inicial de la propiedad CantidadViajes.</param>
+        /// <param name="recaudacionEfectivo">Valor inicial de la propiedad RecaudacionEfectivo.</param>
+        /// <param name="comentarios">Valor inicial de la propiedad Comentarios.</param>
+        public static Turno CreateTurno(global::System.Int32 id, global::System.DateTime fechaInicio, global::System.DateTime horaInicio, global::System.DateTime fechaFin, global::System.DateTime horaFin, global::System.Decimal kmRecorridos, global::System.Decimal kmOcupados, global::System.Int32 cantidadViajes, global::System.Decimal recaudacionEfectivo, global::System.String comentarios)
         {
             Turno turno = new Turno();
             turno.Id = id;
+            turno.FechaInicio = fechaInicio;
+            turno.HoraInicio = horaInicio;
+            turno.FechaFin = fechaFin;
+            turno.HoraFin = horaFin;
+            turno.KmRecorridos = kmRecorridos;
+            turno.KmOcupados = kmOcupados;
+            turno.CantidadViajes = cantidadViajes;
+            turno.RecaudacionEfectivo = recaudacionEfectivo;
+            turno.Comentarios = comentarios;
             return turno;
         }
 
@@ -1542,9 +1822,348 @@ namespace Modelo
         private global::System.Int32 _Id;
         partial void OnIdChanging(global::System.Int32 value);
         partial void OnIdChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FechaInicio
+        {
+            get
+            {
+                return _FechaInicio;
+            }
+            set
+            {
+                OnFechaInicioChanging(value);
+                ReportPropertyChanging("FechaInicio");
+                _FechaInicio = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaInicio");
+                OnFechaInicioChanged();
+            }
+        }
+        private global::System.DateTime _FechaInicio;
+        partial void OnFechaInicioChanging(global::System.DateTime value);
+        partial void OnFechaInicioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime HoraInicio
+        {
+            get
+            {
+                return _HoraInicio;
+            }
+            set
+            {
+                OnHoraInicioChanging(value);
+                ReportPropertyChanging("HoraInicio");
+                _HoraInicio = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HoraInicio");
+                OnHoraInicioChanged();
+            }
+        }
+        private global::System.DateTime _HoraInicio;
+        partial void OnHoraInicioChanging(global::System.DateTime value);
+        partial void OnHoraInicioChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FechaFin
+        {
+            get
+            {
+                return _FechaFin;
+            }
+            set
+            {
+                OnFechaFinChanging(value);
+                ReportPropertyChanging("FechaFin");
+                _FechaFin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FechaFin");
+                OnFechaFinChanged();
+            }
+        }
+        private global::System.DateTime _FechaFin;
+        partial void OnFechaFinChanging(global::System.DateTime value);
+        partial void OnFechaFinChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime HoraFin
+        {
+            get
+            {
+                return _HoraFin;
+            }
+            set
+            {
+                OnHoraFinChanging(value);
+                ReportPropertyChanging("HoraFin");
+                _HoraFin = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HoraFin");
+                OnHoraFinChanged();
+            }
+        }
+        private global::System.DateTime _HoraFin;
+        partial void OnHoraFinChanging(global::System.DateTime value);
+        partial void OnHoraFinChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal KmRecorridos
+        {
+            get
+            {
+                return _KmRecorridos;
+            }
+            set
+            {
+                OnKmRecorridosChanging(value);
+                ReportPropertyChanging("KmRecorridos");
+                _KmRecorridos = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("KmRecorridos");
+                OnKmRecorridosChanged();
+            }
+        }
+        private global::System.Decimal _KmRecorridos;
+        partial void OnKmRecorridosChanging(global::System.Decimal value);
+        partial void OnKmRecorridosChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal KmOcupados
+        {
+            get
+            {
+                return _KmOcupados;
+            }
+            set
+            {
+                OnKmOcupadosChanging(value);
+                ReportPropertyChanging("KmOcupados");
+                _KmOcupados = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("KmOcupados");
+                OnKmOcupadosChanged();
+            }
+        }
+        private global::System.Decimal _KmOcupados;
+        partial void OnKmOcupadosChanging(global::System.Decimal value);
+        partial void OnKmOcupadosChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 CantidadViajes
+        {
+            get
+            {
+                return _CantidadViajes;
+            }
+            set
+            {
+                OnCantidadViajesChanging(value);
+                ReportPropertyChanging("CantidadViajes");
+                _CantidadViajes = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("CantidadViajes");
+                OnCantidadViajesChanged();
+            }
+        }
+        private global::System.Int32 _CantidadViajes;
+        partial void OnCantidadViajesChanging(global::System.Int32 value);
+        partial void OnCantidadViajesChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal RecaudacionEfectivo
+        {
+            get
+            {
+                return _RecaudacionEfectivo;
+            }
+            set
+            {
+                OnRecaudacionEfectivoChanging(value);
+                ReportPropertyChanging("RecaudacionEfectivo");
+                _RecaudacionEfectivo = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("RecaudacionEfectivo");
+                OnRecaudacionEfectivoChanged();
+            }
+        }
+        private global::System.Decimal _RecaudacionEfectivo;
+        partial void OnRecaudacionEfectivoChanging(global::System.Decimal value);
+        partial void OnRecaudacionEfectivoChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Comentarios
+        {
+            get
+            {
+                return _Comentarios;
+            }
+            set
+            {
+                OnComentariosChanging(value);
+                ReportPropertyChanging("Comentarios");
+                _Comentarios = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Comentarios");
+                OnComentariosChanged();
+            }
+        }
+        private global::System.String _Comentarios;
+        partial void OnComentariosChanging(global::System.String value);
+        partial void OnComentariosChanged();
 
         #endregion
     
+        #region Propiedades de navegación
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "ChoferTurno", "Chofer")]
+        public Chofer Chofer
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Chofer>("SistFlota_ModeloDatos.ChoferTurno", "Chofer").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Chofer>("SistFlota_ModeloDatos.ChoferTurno", "Chofer").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Chofer> ChoferReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Chofer>("SistFlota_ModeloDatos.ChoferTurno", "Chofer");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Chofer>("SistFlota_ModeloDatos.ChoferTurno", "Chofer", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "VehiculoTurno", "Vehiculo")]
+        public Vehiculo Vehiculo
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vehiculo>("SistFlota_ModeloDatos.VehiculoTurno", "Vehiculo").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vehiculo>("SistFlota_ModeloDatos.VehiculoTurno", "Vehiculo").Value = value;
+            }
+        }
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Vehiculo> VehiculoReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Vehiculo>("SistFlota_ModeloDatos.VehiculoTurno", "Vehiculo");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Vehiculo>("SistFlota_ModeloDatos.VehiculoTurno", "Vehiculo", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "GastoTurno", "Gasto")]
+        public EntityCollection<Gasto> Gasto
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Gasto>("SistFlota_ModeloDatos.GastoTurno", "Gasto");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Gasto>("SistFlota_ModeloDatos.GastoTurno", "Gasto", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "CuentaCorrienteTurno", "CuentaCorriente")]
+        public EntityCollection<CuentaCorriente> CuentaCorriente
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CuentaCorriente>("SistFlota_ModeloDatos.CuentaCorrienteTurno", "CuentaCorriente");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CuentaCorriente>("SistFlota_ModeloDatos.CuentaCorrienteTurno", "CuentaCorriente", value);
+                }
+            }
+        }
+
+        #endregion
     }
     
     /// <summary>
@@ -1774,6 +2393,28 @@ namespace Modelo
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Gasto>("SistFlota_ModeloDatos.VehiculoGasto", "Gasto", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SistFlota_ModeloDatos", "VehiculoTurno", "Turno")]
+        public EntityCollection<Turno> Turno
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Turno>("SistFlota_ModeloDatos.VehiculoTurno", "Turno");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Turno>("SistFlota_ModeloDatos.VehiculoTurno", "Turno", value);
                 }
             }
         }

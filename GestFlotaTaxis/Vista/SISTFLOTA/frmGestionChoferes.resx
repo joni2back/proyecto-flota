@@ -121,7 +121,7 @@
   <data name="btnCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsNAAALDQHtB8AsAAADuElE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsMAAALDAE/QCLIAAADuElE
         QVRYR8XUTWhcVRTA8ZuJGqtZ1NaxMpOZfFGrKIlJbCESJuSrIWQySUwkIrEmGkvU2DEu6kZwY3HhQkO0
         OxdaKEr9wEqKUBDRRQTBNpQiQlNFilVq6aY1rUlz/Z/wTngzcxJ3Y+DH5Jx37zkn796J897/r8xkMZnJ
         YjKTxWQmNzM9PV2OIRzCBziGGRzATmvPZsxkvp6eHpfNZuN4H0vwuI5FnMHlICdOI9Pe3u5qamrMemFm
@@ -141,6 +141,9 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="bdsChoferes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="btnNuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -191,7 +194,7 @@
   <data name="btnConsultar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
-        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsNAAALDQHtB8AsAAADeUlE
+        JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAACXBIWXMAAAsMAAALDAE/QCLIAAADeUlE
         QVRYR8XUO0wUQRzH8TkQozERg5HI+02CBcXGQhJB5YiRRxAInBAgx/N4BMNxpZ1RC2Nia2VDIYWNrYW2
         FmhltMEYQ3xEjVEbExNh/P43w2WYXTy94iw+ud3//Gfmt3ezp7TW/1VoMZdCi7kUWsyl0KJrZWVlEE/+
         0cWwtVyhRdvy8vJlbEEbGxl8hvQlwtZzhRbF0tJSBDehLdthvTZ6UqY3+wALCwsFWIV2ZAxAT8r0Zhdg
@@ -242,9 +245,6 @@
         RK5CYII=
 </value>
   </data>
-  <metadata name="bdsChoferes.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>38</value>
   </metadata>

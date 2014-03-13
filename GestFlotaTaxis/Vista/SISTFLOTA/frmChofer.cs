@@ -15,6 +15,7 @@ namespace Vista
     public partial class frmChofer : Form
     {
         string frmModo;
+        byte[] FotoChofer;
         Modelo.Chofer oChofer;
         Controladora.ControladoraChoferes ctrlChoferes = Controladora.ControladoraChoferes.getINSTANCIA;
 
@@ -55,11 +56,13 @@ namespace Vista
             txtCorreoElectronico.Text = oChofer.Correo;
             txtDomicilio.Text = oChofer.Domicilio;
             txtTelefono.Text = oChofer.Telefono;
-
-            byte[] FotoChofer = new byte[0];
-            FotoChofer = (byte[])oChofer.Foto;
-            MemoryStream ms = new MemoryStream(FotoChofer);
-            imgFotoChofer.Image = Image.FromStream(ms);
+            if (oChofer.Foto != null)
+            {
+                byte[] FotoC = new byte[0];
+                FotoC = (byte[])oChofer.Foto;
+                MemoryStream ms = new MemoryStream(FotoC);
+                imgFotoChofer.Image = Image.FromStream(ms);
+            }
 
         }
 
@@ -69,14 +72,14 @@ namespace Vista
             if (txtNombre.Text == "")
             {
                 txtNombre.Focus();
-                MessageBox.Show("Complete la patente del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Complete el nombre del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             if (txtApellido.Text == "")
             {
                 txtApellido.Focus();
-                MessageBox.Show("Complete la patente del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Complete el apellido del chofer", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
                                   
@@ -160,7 +163,6 @@ namespace Vista
                 oChofer.Documento = Convert.ToInt32(txtDocumento.Text);
                 oChofer.FechaNacimiento = Convert.ToDateTime(txtFechaNacimiento.Text);
                 oChofer.Licencia = txtLicencia.Text.ToUpper();
-
                 oChofer.Localidad = txtLocalidad.Text;
                 oChofer.Correo = txtCorreoElectronico.Text;
                 oChofer.Domicilio = txtDomicilio.Text;
@@ -169,6 +171,15 @@ namespace Vista
                 if (txtCorreoElectronico.Text != "")
                 {
                     oChofer.Correo = txtCorreoElectronico.Text;
+                }
+
+                if (imgFotoChofer.Image != null)
+                {
+                    oChofer.Foto = FotoChofer;
+                }
+                else
+                {
+                    oChofer.Foto = null;
                 }
 
                 if (frmModo == "ALTA")
@@ -235,14 +246,11 @@ namespace Vista
 
                     if (stream.Length <= 1048576)
                     {
-                        byte[] binData = new byte[stream.Length];
-                        stream.Read(binData, 0, Convert.ToInt32(stream.Length));
-
+                        byte[] FotoChofer = new byte[stream.Length];
+                        stream.Read(FotoChofer, 0, Convert.ToInt32(stream.Length));
 
                         imgFotoChofer.Image = Image.FromStream(stream);
 
-                        //oChofer = new Modelo.Chofer();
-                        //oChofer.Foto = binData;
                     }
                     else
                     {
