@@ -92,14 +92,6 @@ namespace Vista.SistFlota
             bdsChoferes.Clear();
             bdsChoferes.DataSource = ctrlChoferes.ListarChoferes();
             //cbxTipoTurno.SelectedItem = null;
-
-            if (cbxTurno.Items.Count == 0)
-            {
-                cbxTurno.Items.Add("PENDIENTE");
-                cbxTurno.Items.Add("PAGADO");
-            }
-            cbxTurno.SelectedItem = "PENDIENTE";
-       
         }
 
 
