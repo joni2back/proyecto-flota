@@ -11,16 +11,13 @@ namespace Modelo
     {
         private static SistFlota_Seguridad_ModeloContainer Instancia = null;
 
-        private Seguridad()
-        { }
+        private Seguridad() {}
 
-        public static SistFlota_Seguridad_ModeloContainer ObtenerInstancia()
+        public static SistFlota_Seguridad_ModeloContainer ObtenerInstancia() 
         {
-            if (Instancia == null)
-            {
+            if (Instancia == null) {
                 Instancia = new SistFlota_Seguridad_ModeloContainer();
             }
-
             return Instancia;
         }
     }
